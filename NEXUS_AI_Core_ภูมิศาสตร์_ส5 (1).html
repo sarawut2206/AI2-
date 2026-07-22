@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXUS AI Core • สังคมศึกษา • ป.1–ม.6</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&family=Prompt:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* ══════════════════════════════════════════════════════════════════
+   THEME — ฟ้าชมพู (blue-pink). แก้เฉดทั้งระบบได้ที่ block :root นี้ที่เดียว
+   ══════════════════════════════════════════════════════════════════ */
+:root{
+  --blue:#2563eb; --blue-light:#3b82f6; --blue-dark:#1d4ed8;
+  --pink:#ec4899; --pink-light:#f472b6; --pink-dark:#db2777;
+  --grad:linear-gradient(135deg,#3b82f6 0%,#ec4899 100%);
+  --grad-soft:linear-gradient(135deg,#eff6ff 0%,#fdf2f8 100%);
+  --bg:#f6f8ff; --card:#ffffff; --s2:#f8fafc; --s3:#eef2f7;
+  --border:#e2e8f0; --border2:#cbd5e1;
+  --text:#1e293b; --text2:#334155; --muted:#64748b; --dim:#94a3b8;
+  --green:#059669; --green-bg:#ecfdf5; --amber:#d97706; --amber-bg:#fffbeb;
+  --red:#dc2626; --red-bg:#fef2f2;
+  --fs:14.5px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Sarabun',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:var(--fs);
+  background-image:radial-gradient(ellipse at 15% 0%,rgba(59,130,246,.06),transparent 55%),radial-gradient(ellipse at 85% 100%,rgba(236,72,153,.06),transparent 55%);}
+button{font-family:'Sarabun',sans-serif;cursor:pointer;}
+.mono{font-family:'Space Mono',monospace;}
+
+/* TOPBAR */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:0 22px;height:60px;
+  background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:50;}
+.tb-logo{display:flex;align-items:center;gap:11px;}
+.tb-icon{width:36px;height:36px;background:var(--grad);border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-size:19px;box-shadow:0 3px 10px rgba(236,72,153,.28);}
+.tb-name{font-family:'Prompt',sans-serif;font-size:16px;font-weight:700;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.tb-sub{font-size:11px;color:var(--muted);}
+.tb-right{display:flex;gap:8px;align-items:center;}
+.tb-btn{padding:7px 14px;background:#fff;border:1.5px solid var(--border);border-radius:9px;color:var(--text2);
+  font-size:13px;font-weight:600;transition:.15s;}
+.tb-btn:hover{border-color:var(--pink);color:var(--pink);}
+.tb-badge{font-size:11px;padding:4px 11px;background:var(--grad-soft);border:1px solid #dbeafe;border-radius:20px;color:var(--blue);font-weight:600;}
+
+/* LAYOUT */
+.wrap{max-width:780px;margin:0 auto;padding:26px 18px 60px;}
+.screen{display:none;}
+.screen.active{display:block;animation:fade .3s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:26px;box-shadow:0 4px 22px rgba(37,99,235,.05);margin-bottom:18px;}
+.card h2{font-family:'Prompt',sans-serif;font-size:19px;margin-bottom:4px;}
+.card .sub{color:var(--muted);font-size:13px;margin-bottom:18px;line-height:1.7;}
+.label{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin:16px 0 8px;}
+
+/* GRID pickers */
+.grid{display:grid;gap:9px;}
+.g4{grid-template-columns:repeat(4,1fr);}
+.g3{grid-template-columns:repeat(3,1fr);}
+.g2{grid-template-columns:1fr 1fr;}
+@media(max-width:520px){.g4{grid-template-columns:repeat(3,1fr);}.g2,.g3{grid-template-columns:1fr;}}
+.chip{padding:13px 10px;background:var(--s2);border:2px solid var(--border);border-radius:12px;font-weight:600;
+  text-align:center;transition:.15s;font-size:14px;line-height:1.5;}
+.chip:hover{border-color:var(--blue-light);background:#eff6ff;transform:translateY(-2px);}
+.chip.on{border-color:var(--pink);background:#fdf2f8;color:var(--pink-dark);box-shadow:0 3px 12px rgba(236,72,153,.15);}
+.chip .strand{display:block;font-size:10.5px;color:var(--muted);font-weight:600;margin-top:3px;}
+.chip.on .strand{color:var(--pink);}
+
+.btn{width:100%;padding:15px;background:var(--grad);border:none;border-radius:12px;color:#fff;font-size:16px;font-weight:700;
+  box-shadow:0 6px 18px rgba(236,72,153,.3);transition:.2s;margin-top:22px;}
+.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 8px 24px rgba(236,72,153,.4);}
+.btn:disabled{opacity:.5;cursor:not-allowed;box-shadow:none;}
+.btn.ghost{background:#fff;color:var(--blue);border:1.5px solid var(--border);box-shadow:none;}
+.btn.ghost:hover{border-color:var(--blue);background:#eff6ff;transform:none;}
+.btn.sm{padding:11px;font-size:14px;margin-top:0;}
+.row{display:flex;gap:10px;}
+
+/* KEY MODAL */
+#keyModal{position:fixed;inset:0;background:rgba(30,41,59,.55);z-index:99;display:flex;align-items:center;justify-content:center;padding:16px;}
+.km{background:#fff;border-radius:20px;padding:36px 32px;max-width:430px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.2);}
+.km .icon{width:56px;height:56px;background:var(--grad);border-radius:15px;display:flex;align-items:center;justify-content:center;
+  font-size:28px;margin:0 auto 16px;box-shadow:0 6px 18px rgba(236,72,153,.3);}
+.km h1{font-family:'Prompt',sans-serif;text-align:center;font-size:24px;margin-bottom:6px;}
+.km h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.km p{text-align:center;color:var(--muted);font-size:13px;margin-bottom:24px;line-height:1.7;}
+.km input{width:100%;padding:13px 15px;background:var(--s2);border:2px solid var(--border);border-radius:11px;
+  font-family:'Space Mono',monospace;font-size:12px;outline:none;transition:.2s;}
+.km input:focus{border-color:var(--blue);background:#fff;}
+.km .err{color:var(--red);font-size:12px;min-height:18px;margin:8px 2px;}
+.km .note{font-size:11px;color:var(--dim);text-align:center;margin-top:14px;line-height:1.8;}
+
+/* QUIZ */
+.qcard{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;margin-bottom:14px;}
+.qhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.qnum{font-family:'Prompt',sans-serif;font-weight:700;color:var(--blue);}
+.qtag{font-size:11px;padding:3px 10px;border-radius:20px;background:var(--grad-soft);color:var(--pink-dark);font-weight:600;}
+.stimulus{background:var(--grad-soft);border-left:3px solid var(--pink-light);border-radius:8px;padding:12px 14px;margin-bottom:12px;
+  font-size:13.5px;line-height:1.8;color:var(--text2);}
+.qtext{font-size:15px;line-height:1.8;margin-bottom:14px;font-weight:500;}
+.choice{display:flex;gap:11px;align-items:flex-start;padding:12px 14px;border:2px solid var(--border);border-radius:11px;
+  margin-bottom:8px;transition:.15s;cursor:pointer;background:#fff;}
+.choice:hover{border-color:var(--blue-light);background:#f8faff;}
+.choice.sel{border-color:var(--pink);background:#fdf2f8;}
+.choice.correct{border-color:var(--green);background:var(--green-bg);}
+.choice.wrong{border-color:var(--red);background:var(--red-bg);}
+.choice .k{font-family:'Prompt',sans-serif;font-weight:700;min-width:20px;color:var(--muted);}
+.choice.correct .k{color:var(--green);} .choice.wrong .k{color:var(--red);}
+.explain{font-size:13px;line-height:1.8;color:var(--text2);background:var(--s2);border-radius:10px;padding:12px 14px;margin-top:10px;}
+.explain b{color:var(--blue);}
+
+/* REPORT */
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0;}
+@media(max-width:520px){.stat-grid{grid-template-columns:1fr;}}
+.stat{background:var(--grad-soft);border:1px solid #e0e7ff;border-radius:14px;padding:16px;text-align:center;}
+.stat .n{font-family:'Prompt',sans-serif;font-size:30px;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.stat .l{font-size:12px;color:var(--muted);margin-top:2px;}
+.pill{display:inline-block;padding:5px 14px;border-radius:20px;font-weight:700;font-size:14px;}
+.pill.master{background:var(--green-bg);color:var(--green);}
+.pill.dev{background:var(--amber-bg);color:var(--amber);}
+.pill.non{background:var(--red-bg);color:var(--red);}
+.bar{height:10px;background:var(--s3);border-radius:6px;overflow:hidden;margin:8px 0;}
+.bar i{display:block;height:100%;background:var(--grad);border-radius:6px;transition:width .6s;}
+.misc-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed var(--border);font-size:13.5px;}
+.misc-row:last-child{border:none;}
+.misc-row .cnt{font-family:'Space Mono',monospace;font-weight:700;color:var(--pink-dark);}
+.reteach{background:var(--amber-bg);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;font-size:13.5px;line-height:1.8;margin-top:8px;}
+.reteach b{color:var(--amber);}
+
+/* LOADING */
+.load{text-align:center;padding:50px 20px;}
+.spin{width:44px;height:44px;border:4px solid var(--border);border-top-color:var(--pink);border-radius:50%;margin:0 auto 18px;animation:spin 1s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.load p{color:var(--muted);font-size:14px;}
+
+/* MODAL (framework / config help) */
+.modal{position:fixed;inset:0;background:rgba(30,41,59,.55);z-index:80;display:none;align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto;}
+.modal.open{display:flex;}
+.modal .box{background:#fff;border-radius:18px;padding:28px;max-width:640px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.2);}
+.modal h3{font-family:'Prompt',sans-serif;font-size:19px;margin-bottom:14px;}
+.fw-row{border:1px solid var(--border);border-radius:12px;padding:13px 15px;margin-bottom:9px;}
+.fw-row .t{font-family:'Prompt',sans-serif;font-weight:700;font-size:14px;}
+.fw-row .a{font-size:11px;color:var(--muted);margin-left:6px;}
+.fw-row .u{font-size:12.5px;color:var(--text2);line-height:1.6;margin-top:4px;}
+.tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:auto;}
+.tag.mech{background:var(--green-bg);color:var(--green);} .tag.des{background:#f3e8ff;color:#7c3aed;}
+.code{background:#0f172a;color:#e2e8f0;border-radius:10px;padding:14px;font-family:'Space Mono',monospace;font-size:11.5px;line-height:1.7;overflow-x:auto;white-space:pre;}
+.x{float:right;font-size:22px;color:var(--muted);cursor:pointer;line-height:1;}
+
+@media print{
+  .topbar,.btn,.tb-btn,.no-print{display:none!important;}
+  body{background:#fff;} .wrap{max-width:100%;} .card,.qcard{box-shadow:none;border:1px solid #ccc;break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+
+<!-- KEY MODAL -->
+<div id="keyModal">
+  <div class="km">
+    <div class="icon">🔑</div>
+    <h1><span>NEXUS</span> AI Core</h1>
+    <p>ใส่ Anthropic API Key เพื่อเริ่มใช้งาน<br>คีย์ถูกเก็บในเครื่องนี้เท่านั้น (localStorage)</p>
+    <input id="keyInput" type="password" placeholder="sk-ant-..." autocomplete="off">
+    <div class="err" id="keyErr"></div>
+    <button class="btn sm" style="margin-top:0" onclick="saveKey()">เริ่มใช้งาน</button>
+    <div class="note">รับคีย์ได้ที่ console.anthropic.com · โมเดล: <span id="modelName" class="mono"></span></div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app" style="display:none;">
+  <div class="topbar">
+    <div class="tb-logo">
+      <div class="tb-icon">🧭</div>
+      <div>
+        <div class="tb-name">NEXUS AI Core</div>
+        <div class="tb-sub" id="tbSub"></div>
+      </div>
+    </div>
+    <div class="tb-right">
+      <span class="tb-badge" id="subjBadge"></span>
+      <button class="tb-btn" onclick="openModal('fwModal')">📚 กรอบวิชาการ</button>
+      <button class="tb-btn" onclick="openModal('cfgModal')">➕ เพิ่มวิชา</button>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- SETUP -->
+    <div class="screen active" id="setupScreen">
+      <div class="card">
+        <h2 id="setupTitle"></h2>
+        <div class="sub" id="setupSub"></div>
+
+        <div class="label">ระดับชั้น</div>
+        <div class="grid g4" id="gradeGrid"></div>
+
+        <div id="topicWrap" style="display:none;">
+          <div class="label">หัวข้อ / ตัวชี้วัด</div>
+          <div class="grid" id="topicGrid"></div>
+        </div>
+
+        <div id="diffWrap" style="display:none;">
+          <div class="label">ระดับความยาก</div>
+          <div class="grid g3" id="diffGrid"></div>
+          <div class="label">จำนวนข้อ</div>
+          <div class="grid g4" id="countGrid"></div>
+          <button class="btn" id="genBtn" disabled onclick="generateQuiz()">🎯 สร้างชุดข้อสอบ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOADING -->
+    <div class="screen" id="loadScreen">
+      <div class="card load">
+        <div class="spin"></div>
+        <p id="loadMsg">กำลังให้ AI ออกข้อสอบตามตัวชี้วัด…</p>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="screen" id="quizScreen">
+      <div class="card" style="padding:18px 22px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div><b id="quizTopic"></b><div class="tb-sub" id="quizMeta"></div></div>
+          <div class="tb-badge" id="quizProg"></div>
+        </div>
+      </div>
+      <div id="quizBody"></div>
+      <button class="btn" id="submitBtn" onclick="submitQuiz()">ส่งคำตอบ · วิเคราะห์ผล</button>
+    </div>
+
+    <!-- REPORT -->
+    <div class="screen" id="reportScreen"></div>
+  </div>
+</div>
+
+<!-- FRAMEWORK MODAL -->
+<div class="modal" id="fwModal">
+  <div class="box">
+    <span class="x" onclick="closeModal('fwModal')">×</span>
+    <h3>📚 กรอบวิชาการที่ระบบใช้ (ใช้ได้ทุกวิชา)</h3>
+    <div id="fwBody"></div>
+  </div>
+</div>
+
+<!-- CONFIG HELP MODAL -->
+<div class="modal" id="cfgModal">
+  <div class="box">
+    <span class="x" onclick="closeModal('cfgModal')">×</span>
+    <h3>➕ วิธีเพิ่มวิชาใหม่ (เครื่องยนต์กลาง)</h3>
+    <p class="sub">เปลี่ยนวิชา = แก้ก้อน <b>SUBJECT_PACK</b> ก้อนเดียวที่หัวไฟล์ ไม่ต้องแตะเครื่องยนต์เลย โครงเป็นแบบนี้:</p>
+    <div class="code">const SUBJECT_PACK = {
+  name: "สังคมศึกษา",          // ชื่อวิชา (โชว์บนหัว)
+  subtitle: "…",
+  model: "claude-haiku-4-5-20251001",
+  features: { passageMode:true, useCharts:true },
+  difficultyRubric: { "ง่าย":"…","ปานกลาง":"…","ยาก":"…" },
+  misconceptions: [ {code:"fact", th:"จำข้อเท็จจริงผิด"}, … ],
+  promptGuidance: "วิธีเขียนโจทย์ที่ดีของวิชานี้…",
+  curriculum: {
+    "ป.1": [
+      { topic:"…", strand:"ส 4", indicator:"ส 4.1 ป.1/1",
+        indText:"…", bounds:"ขอบเขต/ห้ามเกิน…", subs:["…","…"] }
+    ],
+    "ม.1": [ … ]
+  }
+};</div>
+    <p class="sub" style="margin-top:14px;">อยากได้วิชาอื่น เช่น วิทยาศาสตร์ หรือ ภาษาไทย → อัปโหลดหลักสูตรมา แล้วจะช่วยเติม <b>curriculum</b> + <b>promptGuidance</b> ให้ ส่วนวิชาคำนวณให้เปิด <b>features.useLatex</b> เพิ่ม</p>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════════════
+   ┌────────────────────────────────────────────────────────────────────────┐
+   │  SUBJECT_PACK — "ชุดวิชา"                                                │
+   │  ★ นี่คือส่วนเดียวที่ต้องแก้เวลาเปลี่ยนวิชา ★  เครื่องยนต์ด้านล่างไม่ต้องแตะ  │
+   └────────────────────────────────────────────────────────────────────────┘
+   หมายเหตุ: curriculum ด้านล่างเป็น "ตัวอย่างเริ่มต้น" เพื่อให้ระบบทำงานได้ทันที
+   กรุณาตรวจ/แทนที่รหัสตัวชี้วัดและเนื้อหาให้ตรงหลักสูตรแกนกลางฉบับจริงก่อนใช้จริง
+   ══════════════════════════════════════════════════════════════════════════ */
+const SUBJECT_PACK = {
+  id: "social-geo",
+  name: "สังคมศึกษา · ภูมิศาสตร์ (ส 5)",
+  subtitle: "สาระภูมิศาสตร์ ฉบับปรับปรุง พ.ศ. ๒๕๖๐ • อิงตัวชี้วัด ส 5.1 / ส 5.2",
+  model: "claude-haiku-4-5-20251001",
+
+  // ── ความสามารถที่วิชานี้ใช้ (วิชาคำนวณค่อยเปิด useLatex/useGeometry) ──
+  features: { passageMode:true, useCharts:true, useLatex:false, useGeometry:false },
+
+  // ── นิยามความยาก 3 ระดับ (อิง Bloom: จำ/เข้าใจ → นำไปใช้ → วิเคราะห์) ──
+  difficultyRubric: {
+    "ง่าย":    "ระดับ จำ/เข้าใจ — ถามข้อเท็จจริง/นิยาม/ลักษณะตรงไปตรงมา 1 ขั้น ไม่มีบริบทซับซ้อน นักเรียนที่เพิ่งเรียนจบควรตอบได้ทันที",
+    "ปานกลาง": "ระดับ นำไปใช้ — ให้สถานการณ์/ตัวอย่างสั้น ๆ แล้วให้เลือกหลักการ/เหตุผลที่ถูกต้องมาอธิบาย ต้องเชื่อมโยงความรู้กับบริบท",
+    "ยาก":     "ระดับ วิเคราะห์ — ให้ข้อมูล/สถานการณ์/แผนภูมิ แล้วให้เปรียบเทียบ จำแนกเหตุ-ผล หรือประเมินทางเลือก ห้ามออกนอกขอบเขตของตัวชี้วัด"
+  },
+
+  // ── ประเภทความเข้าใจผิด (ใช้จำแนกจากตัวลวงที่นักเรียนเลือก → วางแผนซ่อม) ──
+  misconceptions: [
+    { code:"fact",      th:"จำข้อเท็จจริง/คำศัพท์ผิด" },
+    { code:"concept",   th:"เข้าใจแนวคิด/หลักการคลาดเคลื่อน" },
+    { code:"interpret", th:"ตีความข้อมูล/สถานการณ์/แผนภูมิผิด" },
+    { code:"apply",     th:"นำหลักการไปใช้ผิดบริบท" },
+    { code:"reading",   th:"อ่าน/ตีความคำถามผิด" }
+  ],
+
+  // ── คำแนะนำการออกโจทย์เฉพาะวิชานี้ (ฉีดเข้า prompt ของ AI) ──
+  promptGuidance:
+    "วิชาสังคมศึกษา สาระภูมิศาสตร์ (ส 5) ตามหลักสูตรแกนกลาง ฉบับปรับปรุง พ.ศ. ๒๕๖๐. " +
+    "เน้นการรู้เรื่องภูมิศาสตร์ (geo-literacy): เข้าใจระบบธรรมชาติ-มนุษย์, ใช้เหตุผลเชิงพื้นที่, และการตัดสินใจอย่างเป็นระบบ. " +
+    "ออกเป็นข้อสอบปรนัย 4 ตัวเลือก เน้นการใช้แผนที่/เครื่องมือทางภูมิศาสตร์ การวิเคราะห์ลักษณะกายภาพ ปฏิสัมพันธ์มนุษย์กับสิ่งแวดล้อม ภัยพิบัติ และการจัดการทรัพยากร. " +
+    "ระดับ ปานกลาง/ยาก ให้ใส่สถานการณ์/ข้อมูล/บรรยายแผนที่-แผนภูมิสั้น (stimulus) ก่อนถาม แล้วให้ผู้เรียนวิเคราะห์. " +
+    "ตัวลวง (distractor) ต้องสมเหตุสมผล สะท้อนความเข้าใจผิดที่พบจริง และกำกับประเภทความเข้าใจผิดให้ทุกตัว. " +
+    "ห้ามออกนอกขอบเขต (bounds) ของตัวชี้วัด และห้ามใช้เนื้อหาระดับชั้นที่สูงกว่า.",
+
+  // ── หลักสูตร: สาระภูมิศาสตร์ (ส 5) ฉบับปรับปรุง พ.ศ. ๒๕๖๐ ──
+  // ★ ที่มา: เอกสาร "ตัวชี้วัดและสาระการเรียนรู้แกนกลาง สาระภูมิศาสตร์" (สพฐ.)
+  // ⚠️ ข้อจำกัด: ไฟล์ต้นฉบับสแกน+ฟอนต์เสีย ตารางไม่มีเส้น ดึงตัวชี้วัด "รายชั้น" อัตโนมัติได้ไม่ครบ
+  //     จึงจัดเป็น "ช่วงชั้น" ตามคุณภาพผู้เรียน (ยืนยันตรงต้นฉบับ) + ตัวชี้วัดที่อ่านได้ชัดบางตัว
+  //     >> โปรดเติมตัวชี้วัดรายชั้น (ป.1..ป.6/ม.1..ม.3) เพิ่มจากต้นฉบับเพื่อความครบถ้วน
+  curriculum: {
+    "ป.1–3": [
+      { topic:"ลักษณะกายภาพและเครื่องมือทางภูมิศาสตร์ (ส 5.1)", strand:"ส 5.1", indicator:"ส 5.1 ป.1–3",
+        indText:"เข้าใจลักษณะทางกายภาพของสิ่งต่างๆ รอบตัวและชุมชน ตำแหน่ง–ระยะ–ทิศ ใช้แผนผัง/แผนที่/ลูกโลก/ภาพถ่ายอย่างง่าย และการเปลี่ยนแปลงทางกายภาพใกล้ตัว",
+        bounds:"ขอบเขตระดับ 'จบ ป.3': สิ่งรอบตัวและชุมชนใกล้ตัวเท่านั้น ใช้เครื่องมืออย่างง่าย ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+        subs:["สิ่งแวดล้อมทางธรรมชาติและที่มนุษย์สร้างขึ้นรอบตัว/ชุมชน","ตำแหน่ง ระยะ ทิศ และการใช้แผนผัง/แผนที่/ลูกโลก/ภาพถ่ายอย่างง่าย","การเปลี่ยนแปลงของอากาศและลักษณะทางกายภาพที่มีผลต่อการดำเนินชีวิต"] },
+      { topic:"มนุษย์กับสิ่งแวดล้อม (ส 5.2)", strand:"ส 5.2", indicator:"ส 5.2 ป.1–3",
+        indText:"เข้าใจความสัมพันธ์ระหว่างสิ่งแวดล้อมทางกายภาพกับความเป็นอยู่ ปรับตัวตามการเปลี่ยนแปลง และมีส่วนร่วมจัดการทรัพยากร–สิ่งแวดล้อมใกล้ตัว",
+        bounds:"ขอบเขตระดับ 'จบ ป.3': ทรัพยากร/สิ่งแวดล้อมใกล้ตัว บ้าน โรงเรียน ชุมชน",
+        subs:["สิ่งแวดล้อมทางกายภาพที่ส่งผลต่อความเป็นอยู่ของมนุษย์","การใช้ทรัพยากรธรรมชาติอย่างคุ้มค่า","มีส่วนร่วมในการจัดการสิ่งแวดล้อมในชุมชน (ตย. ส 5.2 ป.3/6)"] }
+    ],
+    "ป.4–6": [
+      { topic:"ลักษณะกายภาพและเครื่องมือทางภูมิศาสตร์ (ส 5.1)", strand:"ส 5.1", indicator:"ส 5.1 ป.4–6",
+        indText:"เข้าใจลักษณะทางกายภาพ ภัยพิบัติ และลักษณะกิจกรรมทางเศรษฐกิจของจังหวัด/ภาค/ประเทศไทย ใช้แผนที่และเครื่องมือทางภูมิศาสตร์สืบค้น–วิเคราะห์ข้อมูล",
+        bounds:"ขอบเขตระดับ 'จบ ป.6': ระดับจังหวัด ภาค และประเทศไทย",
+        subs:["ลักษณะทางกายภาพและภัยพิบัติในจังหวัด/ภาค/ประเทศไทย","การใช้แผนที่ ลูกโลก และเครื่องมือทางภูมิศาสตร์","ความสัมพันธ์ระหว่างลักษณะกายภาพกับกิจกรรมทางเศรษฐกิจ"] },
+      { topic:"มนุษย์กับสิ่งแวดล้อม (ส 5.2)", strand:"ส 5.2", indicator:"ส 5.2 ป.4–6",
+        indText:"เข้าใจปฏิสัมพันธ์ระหว่างมนุษย์กับสิ่งแวดล้อม เตรียมรับมือการเปลี่ยนแปลงทางกายภาพและภัยพิบัติ และหาแนวทางจัดการทรัพยากร–สิ่งแวดล้อม",
+        bounds:"ขอบเขตระดับ 'จบ ป.6': ระดับจังหวัด ภาค และประเทศไทย",
+        subs:["การเตรียมรับมือการเปลี่ยนแปลงทางกายภาพและภัยพิบัติ","การใช้ทรัพยากรอย่างรับผิดชอบและยั่งยืน","แนวทางการจัดการทรัพยากรและสิ่งแวดล้อมในท้องถิ่น/ประเทศ"] }
+    ],
+    "ม.1–3": [
+      { topic:"ลักษณะกายภาพและเครื่องมือทางภูมิศาสตร์ (ส 5.1)", strand:"ส 5.1", indicator:"ส 5.1 ม.1–3",
+        indText:"เข้าใจลักษณะทางกายภาพ ภัยพิบัติ และกิจกรรมทางเศรษฐกิจ–สังคมในภูมิภาคต่างๆ ของโลก ใช้แผนที่และเครื่องมือทางภูมิศาสตร์วิเคราะห์ตามกระบวนการทางภูมิศาสตร์",
+        bounds:"ขอบเขตระดับ 'จบ ม.3': ระดับทวีป/ภูมิภาคของโลก (เอเชีย ออสเตรเลีย โอเชียเนีย ฯลฯ)",
+        subs:["ลักษณะทางกายภาพและเขตภูมิอากาศของทวีป/ภูมิภาค","วิเคราะห์สาเหตุการเกิดภัยพิบัติและผลกระทบในทวีปเอเชีย ทวีปออสเตรเลีย และโอเชียเนีย (ตย. ส 5.1 ม.1/3)","การใช้แผนที่และเครื่องมือทางภูมิศาสตร์ตามกระบวนการทางภูมิศาสตร์"] },
+      { topic:"มนุษย์กับสิ่งแวดล้อม (ส 5.2)", strand:"ส 5.2", indicator:"ส 5.2 ม.1–3",
+        indText:"เข้าใจปฏิสัมพันธ์มนุษย์กับสิ่งแวดล้อม ความร่วมมือด้านทรัพยากร–สิ่งแวดล้อมระหว่างประเทศ เพื่อเตรียมรับมือภัยพิบัติและจัดการอย่างยั่งยืน",
+        bounds:"ขอบเขตระดับ 'จบ ม.3': ระดับภูมิภาคของโลกและความร่วมมือระหว่างประเทศ",
+        subs:["วิเคราะห์แนวทางการจัดการภัยพิบัติและการจัดการทรัพยากรและสิ่งแวดล้อมในทวีปเอเชีย (ตย. ส 5.2 ม.1/4)","ความร่วมมือด้านทรัพยากรและสิ่งแวดล้อมระหว่างประเทศ","แนวทางจัดการทรัพยากรและสิ่งแวดล้อมอย่างยั่งยืน"] }
+    ],
+    "ม.4–6": [
+      { topic:"ลักษณะกายภาพและเครื่องมือทางภูมิศาสตร์ (ส 5.1)", strand:"ส 5.1", indicator:"ส 5.1 ม.4–6",
+        indText:"วิเคราะห์การเปลี่ยนแปลงทางกายภาพ ปัญหาและภัยพิบัติทางธรรมชาติในประเทศไทยและภูมิภาคต่างๆ ของโลก ใช้แผนที่และเครื่องมือทางภูมิศาสตร์ตามกระบวนการทางภูมิศาสตร์",
+        bounds:"ขอบเขตระดับ 'จบ ม.6': ระดับประเทศไทยและภูมิภาคต่างๆ ของโลก",
+        subs:["วิเคราะห์การเปลี่ยนแปลงทางกายภาพในประเทศไทยและภูมิภาคต่างๆ ของโลกซึ่งได้รับอิทธิพลจากปัจจัยทางภูมิศาสตร์ (ส 5.1 ม.4–6/1)","วิเคราะห์ลักษณะทางกายภาพซึ่งทำให้เกิดปัญหาและภัยพิบัติทางธรรมชาติ (ส 5.1 ม.4–6/2)","ใช้แผนที่และเครื่องมือทางภูมิศาสตร์ค้นหา–วิเคราะห์–สรุปข้อมูลตามกระบวนการทางภูมิศาสตร์ (ส 5.1 ม.4–6/3)"] },
+      { topic:"มนุษย์กับสิ่งแวดล้อม (ส 5.2)", strand:"ส 5.2", indicator:"ส 5.2 ม.4–6",
+        indText:"วิเคราะห์ปฏิสัมพันธ์ระหว่างสิ่งแวดล้อมทางกายภาพกับกิจกรรม/วิถีการดำเนินชีวิตของมนุษย์ เพื่อเตรียมรับมือการเปลี่ยนแปลงของโลกและการจัดการทรัพยากร–สิ่งแวดล้อมเพื่อการพัฒนาอย่างยั่งยืน",
+        bounds:"ขอบเขตระดับ 'จบ ม.6': ระดับประเทศและระหว่างประเทศ เพื่อการพัฒนาที่ยั่งยืน",
+        subs:["วิเคราะห์ปฏิสัมพันธ์ระหว่างสิ่งแวดล้อมทางกายภาพกับกิจกรรมของมนุษย์ (ส 5.2 ม.4–6/1)","การจัดการทรัพยากรและสิ่งแวดล้อมในประเทศและระหว่างประเทศ","การพัฒนาอย่างยั่งยืนและการเตรียมรับมือการเปลี่ยนแปลงของโลก"] }
+    ]
+  }
+};
+
+/* กรอบวิชาการ (subject-agnostic — ใช้ได้ทุกวิชา) */
+const FRAMEWORK = {
+  mechanism: [
+    { t:"Mastery Learning", a:"Bloom (1968)", u:"เกณฑ์รอบรู้ 80% แบ่งกลุ่ม Master/Developing/Non-master + ปริมาณเล่มฝึกแปรตามคะแนน" },
+    { t:"Bloom's Revised Taxonomy", a:"Anderson & Krathwohl", u:"กำกับระดับความยาก 3 ระดับ (จำ/เข้าใจ → นำไปใช้ → วิเคราะห์) ทุกข้อ" },
+    { t:"Cognitive Diagnostic Assessment", a:"van Groen (2019)", u:"วินิจฉัยความเข้าใจผิดรายบุคคลจากตัวลวงที่นักเรียนเลือก" },
+    { t:"Corrective Instruction", a:"Guskey (2007)", u:"ปริมาณการฝึกซ่อมแปรตามขนาดช่องว่างความเข้าใจ" }
+  ],
+  design: [
+    { t:"Retrieval Practice", a:"Roediger & Karpicke (2006)", u:"เน้นทำโจทย์ดึงความรู้ก่อนดูเฉลย" },
+    { t:"Interleaving", a:"Rohrer & Taylor (2007)", u:"สลับรูปแบบโจทย์ในชุด ไม่เรียงแบบเดียวติดกัน" },
+    { t:"Formative Assessment", a:"Black & Wiliam", u:"วงจร ทดสอบ → feedback → ซ่อมเสริม พร้อมเฉลยวิธีคิด" }
+  ]
+};
+
+/* ══════════════════════════════════════════════════════════════════════════
+   ENGINE — เครื่องยนต์กลาง (ไม่ผูกวิชา) : ไม่ต้องแก้เวลาเปลี่ยนวิชา
+   ══════════════════════════════════════════════════════════════════════════ */
+const P = SUBJECT_PACK;
+const state = { grade:null, topic:null, diff:"ปานกลาง", count:8, items:[], answers:[] };
+const $ = id => document.getElementById(id);
+
+/* ---- API key ---- */
+document.getElementById('modelName').textContent = P.model;
+function saveKey(){
+  const k = $('keyInput').value.trim();
+  if(!k.startsWith('sk-ant-')){ $('keyErr').textContent = 'คีย์ควรขึ้นต้นด้วย sk-ant-'; return; }
+  localStorage.setItem('nexus_key', k);
+  bootApp();
+}
+function getKey(){ return localStorage.getItem('nexus_key'); }
+function bootApp(){
+  $('keyModal').style.display='none';
+  $('app').style.display='block';
+  initSetup();
+}
+if(getKey()){ bootApp(); } else { $('keyInput').focus(); }
+
+/* ---- branding from pack ---- */
+document.title = `NEXUS AI Core • ${P.name} • ป.1–ม.6`;
+$('tbSub').textContent = `${P.name} • ป.1–ม.6`;
+$('subjBadge').textContent = P.name;
+
+/* ---- SETUP ---- */
+function initSetup(){
+  $('setupTitle').textContent = `เริ่มสร้างข้อสอบ — ${P.name}`;
+  $('setupSub').textContent = P.subtitle;
+
+  const grades = Object.keys(P.curriculum);
+  $('gradeGrid').innerHTML = grades.map(g =>
+    `<div class="chip" onclick="pickGrade('${g}')">${g}</div>`).join('');
+
+  // difficulty
+  $('diffGrid').innerHTML = Object.keys(P.difficultyRubric).map(d =>
+    `<div class="chip${d==='ปานกลาง'?' on':''}" onclick="pickDiff('${d}')">${d}</div>`).join('');
+  // count
+  $('countGrid').innerHTML = [5,8,10,15].map(c =>
+    `<div class="chip${c===8?' on':''}" onclick="pickCount(${c})">${c} ข้อ</div>`).join('');
+
+  // framework panel
+  const fwRow = (x,tag,cls) => `<div class="fw-row"><div style="display:flex;align-items:center;gap:6px;">
+    <span class="t">${x.t}</span><span class="a">${x.a}</span><span class="tag ${cls}">${tag}</span></div>
+    <div class="u">${x.u}</div></div>`;
+  $('fwBody').innerHTML =
+    FRAMEWORK.mechanism.map(x=>fwRow(x,'กลไกจริง','mech')).join('') +
+    FRAMEWORK.design.map(x=>fwRow(x,'เชิงออกแบบ','des')).join('');
+}
+function pickGrade(g){
+  state.grade=g; state.topic=null;
+  [...$('gradeGrid').children].forEach(c=>c.classList.toggle('on', c.textContent===g));
+  const topics = P.curriculum[g]||[];
+  $('topicWrap').style.display='block';
+  $('topicGrid').innerHTML = topics.map((t,i)=>
+    `<div class="chip" onclick="pickTopic(${i})">${t.topic}<span class="strand">${t.strand} · ${t.indicator}</span></div>`).join('');
+  $('diffWrap').style.display='none';
+  $('genBtn').disabled=true;
+}
+function pickTopic(i){
+  state.topic = P.curriculum[state.grade][i];
+  [...$('topicGrid').children].forEach((c,idx)=>c.classList.toggle('on', idx===i));
+  $('diffWrap').style.display='block';
+  $('genBtn').disabled=false;
+  $('diffWrap').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function pickDiff(d){ state.diff=d; [...$('diffGrid').children].forEach(c=>c.classList.toggle('on', c.textContent===d)); }
+function pickCount(c){ state.count=c; [...$('countGrid').children].forEach(ch=>ch.classList.toggle('on', ch.textContent===c+' ข้อ')); }
+
+/* ---- SCREEN switch ---- */
+function show(id){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); $(id).classList.add('active'); window.scrollTo(0,0); }
+function openModal(id){ $(id).classList.add('open'); }
+function closeModal(id){ $(id).classList.remove('open'); }
+
+/* ---- PROMPT BUILDER (content-driven — ใช้ได้ทุกวิชา) ---- */
+function buildPrompt(){
+  const t = state.topic;
+  const miscList = P.misconceptions.map(m=>`"${m.code}" (${m.th})`).join(', ');
+  const passage = P.features.passageMode
+    ? 'ถ้าระดับเป็นปานกลาง/ยาก ให้ใส่ stimulus (สถานการณ์/บทอ่าน/ข้อมูลสั้น 1–3 บรรทัด) ก่อนคำถาม; ระดับง่ายเว้น stimulus เป็น "".'
+    : 'ไม่ต้องมี stimulus (ให้ค่า "").';
+  return `คุณเป็นผู้เชี่ยวชาญออกข้อสอบวิชา ${P.name} ตามหลักสูตรแกนกลางของไทย.
+
+${P.promptGuidance}
+
+ออกข้อสอบปรนัย ${state.count} ข้อ สำหรับ:
+- ระดับชั้น: ${state.grade}
+- สาระ: ${t.strand}
+- ตัวชี้วัด: ${t.indicator} — ${t.indText}
+- ขอบเขต (ห้ามเกิน): ${t.bounds}
+- หัวข้อย่อยที่ควรครอบคลุม: ${t.subs.join(' | ')}
+- ระดับความยาก: "${state.diff}" — ${P.difficultyRubric[state.diff]}
+
+ข้อกำหนด:
+- แต่ละข้อมี 4 ตัวเลือก มีคำตอบถูก 1 ข้อ
+- ${passage}
+- ตัวลวงทุกตัวต้องกำกับประเภทความเข้าใจผิด เลือกจาก: ${miscList}. ตัวเลือกที่ถูกให้ค่า tag เป็น "".
+- ระบุ subtopic (หัวข้อย่อยที่ข้อนั้นวัด) และ bloom ("จำ/เข้าใจ" | "นำไปใช้" | "วิเคราะห์")
+- explain = เฉลยพร้อมเหตุผลสั้น ๆ
+
+ตอบเป็น JSON ล้วน ไม่มีคำอธิบายนอก JSON ไม่มี markdown fence รูปแบบ:
+{"items":[{"stimulus":"","q":"...","choices":["...","...","...","..."],"answer":0,"bloom":"เข้าใจ","subtopic":"...","explain":"...","distractorTags":["","fact","concept","interpret"]}]}`;
+}
+
+async function callAI(prompt){
+  const res = await fetch('https://api.anthropic.com/v1/messages',{
+    method:'POST',
+    headers:{
+      'content-type':'application/json',
+      'x-api-key':getKey(),
+      'anthropic-version':'2023-06-01',
+      'anthropic-dangerous-direct-browser-access':'true'
+    },
+    body:JSON.stringify({ model:P.model, max_tokens:4000, messages:[{role:'user',content:prompt}] })
+  });
+  if(!res.ok){ const e=await res.text(); throw new Error('API '+res.status+': '+e.slice(0,200)); }
+  const data = await res.json();
+  let txt = (data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
+  txt = txt.replace(/```json|```/g,'').trim();
+  const s=txt.indexOf('{'), e=txt.lastIndexOf('}');
+  if(s>=0&&e>=0) txt = txt.slice(s,e+1);
+  return JSON.parse(txt);
+}
+
+/* ---- GENERATE ---- */
+async function generateQuiz(){
+  show('loadScreen');
+  $('loadMsg').textContent='กำลังให้ AI ออกข้อสอบตามตัวชี้วัด…';
+  try{
+    const out = await callAI(buildPrompt());
+    let items = (out.items||[]).slice(0,state.count);
+    // shuffle choices per item (กันลอกกัน + กัน AI วางคำตอบถูกไว้ที่ ก)
+    items = items.map(shuffleChoices);
+    if(!items.length) throw new Error('ไม่ได้ข้อสอบกลับมา');
+    state.items=items; state.answers=new Array(items.length).fill(null);
+    renderQuiz();
+  }catch(err){
+    show('setupScreen');
+    alert('เกิดปัญหา: '+err.message+'\n\nลองใหม่อีกครั้ง หรือตรวจ API key / โมเดลใน SUBJECT_PACK');
+  }
+}
+function shuffleChoices(it){
+  if(!Array.isArray(it.choices)||it.choices.length!==4) return it;
+  const idx=[0,1,2,3];
+  for(let i=idx.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[idx[i],idx[j]]=[idx[j],idx[i]];}
+  const choices=idx.map(i=>it.choices[i]);
+  const tags=idx.map(i=>(it.distractorTags||[])[i]||'');
+  const answer=idx.indexOf(it.answer);
+  return {...it, choices, distractorTags:tags, answer};
+}
+
+/* ---- QUIZ RENDER ---- */
+function renderQuiz(){
+  const t=state.topic;
+  $('quizTopic').textContent=t.topic;
+  $('quizMeta').textContent=`${state.grade} · ${t.indicator} · ${state.diff}`;
+  const K=['ก','ข','ค','ง'];
+  $('quizBody').innerHTML=state.items.map((it,qi)=>`
+    <div class="qcard" id="q${qi}">
+      <div class="qhead"><span class="qnum">ข้อ ${qi+1}</span><span class="qtag">${it.bloom||''}</span></div>
+      ${it.stimulus?`<div class="stimulus">${esc(it.stimulus)}</div>`:''}
+      <div class="qtext">${esc(it.q)}</div>
+      ${it.choices.map((c,ci)=>`
+        <div class="choice" onclick="selChoice(${qi},${ci})" data-q="${qi}" data-c="${ci}">
+          <span class="k">${K[ci]}</span><span>${esc(c)}</span></div>`).join('')}
+    </div>`).join('');
+  updateProg();
+  show('quizScreen');
+}
+function selChoice(qi,ci){
+  state.answers[qi]=ci;
+  document.querySelectorAll(`#q${qi} .choice`).forEach(el=>
+    el.classList.toggle('sel', +el.dataset.c===ci));
+  updateProg();
+}
+function updateProg(){
+  const done=state.answers.filter(a=>a!==null).length;
+  $('quizProg').textContent=`ตอบแล้ว ${done}/${state.items.length}`;
+  $('submitBtn').disabled=done<state.items.length;
+  $('submitBtn').style.opacity=done<state.items.length?.5:1;
+}
+
+/* ---- ANALYSIS (Bloom mastery + CDA misconception + Guskey corrective) ---- */
+function submitQuiz(){
+  const items=state.items, ans=state.answers;
+  let correct=0; const miscTally={}; const weakSub={}; const K=['ก','ข','ค','ง'];
+  P.misconceptions.forEach(m=>miscTally[m.code]=0);
+
+  items.forEach((it,i)=>{
+    const ok = ans[i]===it.answer;
+    if(ok) correct++;
+    else{
+      const tag=(it.distractorTags||[])[ans[i]]||'reading';
+      miscTally[tag]=(miscTally[tag]||0)+1;
+      const s=it.subtopic||it.topic||'ทั่วไป';
+      weakSub[s]=(weakSub[s]||0)+1;
+    }
+    // reveal answer on quiz cards
+    document.querySelectorAll(`#q${i} .choice`).forEach(el=>{
+      const c=+el.dataset.c;
+      el.classList.remove('sel');
+      if(c===it.answer) el.classList.add('correct');
+      else if(c===ans[i]) el.classList.add('wrong');
+      el.onclick=null;
+    });
+    const card=$('q'+i);
+    if(card && !card.querySelector('.explain')){
+      const d=document.createElement('div'); d.className='explain';
+      d.innerHTML=`<b>เฉลย: ${K[it.answer]}</b> — ${esc(it.explain||'')}`;
+      card.appendChild(d);
+    }
+  });
+
+  const pct=Math.round(correct/items.length*100);
+  const level = pct>=80?['รอบรู้ (Master)','master'] : pct>=50?['กำลังพัฒนา (Developing)','dev'] : ['ยังไม่รอบรู้ (Non-master)','non'];
+  const miscSorted=P.misconceptions.map(m=>({...m,n:miscTally[m.code]||0})).filter(m=>m.n>0).sort((a,b)=>b.n-a.n);
+  const weakSorted=Object.entries(weakSub).sort((a,b)=>b[1]-a[1]);
+
+  // Guskey corrective: จำนวนข้อในเล่มฝึกแปรตามช่องว่าง
+  const gap=items.length-correct;
+  const bookletN = gap===0?0 : Math.min(20, Math.max(6, gap*3));
+
+  let reteach='';
+  if(gap===0) reteach='นักเรียนรอบรู้ครบ — แนะนำให้ต่อยอดด้วยโจทย์ระดับ "ยาก" หรือหัวข้อถัดไป';
+  else{
+    reteach=`ควรสอนซ่อมเสริมที่: <b>${weakSorted.slice(0,3).map(w=>w[0]).join(' · ')}</b>. `;
+    if(miscSorted[0]){
+      const m=miscSorted[0];
+      const advice={
+        fact:'ทบทวนข้อเท็จจริง/คำศัพท์หลักด้วยแฟลชการ์ดหรือสรุปย่อ',
+        concept:'อธิบายแนวคิดใหม่ด้วยตัวอย่างรูปธรรมและเปรียบเทียบกรณีถูก-ผิด',
+        interpret:'ฝึกอ่านข้อมูล/สถานการณ์/แผนภูมิแล้วสรุปใจความทีละขั้น',
+        apply:'ให้โจทย์สถานการณ์หลากบริบทเพื่อฝึกเลือกหลักการให้ตรง',
+        reading:'ฝึกอ่านคำถามให้ครบก่อนตอบ ขีดเส้นคำสำคัญ'
+      }[m.code]||'ทบทวนเนื้อหาที่เกี่ยวข้อง';
+      reteach+=`จุดพลาดเด่นคือ "<b>${m.th}</b>" → ${advice}`;
+    }
+  }
+
+  $('reportScreen').innerHTML=`
+    <div class="card">
+      <h2>ผลวิเคราะห์ผู้เรียน</h2>
+      <div class="sub">${state.grade} · ${state.topic.topic} · ระดับ ${state.diff}</div>
+      <div class="stat-grid">
+        <div class="stat"><div class="n">${pct}%</div><div class="l">คะแนนรอบรู้</div></div>
+        <div class="stat"><div class="n">${correct}/${items.length}</div><div class="l">ตอบถูก</div></div>
+        <div class="stat"><div class="n">${bookletN||'—'}</div><div class="l">ข้อในเล่มซ่อม</div></div>
+      </div>
+      <div style="text-align:center;margin:6px 0 14px;"><span class="pill ${level[1]}">${level[0]}</span></div>
+      <div class="bar"><i style="width:${pct}%"></i></div>
+
+      ${miscSorted.length?`
+      <div class="label">ผิดเพราะอะไร (Cognitive Diagnostic)</div>
+      ${miscSorted.map(m=>`<div class="misc-row"><span>${m.th}</span><span class="cnt">${m.n} ข้อ</span></div>`).join('')}`:''}
+
+      <div class="label">แผนช่วยเหลือ (Corrective Instruction — Guskey)</div>
+      <div class="reteach">${reteach}</div>
+
+      <div class="row no-print" style="margin-top:22px;">
+        ${gap>0?`<button class="btn ghost sm" onclick="genWorksheet()">📝 สร้างเล่มฝึกซ่อม ${bookletN} ข้อ</button>`:''}
+        <button class="btn ghost sm" onclick="window.print()">🖨️ พิมพ์/บันทึก PDF</button>
+        <button class="btn ghost sm" onclick="restart()">↻ ชุดใหม่</button>
+      </div>
+    </div>
+    <div id="wsArea"></div>`;
+  show('reportScreen');
+  window._lastReport={weakSorted,bookletN};
+}
+
+/* ---- Remedial worksheet (reuse generation, focus weak subtopics) ---- */
+async function genWorksheet(){
+  const r=window._lastReport; if(!r) return;
+  const area=$('wsArea');
+  area.innerHTML=`<div class="card load"><div class="spin"></div><p>กำลังสร้างเล่มฝึกซ่อมเน้นจุดอ่อน…</p></div>`;
+  const focus=r.weakSorted.slice(0,3).map(w=>w[0]).join(' | ')||state.topic.subs.join(' | ');
+  const prompt=`${P.promptGuidance}
+
+สร้างเล่มแบบฝึกซ่อมเสริม ${r.bookletN} ข้อ (ปรนัย 4 ตัวเลือก) วิชา ${P.name} ระดับ ${state.grade}
+ตัวชี้วัด: ${state.topic.indicator} — ${state.topic.indText}
+เน้นหัวข้อย่อยที่นักเรียนยังอ่อน: ${focus}
+ระดับความยาก: ผสม "ง่าย" และ "ปานกลาง" (เน้นสร้างความมั่นใจ)
+ขอบเขต: ${state.topic.bounds}
+
+ตอบ JSON ล้วน: {"items":[{"stimulus":"","q":"...","choices":["ก","ข","ค","ง"],"answer":0,"explain":"..."}]}`;
+  try{
+    const out=await callAI(prompt);
+    const items=(out.items||[]).slice(0,r.bookletN);
+    const K=['ก','ข','ค','ง'];
+    area.innerHTML=`<div class="card">
+      <h2>📝 เล่มฝึกซ่อมเสริม</h2>
+      <div class="sub">${state.grade} · ${state.topic.topic} · เน้น: ${esc(focus)}</div>
+      ${items.map((it,i)=>`<div class="qcard">
+        <div class="qnum" style="margin-bottom:8px;">ข้อ ${i+1}</div>
+        ${it.stimulus?`<div class="stimulus">${esc(it.stimulus)}</div>`:''}
+        <div class="qtext">${esc(it.q)}</div>
+        ${it.choices.map((c,ci)=>`<div class="choice" style="cursor:default;"><span class="k">${K[ci]}</span><span>${esc(c)}</span></div>`).join('')}
+        <div class="explain" style="display:none;" data-ans>เฉลย: ${K[it.answer]} — ${esc(it.explain||'')}</div>
+      </div>`).join('')}
+      <div class="row no-print" style="margin-top:16px;">
+        <button class="btn ghost sm" onclick="document.querySelectorAll('[data-ans]').forEach(e=>e.style.display='block')">แสดงเฉลยท้ายเล่ม</button>
+        <button class="btn ghost sm" onclick="window.print()">🖨️ พิมพ์เล่ม</button>
+      </div>
+    </div>`;
+    area.scrollIntoView({behavior:'smooth'});
+  }catch(err){ area.innerHTML=`<div class="card"><p style="color:var(--red)">สร้างเล่มไม่สำเร็จ: ${esc(err.message)}</p></div>`; }
+}
+
+function restart(){ state.items=[]; state.answers=[]; state.topic=null; initSetup(); show('setupScreen'); }
+function esc(s){ return String(s==null?'':s).replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m])); }
+</script>
+</body>
+</html>
