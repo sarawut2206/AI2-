@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEXUS AI สังคมศึกษา · ภูมิศาสตร์ (ส 5) • ป.1–ม.6</title>
+<title>NEXUS AI สังคมศึกษา (๕ สาระ) • ป.1–ม.6</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&family=Prompt:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap');
 :root{
-  --bg:#0d1b3e;--s1:#ffffff;--s2:#f8fafc;--s3:#eef2f7;--chat-bg:#0d1b3e;
+  --bg:#0d1533;--s1:#ffffff;--s2:#f8fafc;--s3:#eef2f7;--chat-bg:#0d1533;
   --border:#dde3ec;--border2:#c8d3e0;
-  --blue:#1d6aff;--blue2:#1557d4;--indigo:#4338ca;
-  --cyan:#0891b2;--green:#059669;--green2:#10b981;
+  --blue:#2a44d4;--blue2:#1e34b0;--indigo:#3730a8;
+  --cyan:#2a46d6;--green:#059669;--green2:#10b981;
   --warn:#d97706;--red:#dc2626;--red2:#ef4444;
   --text:#0f172a;--text2:#334155;--muted:#64748b;--dim:#94a3b8;
   --gold:#d97706;
@@ -23,13 +23,13 @@ body{font-family:'Sarabun',sans-serif;background:#f0f4f8;color:var(--text);min-h
 /* DEVICE GRID */
 .device-grid{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px;}
 .device-btn{flex:1;min-width:110px;padding:16px 12px;background:var(--s2);border:2px solid var(--border);border-radius:14px;font-family:'Sarabun',sans-serif;font-size:15px;font-weight:600;color:var(--text);cursor:pointer;transition:all .15s;text-align:center;line-height:1.6;}
-.device-btn:hover:not(:disabled){border-color:var(--blue);background:#eff6ff;color:var(--blue);transform:translateY(-2px);}
+.device-btn:hover:not(:disabled){border-color:var(--blue);background:#f1f4ff;color:var(--blue);transform:translateY(-2px);}
 
 
 /* KEY MODAL */
 #keyModal{position:fixed;inset:0;background:rgba(15,23,42,0.7);z-index:999;display:none;align-items:center;justify-content:center;padding:16px;}
 .km-card{background:var(--s1);border:1px solid var(--border);border-radius:20px;padding:40px 36px;width:100%;max-width:440px;box-shadow:0 20px 60px rgba(0,0,0,0.15);}
-.km-badge{display:flex;align-items:center;justify-content:center;gap:6px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:20px;padding:5px 14px;font-size:12px;color:var(--blue);font-family:'Space Mono',monospace;letter-spacing:1px;width:fit-content;margin:0 auto 20px;}
+.km-badge{display:flex;align-items:center;justify-content:center;gap:6px;background:#f1f4ff;border:1px solid #c9d3f7;border-radius:20px;padding:5px 14px;font-size:12px;color:var(--blue);font-family:'Space Mono',monospace;letter-spacing:1px;width:fit-content;margin:0 auto 20px;}
 .km-title{font-family:'Prompt',sans-serif;color:var(--text);font-size:28px;font-weight:700;text-align:center;margin-bottom:6px;}
 .km-title span{color:var(--blue);}
 .km-sub{color:var(--muted);font-size:13px;text-align:center;margin-bottom:32px;line-height:1.7;}
@@ -37,8 +37,8 @@ body{font-family:'Sarabun',sans-serif;background:#f0f4f8;color:var(--text);min-h
 .km-input{width:100%;padding:13px 16px;background:var(--s2);border:2px solid var(--border);border-radius:10px;color:var(--text);font-family:'Space Mono',monospace;font-size:12px;outline:none;margin-bottom:14px;transition:all .2s;}
 .km-input:focus{border-color:var(--blue);background:#fff;}
 .km-err{color:var(--red);font-size:12px;min-height:18px;margin-bottom:10px;}
-.km-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--blue),var(--indigo));border:none;border-radius:10px;color:white;font-family:'Sarabun',sans-serif;font-size:16px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 14px rgba(29,106,255,0.35);}
-.km-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(29,106,255,0.45);}
+.km-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--blue),var(--indigo));border:none;border-radius:10px;color:white;font-family:'Sarabun',sans-serif;font-size:16px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 14px rgba(42,68,212,0.35);}
+.km-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(42,68,212,0.45);}
 .km-divider{height:1px;background:var(--border);margin:20px 0;}
 .km-note{font-size:11.5px;color:var(--muted);text-align:center;line-height:2;}
 .km-note a{color:var(--blue);text-decoration:none;font-weight:600;}
@@ -47,13 +47,13 @@ body{font-family:'Sarabun',sans-serif;background:#f0f4f8;color:var(--text);min-h
 #app{display:none;flex-direction:column;min-height:100vh;}
 
 /* TOPBAR */
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:60px;background:rgba(13,27,62,0.95);border-bottom:1px solid rgba(255,255,255,0.1);box-shadow:0 2px 20px rgba(0,0,0,0.3);position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:60px;background:rgba(13,21,51,0.95);border-bottom:1px solid rgba(255,255,255,0.1);box-shadow:0 2px 20px rgba(0,0,0,0.3);position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);}
 .tb-logo{display:flex;align-items:center;gap:12px;}
-.tb-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--blue),var(--indigo));border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 2px 8px rgba(29,106,255,0.3);}
+.tb-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--blue),var(--indigo));border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 2px 8px rgba(42,68,212,0.3);}
 .tb-name{font-family:'Prompt',sans-serif;font-size:16px;font-weight:700;color:var(--blue);}
 .tb-sub{font-size:11px;color:var(--muted);}
 .tb-right{display:flex;align-items:center;gap:10px;}
-.tb-badge{font-size:11px;padding:4px 12px;background:rgba(99,179,237,0.15);border:1px solid rgba(99,179,237,0.3);border-radius:20px;color:#93c5fd;font-weight:600;}
+.tb-badge{font-size:11px;padding:4px 12px;background:rgba(90,120,230,0.15);border:1px solid rgba(90,120,230,0.3);border-radius:20px;color:#a6b4f5;font-weight:600;}
 .tb-btn{padding:7px 16px;background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.2);border-radius:8px;color:rgba(255,255,255,0.75);font-family:'Sarabun',sans-serif;font-size:13px;cursor:pointer;font-weight:600;transition:all .2s;}
 .tb-btn:hover{border-color:var(--blue);color:var(--blue);}
 .tb-btn.teacher{border-color:#fbbf24;color:var(--gold);background:#fffbeb;}
@@ -69,8 +69,8 @@ body{font-family:'Sarabun',sans-serif;background:#f0f4f8;color:var(--text);min-h
 
 /* CHAT */
 .chat-wrap{display:flex;flex-direction:column;max-width:700px;margin:0 auto;width:100%;padding:24px 20px 16px;flex:1;}
-#chatScreen{background:linear-gradient(160deg,#0d1b3e 0%,#1a2f6e 40%,#0e3460 70%,#081c3a 100%);min-height:calc(100vh - 64px);position:relative;}
-#chatScreen::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(99,179,237,0.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 80%,rgba(167,139,250,0.07) 0%,transparent 55%);pointer-events:none;}
+#chatScreen{background:linear-gradient(160deg,#0d1533 0%,#182a66 40%,#142a72 70%,#0a1330 100%);min-height:calc(100vh - 64px);position:relative;}
+#chatScreen::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(90,120,230,0.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 80%,rgba(120,110,230,0.07) 0%,transparent 55%);pointer-events:none;}
 #chatScreen .chat-wrap{position:relative;z-index:1;}
 .messages{display:flex;flex-direction:column;gap:16px;overflow-y:auto;padding-bottom:16px;max-height:calc(100vh - 200px);}
 .messages::-webkit-scrollbar{width:4px;}
@@ -81,11 +81,11 @@ body{font-family:'Sarabun',sans-serif;background:#f0f4f8;color:var(--text);min-h
 .msg.ai{align-self:flex-start;}
 .msg.user{flex-direction:row-reverse;align-self:flex-end;}
 .m-av{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;margin-top:2px;}
-.msg.ai .m-av{background:linear-gradient(135deg,var(--blue),var(--indigo));box-shadow:0 2px 8px rgba(29,106,255,0.25);}
+.msg.ai .m-av{background:linear-gradient(135deg,var(--blue),var(--indigo));box-shadow:0 2px 8px rgba(42,68,212,0.25);}
 .msg.user .m-av{background:var(--s3);border:2px solid var(--border);}
 .m-bub{padding:13px 17px;border-radius:14px;font-size:var(--fs-msg);line-height:1.85;}
 .msg.ai .m-bub{background:rgba(255,255,255,0.97);border:1px solid rgba(255,255,255,0.3);border-top-left-radius:4px;color:#1e293b;box-shadow:0 4px 20px rgba(0,0,0,0.25);}
-.msg.user .m-bub{background:linear-gradient(135deg,#1d6aff,#4f46e5);border:none;border-top-right-radius:4px;color:white;box-shadow:0 4px 16px rgba(29,106,255,0.4);}
+.msg.user .m-bub{background:linear-gradient(135deg,#2a44d4,#4038c8);border:none;border-top-right-radius:4px;color:white;box-shadow:0 4px 16px rgba(42,68,212,0.4);}
 .typing{display:flex;gap:5px;align-items:center;}
 .typing span{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:tdot 1.2s infinite;}
 .typing span:nth-child(2){animation-delay:.2s;}.typing span:nth-child(3){animation-delay:.4s;}
@@ -93,19 +93,19 @@ body{font-family:'Sarabun',sans-serif;background:#f0f4f8;color:var(--text);min-h
 
 /* SELECTORS */
 .grade-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px;}
-.grade-btn{padding:14px 8px;background:#f0f6ff;border:2px solid #bfdbfe;border-radius:11px;color:#1e3a8a;font-family:'Prompt',sans-serif;font-size:16px;font-weight:600;text-align:center;cursor:pointer;transition:all .2s;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
-.grade-btn:hover:not(:disabled){border-color:#1d6aff;background:#dbeafe;color:#1d4ed8;transform:translateY(-2px);}
+.grade-btn{padding:14px 8px;background:#f2f5ff;border:2px solid #c9d3f7;border-radius:11px;color:#1a2a7a;font-family:'Prompt',sans-serif;font-size:16px;font-weight:600;text-align:center;cursor:pointer;transition:all .2s;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+.grade-btn:hover:not(:disabled){border-color:#2a44d4;background:#e2e8fb;color:#1e34b0;transform:translateY(-2px);}
 .grade-btn:disabled{cursor:not-allowed;}
 .topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
 @media(max-width:460px){.topic-grid{grid-template-columns:1fr;}.grade-grid{grid-template-columns:repeat(3,1fr);}}
 .topic-btn{padding:12px 14px;background:#f8fafc;border:2px solid #e2e8f0;border-radius:10px;color:#334155;font-family:'Sarabun',sans-serif;font-size:14px;text-align:left;cursor:pointer;transition:all .2s;box-shadow:0 1px 4px rgba(0,0,0,0.04);}
-.topic-btn:hover:not(:disabled){border-color:#1d6aff;background:#eff6ff;color:#1d4ed8;}
+.topic-btn:hover:not(:disabled){border-color:#2a44d4;background:#f1f4ff;color:#1e34b0;}
 .topic-btn:disabled{cursor:not-allowed;opacity:.6;}
 .topic-btn .ind{font-size:10px;color:#94a3b8;display:block;margin-bottom:3px;font-family:'Space Mono',monospace;}
 .subtopic-list,.subtopic-grid{display:flex;flex-direction:column;gap:7px;margin-top:8px;}
 .subtopic-btn{padding:12px 16px;background:#f8fafc;border:2px solid #e2e8f0;border-radius:10px;color:#334155;font-family:'Sarabun',sans-serif;font-size:var(--fs-choice);text-align:left;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:10px;box-shadow:0 1px 4px rgba(0,0,0,0.04);}
 .subtopic-btn::before{content:'';width:6px;height:6px;background:var(--blue);border-radius:50%;flex-shrink:0;}
-.subtopic-btn:hover:not(:disabled){border-color:#1d6aff;background:#eff6ff;color:#1d4ed8;}
+.subtopic-btn:hover:not(:disabled){border-color:#2a44d4;background:#f1f4ff;color:#1e34b0;}
 
 /* MCQ */
 .choices-wrap{display:flex;flex-direction:column;gap:8px;margin-top:8px;}
@@ -114,7 +114,7 @@ body{font-family:'Sarabun',sans-serif;background:#f0f4f8;color:var(--text);min-h
 .choice-btn.wrong{background:#fee2e2!important;border-color:#dc2626!important;color:#dc2626!important;}
 .choice-btn.wrong-correct{background:#dcfce7!important;border-color:#16a34a!important;}
 .choice-btn::before{content:attr(data-label);font-family:'Space Mono',monospace;font-size:11px;font-weight:700;min-width:22px;height:22px;background:#e2e8f0;border:1px solid #cbd5e1;border-radius:5px;display:flex;align-items:center;justify-content:center;color:#64748b;flex-shrink:0;margin-top:2px;}
-.choice-btn:hover:not(:disabled){border-color:var(--blue);background:#eff6ff;color:var(--blue);}
+.choice-btn:hover:not(:disabled){border-color:var(--blue);background:#f1f4ff;color:var(--blue);}
 .choice-btn.ok{border-color:var(--green2);background:#ecfdf5;color:var(--green);}
 .choice-btn.ok::before{background:#d1fae5;color:var(--green);border-color:var(--green2);}
 .choice-btn.no{border-color:var(--red);background:#fef2f2;color:var(--red);}
@@ -126,7 +126,7 @@ body{font-family:'Sarabun',sans-serif;background:#f0f4f8;color:var(--text);min-h
 .chat-input{flex:1;background:var(--s1);border:2px solid var(--border);border-radius:10px;padding:12px 16px;color:var(--text);font-family:'Sarabun',sans-serif;font-size:15px;outline:none;resize:none;min-height:48px;max-height:100px;transition:all .2s;}
 .chat-input:focus{border-color:var(--blue);}
 .chat-input::placeholder{color:var(--dim);}
-.send-btn{width:48px;height:48px;background:linear-gradient(135deg,var(--blue),var(--indigo));border:none;border-radius:10px;color:white;font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;box-shadow:0 2px 10px rgba(29,106,255,0.35);}
+.send-btn{width:48px;height:48px;background:linear-gradient(135deg,var(--blue),var(--indigo));border:none;border-radius:10px;color:white;font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;box-shadow:0 2px 10px rgba(42,68,212,0.35);}
 .send-btn:hover{transform:translateY(-1px);}
 .send-btn:disabled{opacity:.3;cursor:not-allowed;transform:none;box-shadow:none;}
 
@@ -152,7 +152,7 @@ body{font-family:'Sarabun',sans-serif;background:#f0f4f8;color:var(--text);min-h
 .wi-ok{color:var(--green);font-size:13px;margin-top:3px;}
 
 /* WORKSHEET */
-.worksheet-card{background:var(--s1);border:2px solid var(--blue);border-radius:14px;padding:0;width:100%;overflow:hidden;box-shadow:0 4px 16px rgba(29,106,255,0.12);}
+.worksheet-card{background:var(--s1);border:2px solid var(--blue);border-radius:14px;padding:0;width:100%;overflow:hidden;box-shadow:0 4px 16px rgba(42,68,212,0.12);}
 .ws-header{background:linear-gradient(135deg,var(--blue),var(--indigo));padding:18px 22px;color:white;}
 .ws-title{font-family:'Prompt',sans-serif;font-size:16px;font-weight:700;margin-bottom:4px;}
 .ws-meta{font-size:12px;opacity:.85;}
@@ -160,17 +160,17 @@ body{font-family:'Sarabun',sans-serif;background:#f0f4f8;color:var(--text);min-h
 .ws-item{padding:16px;background:var(--s2);border:1px solid var(--border);border-radius:10px;margin-bottom:12px;}
 .ws-num{font-size:11px;font-family:'Space Mono',monospace;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;font-weight:700;}
 .ws-q{font-size:15px;color:var(--text);font-weight:600;margin-bottom:10px;line-height:1.7;}
-.ws-method{background:#eff6ff;border-left:3px solid var(--blue);padding:10px 14px;border-radius:0 8px 8px 0;margin-bottom:8px;font-size:13.5px;line-height:1.8;color:var(--text2);}
+.ws-method{background:#f1f4ff;border-left:3px solid var(--blue);padding:10px 14px;border-radius:0 8px 8px 0;margin-bottom:8px;font-size:13.5px;line-height:1.8;color:var(--text2);}
 .ws-ans{background:#ecfdf5;border-left:3px solid var(--green2);padding:8px 14px;border-radius:0 8px 8px 0;font-size:14px;font-weight:700;color:var(--green);}
 .ws-blank{background:#fff;border:1.5px dashed var(--border2);border-radius:8px;padding:12px 14px;margin-top:8px;font-size:13px;color:var(--dim);font-style:italic;}
 .ws-actions{display:flex;gap:10px;padding:0 22px 20px;}
 .ws-btn{flex:1;padding:12px;border:none;border-radius:9px;font-family:'Sarabun',sans-serif;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:all .2s;}
 .ws-btn.pdf{background:linear-gradient(135deg,var(--red),#b91c1c);color:white;box-shadow:0 3px 10px rgba(220,38,38,0.3);}
 .ws-btn.pdf:hover{transform:translateY(-1px);}
-.ws-btn.print{background:linear-gradient(135deg,var(--blue),var(--indigo));color:white;box-shadow:0 3px 10px rgba(29,106,255,0.3);}
+.ws-btn.print{background:linear-gradient(135deg,var(--blue),var(--indigo));color:white;box-shadow:0 3px 10px rgba(42,68,212,0.3);}
 .ws-btn.print:hover{transform:translateY(-1px);}
 
-.restart-btn{padding:13px 44px;background:linear-gradient(135deg,var(--blue),var(--indigo));border:none;border-radius:11px;color:white;font-family:'Sarabun',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 14px rgba(29,106,255,0.3);}
+.restart-btn{padding:13px 44px;background:linear-gradient(135deg,var(--blue),var(--indigo));border:none;border-radius:11px;color:white;font-family:'Sarabun',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 14px rgba(42,68,212,0.3);}
 .restart-btn:hover{transform:translateY(-2px);}
 
 /* TEACHER DASHBOARD */
@@ -221,7 +221,7 @@ body{font-family:'Sarabun',sans-serif;background:#f0f4f8;color:var(--text);min-h
 .dash-export-btn.pdf-btn:hover{background:#fee2e2;}
 .dash-close{padding:7px 16px;background:var(--s2);border:2px solid var(--border);border-radius:8px;color:var(--muted);font-family:'Sarabun',sans-serif;font-size:13px;font-weight:600;cursor:pointer;}
 .ct-shape-btn{padding:4px 10px;background:#0f172a;border:1px solid #1e3a5f;border-radius:6px;color:#64748b;font-size:11px;font-weight:600;cursor:pointer;font-family:'Sarabun',sans-serif;transition:all .15s;}
-.ct-shape-btn:hover,.ct-shape-btn.ct-active{background:#1e40af;border-color:#3b82f6;color:#bfdbfe;}
+.ct-shape-btn:hover,.ct-shape-btn.ct-active{background:#223594;border-color:#4056e0;color:#c9d3f7;}
 
 .mission-hero{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:960px;margin:18px auto 0;padding:18px 24px;background:linear-gradient(135deg,#7c3aed,#a855f7);border-radius:16px;box-shadow:0 4px 16px rgba(124,58,237,0.25);flex-wrap:wrap;}
 .mission-hero-text{color:white;}
@@ -310,38 +310,38 @@ mjx-frac {
 
 /* ===== RESEARCH DASHBOARD CSS ===== */
 #researchDash{display:none;position:fixed;inset:0;background:#f0f4f8;z-index:200;overflow-y:auto;}
-.rd-topbar{background:linear-gradient(135deg,#1e3a8a,#1d6aff);color:white;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px rgba(0,0,0,0.2);}
+.rd-topbar{background:linear-gradient(135deg,#1a2a7a,#2a44d4);color:white;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px rgba(0,0,0,0.2);}
 .rd-title{font-family:"Prompt",sans-serif;font-size:18px;font-weight:700;letter-spacing:0.5px;}
 .rd-sub{font-size:11px;opacity:0.75;margin-top:2px;}
 .rd-body{max-width:960px;margin:0 auto;padding:24px 20px 40px;}
 .rd-kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:24px;}
 .rd-kpi{background:white;border-radius:14px;padding:18px 16px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.07);border-top:4px solid var(--blue);}
-.rd-kpi.green{border-top-color:#059669;}.rd-kpi.purple{border-top-color:#7c3aed;}.rd-kpi.orange{border-top-color:#d97706;}.rd-kpi.cyan{border-top-color:#0891b2;}
+.rd-kpi.green{border-top-color:#059669;}.rd-kpi.purple{border-top-color:#7c3aed;}.rd-kpi.orange{border-top-color:#d97706;}.rd-kpi.cyan{border-top-color:#2a46d6;}
 .rd-kpi-val{font-family:"Space Mono",monospace;font-size:28px;font-weight:700;color:#0f172a;margin-bottom:4px;}
 .rd-kpi-lbl{font-size:11px;color:#64748b;font-weight:600;line-height:1.4;}
 .rd-kpi-use{font-size:10px;color:#475569;line-height:1.45;margin-top:8px;padding-top:8px;border-top:1px dashed #e2e8f0;text-align:left;}
 .rd-section{background:white;border-radius:14px;padding:20px;margin-bottom:18px;box-shadow:0 2px 12px rgba(0,0,0,0.07);}
-.rd-section h3{font-family:"Prompt",sans-serif;font-size:15px;font-weight:700;color:#1e3a8a;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #eff6ff;}
+.rd-section h3{font-family:"Prompt",sans-serif;font-size:15px;font-weight:700;color:#1a2a7a;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #f1f4ff;}
 .rd-table{width:100%;border-collapse:collapse;font-size:13px;}
-.rd-table th{background:#eff6ff;color:#1e3a8a;padding:8px 12px;text-align:left;font-weight:700;border-bottom:2px solid #bfdbfe;}
+.rd-table th{background:#f1f4ff;color:#1a2a7a;padding:8px 12px;text-align:left;font-weight:700;border-bottom:2px solid #c9d3f7;}
 .rd-table td{padding:8px 12px;border-bottom:1px solid #f1f5f9;color:#334155;}
 .rd-table tr:hover td{background:#f8fafc;}
 .rd-badge{display:inline-block;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:700;}
 .rd-badge.match{background:#dcfce7;color:#15803d;}.rd-badge.nomatch{background:#fee2e2;color:#dc2626;}
 .rd-badge.success{background:#d1fae5;color:#065f46;}.rd-badge.fail{background:#fee2e2;color:#991b1b;}.rd-badge.partial{background:#fef3c7;color:#92400e;}
 .rd-btn{padding:8px 18px;border:none;border-radius:8px;font-family:"Sarabun",sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;}
-.rd-btn.blue{background:#1d6aff;color:white;}.rd-btn.green{background:#059669;color:white;}.rd-btn.red{background:#dc2626;color:white;}
+.rd-btn.blue{background:#2a44d4;color:white;}.rd-btn.green{background:#059669;color:white;}.rd-btn.red{background:#dc2626;color:white;}
 .rd-btn:hover{opacity:0.88;transform:translateY(-1px);}
 .growth-bar{height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden;margin-top:4px;}
-.growth-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#1d6aff,#10b981);}
+.growth-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#2a44d4,#10b981);}
 #interventionModal{display:none;position:fixed;inset:0;background:rgba(15,23,42,0.7);z-index:500;align-items:center;justify-content:center;padding:16px;}
 #interventionModal.open{display:flex;}
 .iv-card{background:white;border-radius:16px;padding:28px;max-width:480px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.25);}
-.iv-title{font-family:"Prompt",sans-serif;font-size:17px;font-weight:700;color:#1e3a8a;margin-bottom:4px;}
+.iv-title{font-family:"Prompt",sans-serif;font-size:17px;font-weight:700;color:#1a2a7a;margin-bottom:4px;}
 .iv-sub{font-size:12px;color:#64748b;margin-bottom:18px;}
 .iv-check{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1.5px solid #e2e8f0;border-radius:9px;margin-bottom:8px;cursor:pointer;transition:all .15s;}
-.iv-check:hover{border-color:#1d6aff;background:#eff6ff;}
-.iv-check input{accent-color:#1d6aff;width:16px;height:16px;}
+.iv-check:hover{border-color:#2a44d4;background:#f1f4ff;}
+.iv-check input{accent-color:#2a44d4;width:16px;height:16px;}
 .iv-check label{font-size:14px;color:#334155;cursor:pointer;font-weight:500;}
 /* ═══ Teacher Confirm Modal — ครูเป็นผู้ควบคุม AI เป็นผู้ช่วย ═══ */
 #teacherConfirmModal{display:none;position:fixed;inset:0;background:rgba(15,23,42,0.7);z-index:520;align-items:center;justify-content:center;padding:16px;}
@@ -358,7 +358,7 @@ mjx-frac {
 .tc-lv.r:hover{border-color:#dc2626;background:#fef2f2;color:#dc2626;}
 .tc-next{display:flex;gap:8px;margin-top:14px;}
 .tc-next button{flex:1;padding:9px 6px;border:1.5px solid #e2e8f0;border-radius:9px;background:#f8fafc;font-family:'Sarabun',sans-serif;font-size:12.5px;font-weight:600;color:#334155;cursor:pointer;}
-.tc-next button:hover{border-color:#1d6aff;background:#eff6ff;color:#1d6aff;}
+.tc-next button:hover{border-color:#2a44d4;background:#f1f4ff;color:#2a44d4;}
 .tc-badge{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;white-space:nowrap;}
 .tc-badge.ok{background:#d1fae5;color:#047857;}
 .tc-badge.diff{background:#fef3c7;color:#b45309;}
@@ -1043,7 +1043,7 @@ function convertAllMathInDOM(selector = '[data-math]') {
     <div style="font-size:52px;margin-bottom:12px;">🌐</div>
     <div style="font-family:'Sarabun',sans-serif;font-size:20px;font-weight:800;color:#0f172a;margin-bottom:8px;">เปิดในเบราว์เซอร์ก่อนนะครับ</div>
     <div style="font-size:14px;color:#64748b;line-height:1.9;margin-bottom:20px;">NEXUS AI ไม่รองรับ <b>LINE Browser</b> ครับ<br>กรุณากดปุ่มด้านล่างเพื่อเปิดใน<br><b>Chrome</b> หรือ <b>Safari</b></div>
-    <button id="openBrowserBtn" style="width:100%;padding:16px;background:linear-gradient(135deg,#1d6aff,#4338ca);border:none;border-radius:12px;color:white;font-family:'Sarabun',sans-serif;font-size:16px;font-weight:700;cursor:pointer;margin-bottom:12px;">
+    <button id="openBrowserBtn" style="width:100%;padding:16px;background:linear-gradient(135deg,#2a44d4,#3730a8);border:none;border-radius:12px;color:white;font-family:'Sarabun',sans-serif;font-size:16px;font-weight:700;cursor:pointer;margin-bottom:12px;">
       🚀 เปิดใน Chrome / Safari
     </button>
     <div style="font-size:12px;color:#94a3b8;line-height:1.7;">หรือกด <b>··· เมนู</b> มุมขวาบน<br>แล้วเลือก <b>"เปิดใน Browser"</b></div>
@@ -1112,11 +1112,11 @@ function convertAllMathInDOM(selector = '[data-math]') {
 <div id="keyModal">
   <div class="km-card">
     <div style="display:flex;justify-content:center;margin-bottom:16px;">
-      <img src="" class="nexus-logo-img" style="width:100px;height:100px;border-radius:16px;object-fit:cover;box-shadow:0 4px 20px rgba(29,106,255,0.35);" alt="NEXUS AI Logo">
+      <img src="" class="nexus-logo-img" style="width:100px;height:100px;border-radius:16px;object-fit:cover;box-shadow:0 4px 20px rgba(42,68,212,0.35);" alt="NEXUS AI Logo">
     </div>
     <div class="km-badge">NEXUS AI FOR EDUCATION</div>
     <div class="km-title"><span>NEXUS</span> AI</div>
-    <div class="km-sub">ระบบวิเคราะห์ผู้เรียนวิชาสังคมศึกษา สาระภูมิศาสตร์ (ส 5) ด้วยปัญญาประดิษฐ์<br>อ้างอิงตัวชี้วัดหลักสูตรแกนกลางการศึกษาขั้นพื้นฐาน พุทธศักราช ๒๕๖๐</div>
+    <div class="km-sub">ระบบวิเคราะห์ผู้เรียนวิชาสังคมศึกษา ศาสนาและวัฒนธรรม (ครบ ๕ สาระ) ด้วยปัญญาประดิษฐ์<br>อ้างอิงตัวชี้วัดหลักสูตรแกนกลางการศึกษาขั้นพื้นฐาน พุทธศักราช ๒๕๖๐</div>
     <div class="km-label">API Key (Anthropic)</div>
     <input id="apiKeyInput" class="km-input" type="password" placeholder="sk-ant-api03-..." onkeydown="if(event.key==='Enter')saveKey()"/>
     <div class="km-label">รหัสผ่านครู (Teacher Password)</div>
@@ -1194,15 +1194,15 @@ function convertAllMathInDOM(selector = '[data-math]') {
 <div id="roleScreen" style="display:none;position:fixed;inset:0;background:linear-gradient(135deg,#0a1628 0%,#1a2744 50%,#0d1f3c 100%);z-index:5000;align-items:center;justify-content:center;flex-direction:column;">
   <div style="text-align:center;margin-bottom:40px;">
     
-    <div style="font-family:'Prompt',sans-serif;font-size:28px;font-weight:800;color:white;letter-spacing:-0.5px;"><img src="" class="nexus-logo-img" style="width:80px;height:80px;border-radius:14px;object-fit:cover;box-shadow:0 4px 20px rgba(29,106,255,0.4);margin-bottom:12px;display:block;margin-left:auto;margin-right:auto;" alt="NEXUS AI">
+    <div style="font-family:'Prompt',sans-serif;font-size:28px;font-weight:800;color:white;letter-spacing:-0.5px;"><img src="" class="nexus-logo-img" style="width:80px;height:80px;border-radius:14px;object-fit:cover;box-shadow:0 4px 20px rgba(42,68,212,0.4);margin-bottom:12px;display:block;margin-left:auto;margin-right:auto;" alt="NEXUS AI">
     NEXUS <span style="color:#4d9fff;">AI</span></div>
     <div style="font-size:14px;color:#94a3b8;margin-top:6px;">คุณเข้ามาในฐานะอะไร?</div>
   </div>
   <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;padding:0 20px;">
     <!-- นักเรียน -->
-    <div onclick="enterAsStudent()" style="cursor:pointer;background:linear-gradient(135deg,#1d6aff,#4d9fff);border-radius:20px;padding:32px 36px;width:200px;text-align:center;box-shadow:0 8px 32px rgba(29,106,255,0.4);transition:all .2s;border:2px solid transparent;"
-      onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 14px 40px rgba(29,106,255,0.55)'"
-      onmouseout="this.style.transform='';this.style.boxShadow='0 8px 32px rgba(29,106,255,0.4)'">
+    <div onclick="enterAsStudent()" style="cursor:pointer;background:linear-gradient(135deg,#2a44d4,#4d9fff);border-radius:20px;padding:32px 36px;width:200px;text-align:center;box-shadow:0 8px 32px rgba(42,68,212,0.4);transition:all .2s;border:2px solid transparent;"
+      onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 14px 40px rgba(42,68,212,0.55)'"
+      onmouseout="this.style.transform='';this.style.boxShadow='0 8px 32px rgba(42,68,212,0.4)'">
       <div style="font-size:48px;margin-bottom:14px;">🎓</div>
       <div style="font-family:'Prompt',sans-serif;font-size:18px;font-weight:700;color:white;margin-bottom:6px;">นักเรียน</div>
       <div style="font-size:12px;color:rgba(255,255,255,0.8);line-height:1.5;">ทำแบบทดสอบ<br>รับใบงานเฉพาะตัว</div>
@@ -1228,7 +1228,7 @@ function convertAllMathInDOM(selector = '[data-math]') {
     <input id="rolePassInput" type="password" placeholder="รหัสผ่านครู..." 
       style="width:100%;padding:12px 16px;border:2px solid #dde3ec;border-radius:10px;font-family:'Sarabun',sans-serif;font-size:15px;box-sizing:border-box;outline:none;margin-bottom:10px;"
       onkeydown="if(event.key==='Enter')checkRolePass()"
-      onfocus="this.style.borderColor='#1d6aff'" onblur="this.style.borderColor='#dde3ec'"/>
+      onfocus="this.style.borderColor='#2a44d4'" onblur="this.style.borderColor='#dde3ec'"/>
     <div id="rolePassErr" style="color:#ef4444;font-size:13px;min-height:18px;margin-bottom:10px;"></div>
     <button onclick="checkRolePass()" style="width:100%;padding:13px;background:linear-gradient(135deg,#d97706,#f59e0b);color:white;border:none;border-radius:10px;font-family:'Prompt',sans-serif;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:10px;">เข้า Dashboard →</button>
     <button onclick="closeRolePass()" style="width:100%;padding:10px;background:#f1f5f9;color:#64748b;border:none;border-radius:10px;font-family:'Sarabun',sans-serif;font-size:14px;cursor:pointer;">← กลับ</button>
@@ -1253,7 +1253,7 @@ function convertAllMathInDOM(selector = '[data-math]') {
           <div style="font-size:12px;color:#3b0764;"><strong>สร้างภารกิจ</strong> — เลือกระดับชั้น หัวข้อ แล้วส่งลิงก์ให้นักเรียน นักเรียนพิมพ์ชื่อแล้วทำข้อสอบได้ทันที</div>
         </div>
         <div style="display:flex;align-items:flex-start;gap:10px;">
-          <span style="background:#1d6aff;color:white;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap;margin-top:1px;">2</span>
+          <span style="background:#2a44d4;color:white;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap;margin-top:1px;">2</span>
           <div style="font-size:12px;color:#3b0764;"><strong>ดูผลแบบสด</strong> — เปิดติดตามสดเพื่อดูนักเรียนที่กำลังทำข้อสอบอยู่ขณะนี้</div>
         </div>
         <div style="display:flex;align-items:flex-start;gap:10px;">
@@ -1280,11 +1280,11 @@ function convertAllMathInDOM(selector = '[data-math]') {
     <div class="dash-actions-top">
       <!-- กลุ่มหลัก: ใช้บ่อย -->
       <span id="sheetsSyncStatus" style="font-size:11px;color:var(--muted);align-self:center;">💾 เฉพาะเครื่องนี้</span>
-      <button class="dash-export-btn no-print" onclick="renderDash()" style="border-color:#a5b4fc;color:#4338ca;background:#eef2ff;" title="รีเฟรชข้อมูล">🔄 รีเฟรช</button>
+      <button class="dash-export-btn no-print" onclick="renderDash()" style="border-color:#a5b4fc;color:#3730a8;background:#eef2ff;" title="รีเฟรชข้อมูล">🔄 รีเฟรช</button>
       <button class="dash-export-btn no-print" id="copyLinkBtn" onclick="copyStudentLink()" style="border-color:#6ee7b7;color:#059669;background:#ecfdf5;">🔗 ลิงก์นักเรียน</button>
       <button class="dash-export-btn no-print" onclick="openBankInvModal()" style="border-color:#5eead4;color:#0f766e;background:#f0fdfa;" title="ดูคลังข้อสอบสะสมทุกระดับชั้น">📚 คลังข้อสอบ</button>
       <button class="dash-export-btn no-print" onclick="copyTeacherLink()" style="border-color:#fbbf24;color:#d97706;background:#fffbeb;">👨‍🏫 ลิงก์ครู</button>
-      <button class="dash-export-btn no-print" onclick="showAcademicFramework()" style="border-color:#c7d2fe;color:#4338ca;background:#eef2ff;" title="กรอบทฤษฎีและงานวิจัยที่ระบบใช้ (สำหรับกรรมการ/ผู้บริหาร)">📚 กรอบวิชาการ</button>
+      <button class="dash-export-btn no-print" onclick="showAcademicFramework()" style="border-color:#c7d2fe;color:#3730a8;background:#eef2ff;" title="กรอบทฤษฎีและงานวิจัยที่ระบบใช้ (สำหรับกรรมการ/ผู้บริหาร)">📚 กรอบวิชาการ</button>
       <!-- ตัวคั่น -->
       <span style="width:1px;height:24px;background:var(--border);align-self:center;"></span>
       <!-- กลุ่มรอง: ใช้น้อย -->
@@ -1333,16 +1333,16 @@ function convertAllMathInDOM(selector = '[data-math]') {
     </div>
 
     <!-- ===== ZONE A: วิเคราะห์ห้องเรียน ===== -->
-    <div class="chart-card no-print" id="ideRunCard" style="background:linear-gradient(135deg,#0f172a,#1e3a8a);color:white;">
+    <div class="chart-card no-print" id="ideRunCard" style="background:linear-gradient(135deg,#0f172a,#1a2a7a);color:white;">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
         <div>
           <div style="font-family:'Prompt',sans-serif;font-size:16px;font-weight:700;margin-bottom:4px;">⚡ วิเคราะห์ผลการเรียนห้องนี้</div>
-          <div style="font-size:12px;color:#bfdbfe;">ระบบจะบอกใน 5 วินาทีว่า — ใครต้องช่วย · ผิดเพราะอะไร · ครูควรทำอะไรต่อไป</div>
+          <div style="font-size:12px;color:#c9d3f7;">ระบบจะบอกใน 5 วินาทีว่า — ใครต้องช่วย · ผิดเพราะอะไร · ครูควรทำอะไรต่อไป</div>
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <button onclick="runIDEngine()" style="padding:11px 24px;background:white;color:#1e3a8a;border:none;border-radius:10px;font-family:'Prompt',sans-serif;font-size:14px;font-weight:700;cursor:pointer;">⚡ วิเคราะห์ทันที</button>
+          <button onclick="runIDEngine()" style="padding:11px 24px;background:white;color:#1a2a7a;border:none;border-radius:10px;font-family:'Prompt',sans-serif;font-size:14px;font-weight:700;cursor:pointer;">⚡ วิเคราะห์ทันที</button>
           <button onclick="runIDEngineAI()" style="padding:11px 20px;background:rgba(255,255,255,0.15);color:white;border:1px solid rgba(255,255,255,0.4);border-radius:10px;font-family:'Prompt',sans-serif;font-size:13px;font-weight:600;cursor:pointer;">🤖 เชิงลึกด้วย AI</button>
-          <button onclick="showKBInspector()" style="padding:11px 20px;background:rgba(255,255,255,0.08);color:#bfdbfe;border:1px solid rgba(255,255,255,0.2);border-radius:10px;font-family:'Prompt',sans-serif;font-size:13px;cursor:pointer;">📚 คลังหลักสูตร</button>
+          <button onclick="showKBInspector()" style="padding:11px 20px;background:rgba(255,255,255,0.08);color:#c9d3f7;border:1px solid rgba(255,255,255,0.2);border-radius:10px;font-family:'Prompt',sans-serif;font-size:13px;cursor:pointer;">📚 คลังหลักสูตร</button>
         </div>
       </div>
     </div>
@@ -1362,7 +1362,7 @@ function convertAllMathInDOM(selector = '[data-math]') {
     <!-- ขั้นที่ 1: ระดับความรอบรู้ -->
     <div class="chart-card" id="ideMasteryCard">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-        <span style="background:#1e3a8a;color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;">ขั้นที่ 1</span>
+        <span style="background:#1a2a7a;color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;">ขั้นที่ 1</span>
         <div class="chart-title" style="margin-bottom:0;">📊 ระดับความรอบรู้ของห้องนี้<br><span style="font-size:11px;font-weight:400;color:#64748b;">Mastery Level Analysis</span></div>
       </div>
       <div id="ideMasteryBody"></div>
@@ -1390,10 +1390,10 @@ function convertAllMathInDOM(selector = '[data-math]') {
     </div>
 
     <!-- ขั้นที่ 4: คะแนนสุขภาพห้องเรียน -->
-    <div class="chart-card" id="ideHealthCard" style="background:linear-gradient(135deg,#1e3a8a,#1d6aff);color:white;">
+    <div class="chart-card" id="ideHealthCard" style="background:linear-gradient(135deg,#1a2a7a,#2a44d4);color:white;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
         <span style="background:rgba(255,255,255,0.25);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;">ขั้นที่ 4</span>
-        <div class="chart-title" style="margin-bottom:0;color:#bfdbfe;">🧠 คะแนนสุขภาพห้องเรียนโดยรวม<br><span style="font-size:11px;font-weight:400;color:#bfdbfe;">Classroom Health Score · สุขภาพการเรียนรู้</span></div>
+        <div class="chart-title" style="margin-bottom:0;color:#c9d3f7;">🧠 คะแนนสุขภาพห้องเรียนโดยรวม<br><span style="font-size:11px;font-weight:400;color:#c9d3f7;">Classroom Health Score · สุขภาพการเรียนรู้</span></div>
       </div>
       <div id="ideHealthBody"></div>
     </div>
@@ -1422,7 +1422,7 @@ function convertAllMathInDOM(selector = '[data-math]') {
     <!-- ขั้นที่ 7: ผลการช่วยเหลือ -->
     <div class="chart-card" id="ideInterventionCard">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-        <span style="background:#0891b2;color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;">ขั้นที่ 7</span>
+        <span style="background:#2a46d6;color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;">ขั้นที่ 7</span>
         <div class="chart-title" style="margin-bottom:0;">📈 ผลการช่วยเหลือที่ผ่านมา<br><span style="font-size:11px;font-weight:400;color:#64748b;">Intervention Outcome · บันทึกผลการช่วยเหลือ</span></div>
       </div>
       <div id="ideInterventionBody"></div>
@@ -1438,7 +1438,7 @@ function convertAllMathInDOM(selector = '[data-math]') {
     </div>
 
     <!-- สรุปท้ายสุด: 5 คำถามหลัก -->
-    <div class="chart-card" id="ideFinalCard" style="border:2px solid #1e3a8a;">
+    <div class="chart-card" id="ideFinalCard" style="border:2px solid #1a2a7a;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
         <span style="background:#0f172a;color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;">สรุป</span>
         <div class="chart-title" style="margin-bottom:0;">📋 สรุปเพื่อตัดสินใจสอน<br><span style="font-size:11px;font-weight:400;color:#64748b;">Instructional Decision Summary · 5 คำถามหลัก</span></div>
@@ -1482,7 +1482,7 @@ function convertAllMathInDOM(selector = '[data-math]') {
         <div style="display:flex;align-items:center;gap:8px;">
           <span id="liveStatus" style="font-size:11px;color:var(--muted);">ออฟไลน์</span>
           <button onclick="toggleLivePoll()" id="livePollBtn"
-            style="padding:8px 18px;background:#1d6aff;color:white;border:none;border-radius:8px;font-family:'Sarabun',sans-serif;font-size:13px;font-weight:700;cursor:pointer;">
+            style="padding:8px 18px;background:#2a44d4;color:white;border:none;border-radius:8px;font-family:'Sarabun',sans-serif;font-size:13px;font-weight:700;cursor:pointer;">
             ▶ เปิดติดตามสด
           </button>
         </div>
@@ -1601,10 +1601,10 @@ function convertAllMathInDOM(selector = '[data-math]') {
 <div id="app">
   <div class="topbar">
     <div class="tb-logo">
-      <div class="tb-icon" style="background:none;padding:0;overflow:hidden;"><img src="" class="nexus-logo-img" style="width:36px;height:36px;border-radius:9px;object-fit:cover;box-shadow:0 2px 8px rgba(29,106,255,0.3);" alt="NEXUS AI Logo"></div>
+      <div class="tb-icon" style="background:none;padding:0;overflow:hidden;"><img src="" class="nexus-logo-img" style="width:36px;height:36px;border-radius:9px;object-fit:cover;box-shadow:0 2px 8px rgba(42,68,212,0.3);" alt="NEXUS AI Logo"></div>
       <div>
         <div class="tb-name">NEXUS AI</div>
-        <div class="tb-sub">NEXUS AI · สังคมศึกษา ภูมิศาสตร์ (ส 5) • ป.1–ม.6</div>
+        <div class="tb-sub">NEXUS AI · สังคมศึกษา (๕ สาระ) • ป.1–ม.6</div>
       </div>
     </div>
     <div class="tb-right">
@@ -1661,16 +1661,16 @@ function convertAllMathInDOM(selector = '[data-math]') {
 
       <!-- ===== CUBE GENERATOR PANEL — แสดงเฉพาะหัวข้อมิติสัมพันธ์ ===== -->
       <div id="cubeToolPanel" style="display:none;margin:12px 0;">
-        <div style="background:linear-gradient(135deg,#0f172a,#1e3a5f);border:1.5px solid #3b82f6;border-radius:16px;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#0f172a,#1e3a5f);border:1.5px solid #4056e0;border-radius:16px;overflow:hidden;">
           <!-- Header -->
           <div style="padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1e3a5f;flex-wrap:wrap;gap:8px;">
             <div>
-              <div style="font-family:'Prompt',sans-serif;font-size:15px;font-weight:700;color:#bfdbfe;">🧊 เครื่องมือมิติสัมพันธ์</div>
+              <div style="font-family:'Prompt',sans-serif;font-size:15px;font-weight:700;color:#c9d3f7;">🧊 เครื่องมือมิติสัมพันธ์</div>
               <div style="font-size:11px;color:#64748b;margin-top:2px;">สร้างรูปทรงจากลูกบาศก์ · ดูภาพ 3 ด้าน · ฝึกก่อนทำข้อสอบ</div>
             </div>
             <div style="display:flex;gap:6px;flex-wrap:wrap;">
-              <button onclick="cubeRandom()" style="padding:6px 12px;background:#1e40af;color:white;border:none;border-radius:8px;font-family:'Sarabun',sans-serif;font-size:12px;font-weight:600;cursor:pointer;">🎲 สุ่ม</button>
-              <button onclick="cubeBuildShape()" style="padding:6px 12px;background:#3b82f6;color:white;border:none;border-radius:8px;font-family:'Sarabun',sans-serif;font-size:12px;font-weight:600;cursor:pointer;">🔄 สร้างใหม่</button>
+              <button onclick="cubeRandom()" style="padding:6px 12px;background:#223594;color:white;border:none;border-radius:8px;font-family:'Sarabun',sans-serif;font-size:12px;font-weight:600;cursor:pointer;">🎲 สุ่ม</button>
+              <button onclick="cubeBuildShape()" style="padding:6px 12px;background:#4056e0;color:white;border:none;border-radius:8px;font-family:'Sarabun',sans-serif;font-size:12px;font-weight:600;cursor:pointer;">🔄 สร้างใหม่</button>
               <button onclick="document.getElementById('cubeToolPanel').style.display='none'" style="padding:6px 10px;background:rgba(255,255,255,0.08);color:#94a3b8;border:1px solid #1e3a5f;border-radius:8px;font-size:12px;cursor:pointer;">✕</button>
             </div>
           </div>
@@ -1679,18 +1679,18 @@ function convertAllMathInDOM(selector = '[data-math]') {
           <div style="padding:12px 18px;display:flex;gap:12px;flex-wrap:wrap;border-bottom:1px solid #1e3a5f;align-items:center;">
             <div style="display:flex;align-items:center;gap:6px;">
               <span style="font-size:12px;color:#94a3b8;">กว้าง</span>
-              <input type="range" id="ctSizeX" min="1" max="4" value="3" oninput="cubeUpdateSlider()" style="width:60px;accent-color:#3b82f6;">
-              <span id="ctValX" style="font-family:'Space Mono',monospace;font-size:11px;color:#60a5fa;background:#1e3a5f;padding:1px 6px;border-radius:4px;">3</span>
+              <input type="range" id="ctSizeX" min="1" max="4" value="3" oninput="cubeUpdateSlider()" style="width:60px;accent-color:#4056e0;">
+              <span id="ctValX" style="font-family:'Space Mono',monospace;font-size:11px;color:#6f84ee;background:#1e3a5f;padding:1px 6px;border-radius:4px;">3</span>
             </div>
             <div style="display:flex;align-items:center;gap:6px;">
               <span style="font-size:12px;color:#94a3b8;">ลึก</span>
-              <input type="range" id="ctSizeY" min="1" max="4" value="3" oninput="cubeUpdateSlider()" style="width:60px;accent-color:#3b82f6;">
-              <span id="ctValY" style="font-family:'Space Mono',monospace;font-size:11px;color:#60a5fa;background:#1e3a5f;padding:1px 6px;border-radius:4px;">3</span>
+              <input type="range" id="ctSizeY" min="1" max="4" value="3" oninput="cubeUpdateSlider()" style="width:60px;accent-color:#4056e0;">
+              <span id="ctValY" style="font-family:'Space Mono',monospace;font-size:11px;color:#6f84ee;background:#1e3a5f;padding:1px 6px;border-radius:4px;">3</span>
             </div>
             <div style="display:flex;align-items:center;gap:6px;">
               <span style="font-size:12px;color:#94a3b8;">สูง</span>
-              <input type="range" id="ctSizeZ" min="1" max="4" value="3" oninput="cubeUpdateSlider()" style="width:60px;accent-color:#3b82f6;">
-              <span id="ctValZ" style="font-family:'Space Mono',monospace;font-size:11px;color:#60a5fa;background:#1e3a5f;padding:1px 6px;border-radius:4px;">3</span>
+              <input type="range" id="ctSizeZ" min="1" max="4" value="3" oninput="cubeUpdateSlider()" style="width:60px;accent-color:#4056e0;">
+              <span id="ctValZ" style="font-family:'Space Mono',monospace;font-size:11px;color:#6f84ee;background:#1e3a5f;padding:1px 6px;border-radius:4px;">3</span>
             </div>
             <div style="display:flex;gap:4px;flex-wrap:wrap;">
               <button onclick="cubeSetShape('stair')" class="ct-shape-btn" id="ctShapeStair">บันได</button>
@@ -1706,14 +1706,14 @@ function convertAllMathInDOM(selector = '[data-math]') {
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start;">
               <!-- Isometric -->
               <div>
-                <div style="font-size:11px;font-weight:700;color:#60a5fa;margin-bottom:6px;">🧊 ภาพ 3 มิติ (Isometric)</div>
+                <div style="font-size:11px;font-weight:700;color:#6f84ee;margin-bottom:6px;">🧊 ภาพ 3 มิติ (Isometric)</div>
                 <div style="background:#080d1a;border-radius:10px;border:1px solid #1e3a5f;overflow:hidden;">
                   <canvas id="ctIsoCanvas" style="display:block;width:100%;"></canvas>
                 </div>
               </div>
               <!-- 3 Views -->
               <div>
-                <div style="font-size:11px;font-weight:700;color:#60a5fa;margin-bottom:6px;">📐 ภาพ 3 ด้าน</div>
+                <div style="font-size:11px;font-weight:700;color:#6f84ee;margin-bottom:6px;">📐 ภาพ 3 ด้าน</div>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
                   <div>
                     <div style="font-size:10px;color:#94a3b8;text-align:center;margin-bottom:3px;">ด้านหน้า</div>
@@ -1736,7 +1736,7 @@ function convertAllMathInDOM(selector = '[data-math]') {
                   <!-- Info -->
                   <div style="background:#0f172a;border-radius:8px;border:1px solid #1e3a5f;padding:8px;display:flex;flex-direction:column;gap:4px;justify-content:center;">
                     <div style="font-size:10px;color:#94a3b8;">ลูกบาศก์ทั้งหมด</div>
-                    <div id="ctCubeCount" style="font-family:'Space Mono',monospace;font-size:22px;font-weight:700;color:#60a5fa;">0</div>
+                    <div id="ctCubeCount" style="font-family:'Space Mono',monospace;font-size:22px;font-weight:700;color:#6f84ee;">0</div>
                     <div style="font-size:9px;color:#64748b;">หน่วย</div>
                   </div>
                 </div>
@@ -1934,7 +1934,7 @@ function convertAllMathInDOM(selector = '[data-math]') {
         <button onclick="tcNext('intervention')">📋 บันทึกการ<br>ช่วยเหลือ</button>
         <button onclick="tcNext('why')">🔍 ดูเหตุผล<br>ของ AI</button>
       </div>
-      <button onclick="closeTeacherConfirm()" style="width:100%;margin-top:12px;padding:11px;border:none;border-radius:10px;background:#1e3a8a;color:white;font-family:'Sarabun',sans-serif;font-size:14px;font-weight:700;cursor:pointer;">เสร็จสิ้น — ปิดหน้าต่าง</button>
+      <button onclick="closeTeacherConfirm()" style="width:100%;margin-top:12px;padding:11px;border:none;border-radius:10px;background:#1a2a7a;color:white;font-family:'Sarabun',sans-serif;font-size:14px;font-weight:700;cursor:pointer;">เสร็จสิ้น — ปิดหน้าต่าง</button>
     </div>
 
   </div>
@@ -1954,127 +1954,271 @@ function convertAllMathInDOM(selector = '[data-math]') {
 //   track     = 'พื้นฐาน' | 'เพิ่มเติม' | 'ไม่วัดผล'
 //   subs      = สาระการเรียนรู้แกนกลางของตัวชี้วัดนั้น
 const CURRICULUM = {
-  // ★ สาระภูมิศาสตร์ (ส 5) ฉบับปรับปรุง พ.ศ. ๒๕๖๐ — จัดตามช่วงชั้น (คุณภาพผู้เรียน) + ตัวชี้วัดที่อ่านได้ชัด
-  // ⚠️ ต้นฉบับสแกน/ฟอนต์เสีย ดึงตัวชี้วัดรายชั้นครบไม่ได้ — โปรดตรวจถ้อยคำ/เติมตัวชี้วัดรายชั้นจากต้นฉบับ
+  // ★ หลักสูตรสังคมศึกษา ศาสนาและวัฒนธรรม (แกนกลาง ๒๕๕๑) ครบ 5 สาระ — ถอดจากเอกสารฉบับสมบูรณ์
+  // ⚠️ ตัวชี้วัดถอดอัตโนมัติจาก PDF (ฟอนต์ PSL) โปรดตรวจถ้อยคำกับต้นฉบับก่อนใช้จริง
   "ป.1":[
-    {topic:"ลักษณะกายภาพและเครื่องมือทางภูมิศาสตร์ (ส 5.1)",indicator:"ส 5.1 ป.1–3",track:"พื้นฐาน",
-     ind_text:"เข้าใจลักษณะทางกายภาพของสิ่งต่างๆ รอบตัวและชุมชน ตำแหน่ง–ระยะ–ทิศ ใช้แผนผัง/แผนที่/ลูกโลก/ภาพถ่ายอย่างง่าย และการเปลี่ยนแปลงทางกายภาพใกล้ตัว",
-     bounds:"ระดับ 'จบ ป.3': สิ่งรอบตัวและชุมชนใกล้ตัวเท่านั้น ใช้เครื่องมืออย่างง่าย ห้ามใช้เนื้อหาระดับที่สูงกว่า",
-     subs:["สิ่งแวดล้อมทางธรรมชาติและที่มนุษย์สร้างขึ้นรอบตัว/ชุมชน","ตำแหน่ง ระยะ ทิศ และการใช้แผนผัง/แผนที่/ลูกโลก/ภาพถ่ายอย่างง่าย","การเปลี่ยนแปลงของอากาศและลักษณะทางกายภาพที่มีผลต่อการดำเนินชีวิต"]},
-    {topic:"มนุษย์กับสิ่งแวดล้อม (ส 5.2)",indicator:"ส 5.2 ป.1–3",track:"พื้นฐาน",
-     ind_text:"เข้าใจความสัมพันธ์ระหว่างสิ่งแวดล้อมทางกายภาพกับความเป็นอยู่ ปรับตัวตามการเปลี่ยนแปลง และมีส่วนร่วมจัดการทรัพยากร–สิ่งแวดล้อมใกล้ตัว",
-     bounds:"ระดับ 'จบ ป.3': ทรัพยากร/สิ่งแวดล้อมใกล้ตัว บ้าน โรงเรียน ชุมชน",
-     subs:["สิ่งแวดล้อมทางกายภาพที่ส่งผลต่อความเป็นอยู่ของมนุษย์","การใช้ทรัพยากรธรรมชาติอย่างคุ้มค่า","มีส่วนร่วมในการจัดการสิ่งแวดล้อมในชุมชน (ตย. ส 5.2 ป.3/6)"]}
+    {topic:"ศาสนา ศีลธรรม จริยธรรม (ส 1)",indicator:"ส 1.1 / ส 1.2 ป.1",track:"พื้นฐาน",
+     ind_text:"เข้าใจประวัติ ความสำคัญ หลักธรรมของศาสนาที่ตนนับถือ และปฏิบัติตนเป็นศาสนิกชนที่ดี",
+     bounds:"ตามตัวชี้วัดชั้น ป.1 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["บอกพุทธประวัติหรือประวัติของ ศาสดาที่ตนนับถือโดยสังเขป","ชื่นชมและบอกแบบอย่างการ ดำเนินชีวิตและข้อคิดจาก ประวัติสาวก ชาดก เรื่องเล่าและ ศาสนิกชนตัวอย่างตามที่กำหนด","บอกความหมาย ความสำคัญ และเคารพพระรัตนตรัย ปฏิบัติ ตามหลักธรรมโอวาท ๓ ในพระพุทธศาสนา หรือหลักธรรม ของศาสนาที่ตนนับถือตามที่กำหนด","เห็นคุณค่าและสวดมนต์ แผ่เมตตา มีสติที่เป็นพื้นฐานของสมาธิ ในพระพุทธศาสนาหรือการพัฒนาจิต ตามแนวทางของศาสนาที่ตนนับถือ ตามที่กำหนด","ชื่นชมและบอกแบบอย่าง การดำเนินชีวิตและข้อคิด จากประวัติสาวก ชาดก เรื่องเล่า และศาสนิกชนตัวอย่าง ตามที่กำหนด","บำเพ็ญประโยชน์ต่อวัด หรือศาสนสถานของศาสนา ที่ตนนับถือ","แสดงตนเป็นพุทธมามกะหรือ แสดงตนเป็นศาสนิกชนของศาสนา ที่ตนนับถือ","ปฏิบัติตนในศาสนพิธี พิธีกรรม และวันสำคัญทางศาสนาตามที่ กำหนดได้ถูกต้อง"]},
+    {topic:"หน้าที่พลเมือง วัฒนธรรม (ส 2)",indicator:"ส 2.1 / ส 2.2 ป.1",track:"พื้นฐาน",
+     ind_text:"ปฏิบัติตนเป็นพลเมืองดี เข้าใจวัฒนธรรม ประเพณี และระบบการเมืองการปกครองแบบประชาธิปไตย",
+     bounds:"ตามตัวชี้วัดชั้น ป.1 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["บอกประโยชน์และปฏิบัติตน เป็นสมาชิกที่ดีของครอบครัว และโรงเรียน","ยกตัวอย่างความสามารถและ ความดีของตนเอง ผู้อื่น และบอกผลจากการกระทำนั้น","บอกโครงสร้าง บทบาท และหน้าที่ ของสมาชิกในครอบครัวและโรงเรียน","ระบุบทบาท สิทธิ หน้าที่ของตนเอง ในครอบครัวและโรงเรียน","มีส่วนร่วมในการตัดสินใจและ ทำกิจกรรมในครอบครัวและโรงเรียน ตามกระบวนการประชาธิปไตย"]},
+    {topic:"เศรษฐศาสตร์ (ส 3)",indicator:"ส 3.1 / ส 3.2 ป.1",track:"พื้นฐาน",
+     ind_text:"เข้าใจการบริหารจัดการทรัพยากร การผลิต–บริโภค การเงิน และระบบเศรษฐกิจ",
+     bounds:"ตามตัวชี้วัดชั้น ป.1 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ระบุสินค้าและบริการที่ใช้ประโยชน์ ในชีวิตประจำวัน","ยกตัวอย่างการใช้จ่ายเงิน ในชีวิตประจำวันที่ไม่เกินตัวและ เห็นประโยชน์ของการออม","ยกตัวอย่างการใช้ทรัพยากร ในชีวิตประจำวันอย่างประหยัด","ระบุทรัพยากรที่นำมาผลิตสินค้าและ บริการที่ใช้ในชีวิตประจำวัน","บอกที่มาของรายได้และรายจ่าย ของตนเองและครอบครัว","บันทึกรายรับ-รายจ่ายของตนเอง","สรุปผลดีของการใช้จ่ายที่เหมาะสม กับรายได้และการออม","อธิบายเหตุผลความจำเป็นที่คน ต้องทำงานอย่างสุจริต"]},
+    {topic:"ประวัติศาสตร์ (ส 4)",indicator:"ส 4.1 / ส 4.2 / ส 4.3 ป.1",track:"พื้นฐาน",
+     ind_text:"เข้าใจเวลา ยุคสมัย วิธีการทางประวัติศาสตร์ และพัฒนาการของมนุษยชาติและชาติไทย",
+     bounds:"ตามตัวชี้วัดชั้น ป.1 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["บอกวัน เดือน ปี และการนับช่วง เวลาตามปฏิทินที่ใช้ในชีวิตประจำวัน","เรียงลำดับเหตุการณ์ในชีวิตประจำวัน ตามวันเวลาที่เกิดขึ้น","บอกประวัติความเป็นมาของตนเอง และครอบครัวโดยสอบถาม ผู้เกี่ยวข้อง","บอกความเปลี่ยนแปลงของ สภาพแวดล้อม สิ่งของ เครื่องใช้ หรือการดำเนินชีวิตของตนเอง กับสมัยของพ่อแม่ ปู่ย่า ตายาย","บอกเหตุการณ์ที่เกิดขึ้นในอดีต ที่มีผลกระทบต่อตนเองในปัจจุบัน","อธิบายความหมายและความสำคัญ ของสัญลักษณ์สำคัญของชาติไทย และปฏิบัติตนได้ถูกต้อง","บอกสถานที่สำคัญซึ่งเป็นแหล่ง วัฒนธรรมในชุมชน","ระบุสิ่งที่ตนรักและภาคภูมิใจ ในท้องถิ่น"]},
+    {topic:"ภูมิศาสตร์ (ส 5)",indicator:"ส 5.1 / ส 5.2 ป.1",track:"พื้นฐาน",
+     ind_text:"เข้าใจลักษณะทางกายภาพ ใช้เครื่องมือทางภูมิศาสตร์ และปฏิสัมพันธ์ระหว่างมนุษย์กับสิ่งแวดล้อม",
+     bounds:"ตามตัวชี้วัดชั้น ป.1 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["แยกแยะสิ่งต่าง ๆ รอบตัวที่เกิดขึ้นเอง ตามธรรมชาติและที่มนุษย์สร้างขึ้น","ระบุความสัมพันธ์ของตำแหน่ง ระยะ ทิศของสิ่งต่าง ๆ รอบตัว","ระบุทิศหลักและที่ตั้งของสิ่งต่าง ๆ","ใช้แผนผังง่าย ๆ ในการแสดงตำแหน่ง ของสิ่งต่าง ๆ ในห้องเรียน","สังเกตและบอกการเปลี่ยนแปลง ของสภาพอากาศในรอบวัน","บอกสิ่งต่าง ๆ ที่เกิดตามธรรมชาติ ที่ส่งผลต่อความเป็นอยู่ของมนุษย์","สังเกตและเปรียบเทียบการ เปลี่ยนแปลงของสภาพแวดล้อม ที่อยู่รอบตัว","มีส่วนร่วมในการจัดระเบียบสิ่งแวดล้อม ที่บ้านและชั้นเรียน"]}
   ],
   "ป.2":[
-    {topic:"ลักษณะกายภาพและเครื่องมือทางภูมิศาสตร์ (ส 5.1)",indicator:"ส 5.1 ป.1–3",track:"พื้นฐาน",
-     ind_text:"เข้าใจลักษณะทางกายภาพของสิ่งต่างๆ รอบตัวและชุมชน ตำแหน่ง–ระยะ–ทิศ ใช้แผนผัง/แผนที่/ลูกโลก/ภาพถ่ายอย่างง่าย และการเปลี่ยนแปลงทางกายภาพใกล้ตัว",
-     bounds:"ระดับ 'จบ ป.3': สิ่งรอบตัวและชุมชนใกล้ตัวเท่านั้น ใช้เครื่องมืออย่างง่าย ห้ามใช้เนื้อหาระดับที่สูงกว่า",
-     subs:["สิ่งแวดล้อมทางธรรมชาติและที่มนุษย์สร้างขึ้นรอบตัว/ชุมชน","ตำแหน่ง ระยะ ทิศ และการใช้แผนผัง/แผนที่/ลูกโลก/ภาพถ่ายอย่างง่าย","การเปลี่ยนแปลงของอากาศและลักษณะทางกายภาพที่มีผลต่อการดำเนินชีวิต"]},
-    {topic:"มนุษย์กับสิ่งแวดล้อม (ส 5.2)",indicator:"ส 5.2 ป.1–3",track:"พื้นฐาน",
-     ind_text:"เข้าใจความสัมพันธ์ระหว่างสิ่งแวดล้อมทางกายภาพกับความเป็นอยู่ ปรับตัวตามการเปลี่ยนแปลง และมีส่วนร่วมจัดการทรัพยากร–สิ่งแวดล้อมใกล้ตัว",
-     bounds:"ระดับ 'จบ ป.3': ทรัพยากร/สิ่งแวดล้อมใกล้ตัว บ้าน โรงเรียน ชุมชน",
-     subs:["สิ่งแวดล้อมทางกายภาพที่ส่งผลต่อความเป็นอยู่ของมนุษย์","การใช้ทรัพยากรธรรมชาติอย่างคุ้มค่า","มีส่วนร่วมในการจัดการสิ่งแวดล้อมในชุมชน (ตย. ส 5.2 ป.3/6)"]}
+    {topic:"ศาสนา ศีลธรรม จริยธรรม (ส 1)",indicator:"ส 1.1 / ส 1.2 ป.2",track:"พื้นฐาน",
+     ind_text:"เข้าใจประวัติ ความสำคัญ หลักธรรมของศาสนาที่ตนนับถือ และปฏิบัติตนเป็นศาสนิกชนที่ดี",
+     bounds:"ตามตัวชี้วัดชั้น ป.2 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["บอกความสำคัญของ พระพุทธศาสนาหรือศาสนา ที่ตนนับถือ","สรุปพุทธประวัติตั้งแต่ประสูติจนถึง การออกผนวชหรือประวัติศาสดา ที่ตนนับถือตามที่กำหนด","ชื่นชมการทำความดีของตนเอง บุคคลในครอบครัวและในโรงเรียน ตามหลักศาสนา","เห็นคุณค่าและสวดมนต์ แผ่เมตตา มีสติที่เป็นพื้นฐานของสมาธิ ในพระพุทธศาสนาหรือการพัฒนาจิต ตามแนวทางของศาสนาที่ตนนับถือ ตามที่กำหนด","บอกชื่อศาสนา ศาสดา และความ สำคัญของคัมภีร์ของศาสนาที่ตน นับถือและศาสนาอื่น ๆ","บอกความหมาย ความสำคัญของ พระไตรปิฎก หรือคัมภีร์ของศาสนา ที่ตนนับถือ","แสดงความเคารพพระรัตนตรัย และปฏิบัติตามหลักธรรมโอวาท ๓ ในพระพุทธศาสนาหรือหลักธรรม ของศาสนาที่ตนนับถือตามที่กำหนด","ปฏิบัติตนอย่างเหมาะสมต่อสาวก ของศาสนาที่ตนนับถือตามที่กำหนด ได้ถูกต้อง"]},
+    {topic:"หน้าที่พลเมือง วัฒนธรรม (ส 2)",indicator:"ส 2.1 / ส 2.2 ป.2",track:"พื้นฐาน",
+     ind_text:"ปฏิบัติตนเป็นพลเมืองดี เข้าใจวัฒนธรรม ประเพณี และระบบการเมืองการปกครองแบบประชาธิปไตย",
+     bounds:"ตามตัวชี้วัดชั้น ป.2 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ปฏิบัติตนตามข้อตกลง กติกา กฎ ระเบียบ และหน้าที่ที่ต้องปฏิบัติ ในชีวิตประจำวัน","ปฏิบัติตนตามมารยาทไทย","แสดงพฤติกรรมในการยอมรับ ความคิด ความเชื่อ และการปฏิบัติ ของบุคคลอื่นที่แตกต่างกัน โดยปราศจากอคติ","เคารพในสิทธิเสรีภาพของตนเอง และผู้อื่น","อธิบายความสัมพันธ์ของตนเอง และสมาชิกในครอบครัวในฐานะ เป็นส่วนหนึ่งของชุมชน"]},
+    {topic:"เศรษฐศาสตร์ (ส 3)",indicator:"ส 3.1 / ส 3.2 ป.2",track:"พื้นฐาน",
+     ind_text:"เข้าใจการบริหารจัดการทรัพยากร การผลิต–บริโภค การเงิน และระบบเศรษฐกิจ",
+     bounds:"ตามตัวชี้วัดชั้น ป.2 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["อธิบายได้ว่าทรัพยากรที่มีอยู่จำกัด มีผลต่อการผลิตและบริโภคสินค้า และบริการ","อธิบายการแลกเปลี่ยนสินค้าและ บริการโดยวิธีต่าง ๆ","บอกความสัมพันธ์ระหว่างผู้ซื้อ และผู้ขาย"]},
+    {topic:"ประวัติศาสตร์ (ส 4)",indicator:"ส 4.1 / ส 4.2 / ส 4.3 ป.2",track:"พื้นฐาน",
+     ind_text:"เข้าใจเวลา ยุคสมัย วิธีการทางประวัติศาสตร์ และพัฒนาการของมนุษยชาติและชาติไทย",
+     bounds:"ตามตัวชี้วัดชั้น ป.2 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ใช้คำระบุเวลาที่แสดงเหตุการณ์ ในอดีต ปัจจุบัน และอนาคต","ลำดับเหตุการณ์ที่เกิดขึ้นใน ครอบครัวหรือในชีวิตของตนเอง โดยใช้หลักฐานที่เกี่ยวข้อง","สืบค้นถึงการเปลี่ยนแปลงในวิถีชีวิต ประจำวันของคนในชุมชนของตน จากอดีตถึงปัจจุบัน","อธิบายผลกระทบของ การเปลี่ยนแปลงที่มีต่อวิถีชีวิต ของคนในชุมชน","ระบุบุคคลที่ทำประโยชน์ต่อท้องถิ่น หรือประเทศชาติ","ยกตัวอย่างวัฒนธรรม ประเพณี และภูมิปัญญาไทยที่ภาคภูมิใจ และควรอนุรักษ์ไว้"]},
+    {topic:"ภูมิศาสตร์ (ส 5)",indicator:"ส 5.1 / ส 5.2 ป.2",track:"พื้นฐาน",
+     ind_text:"เข้าใจลักษณะทางกายภาพ ใช้เครื่องมือทางภูมิศาสตร์ และปฏิสัมพันธ์ระหว่างมนุษย์กับสิ่งแวดล้อม",
+     bounds:"ตามตัวชี้วัดชั้น ป.2 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ระบุสิ่งต่าง ๆ ที่เป็นธรรมชาติกับ ที่มนุษย์สร้างขึ้น ซึ่งปรากฏระหว่าง โรงเรียนกับบ้าน","ระบุตำแหน่งอย่างง่ายและลักษณะ ทางกายภาพของสิ่งต่าง ๆ ที่ปรากฏ ในลูกโลก แผนที่ แผนผัง และภาพถ่าย","อธิบายความสัมพันธ์ของ ปรากฏการณ์ระหว่างโลก ดวงอาทิตย์และดวงจันทร์ เช่น ภูเขา ที่ราบ แม่น้ำ ต้นไม้ อากาศ ทะเล","อธิบายความสำคัญและคุณค่า ของสิ่งแวดล้อมทางธรรมชาติและ ทางสังคม","แยกแยะและใช้ทรัพยากรธรรมชาติ ที่ใช้แล้วไม่หมดไปและที่ใช้แล้ว หมดไปได้อย่างคุ้มค่า","อธิบายความสัมพันธ์ของฤดูกาลกับ การดำเนินชีวิตของมนุษย์","มีส่วนร่วมในการฟื้นฟู ปรับปรุง สิ่งแวดล้อมในโรงเรียนและชุมชน"]}
   ],
   "ป.3":[
-    {topic:"ลักษณะกายภาพและเครื่องมือทางภูมิศาสตร์ (ส 5.1)",indicator:"ส 5.1 ป.1–3",track:"พื้นฐาน",
-     ind_text:"เข้าใจลักษณะทางกายภาพของสิ่งต่างๆ รอบตัวและชุมชน ตำแหน่ง–ระยะ–ทิศ ใช้แผนผัง/แผนที่/ลูกโลก/ภาพถ่ายอย่างง่าย และการเปลี่ยนแปลงทางกายภาพใกล้ตัว",
-     bounds:"ระดับ 'จบ ป.3': สิ่งรอบตัวและชุมชนใกล้ตัวเท่านั้น ใช้เครื่องมืออย่างง่าย ห้ามใช้เนื้อหาระดับที่สูงกว่า",
-     subs:["สิ่งแวดล้อมทางธรรมชาติและที่มนุษย์สร้างขึ้นรอบตัว/ชุมชน","ตำแหน่ง ระยะ ทิศ และการใช้แผนผัง/แผนที่/ลูกโลก/ภาพถ่ายอย่างง่าย","การเปลี่ยนแปลงของอากาศและลักษณะทางกายภาพที่มีผลต่อการดำเนินชีวิต"]},
-    {topic:"มนุษย์กับสิ่งแวดล้อม (ส 5.2)",indicator:"ส 5.2 ป.1–3",track:"พื้นฐาน",
-     ind_text:"เข้าใจความสัมพันธ์ระหว่างสิ่งแวดล้อมทางกายภาพกับความเป็นอยู่ ปรับตัวตามการเปลี่ยนแปลง และมีส่วนร่วมจัดการทรัพยากร–สิ่งแวดล้อมใกล้ตัว",
-     bounds:"ระดับ 'จบ ป.3': ทรัพยากร/สิ่งแวดล้อมใกล้ตัว บ้าน โรงเรียน ชุมชน",
-     subs:["สิ่งแวดล้อมทางกายภาพที่ส่งผลต่อความเป็นอยู่ของมนุษย์","การใช้ทรัพยากรธรรมชาติอย่างคุ้มค่า","มีส่วนร่วมในการจัดการสิ่งแวดล้อมในชุมชน (ตย. ส 5.2 ป.3/6)"]}
+    {topic:"ศาสนา ศีลธรรม จริยธรรม (ส 1)",indicator:"ส 1.1 / ส 1.2 ป.3",track:"พื้นฐาน",
+     ind_text:"เข้าใจประวัติ ความสำคัญ หลักธรรมของศาสนาที่ตนนับถือ และปฏิบัติตนเป็นศาสนิกชนที่ดี",
+     bounds:"ตามตัวชี้วัดชั้น ป.3 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["อธิบายความสำคัญของ พระพุทธศาสนาหรือศาสนา ที่ตนนับถือ ในฐานะที่เป็นรากฐาน สำคัญของวัฒนธรรมไทย","สรุปพุทธประวัติตั้งแต่การบำเพ็ญเพียร จนถึงปรินิพพาน หรือประวัติของ ศาสดาที่ตนนับถือตามที่กำหนด","ชื่นชมและบอกแบบอย่าง การดำเนินชีวิตและข้อคิดจาก ประวัติสาวก ชาดก เรื่องเล่าและ ศาสนิกชนตัวอย่างตามที่กำหนด","เห็นคุณค่าและสวดมนต์ แผ่เมตตา มีสติที่เป็นพื้นฐานของสมาธิ ในพระพุทธศาสนา หรือการพัฒนาจิต ตามแนวทางของศาสนาที่ตนนับถือ ตามที่กำหนด","บอกชื่อ ความสำคัญและปฏิบัติตน ได้อย่างเหมาะสมต่อศาสนวัตถุ ศาสนสถาน และศาสนบุคคล ของศาสนาอื่น ๆ","สรุปพุทธประวัติตั้งแต่บรรลุธรรม จนถึงประกาศธรรม หรือประวัติ ศาสดาที่ตนนับถือตามที่กำหนด","เห็นคุณค่าและปฏิบัติตน ตามแบบอย่างการดำเนินชีวิต และข้อคิดจากประวัติสาวก ชาดก เรื่องเล่าและศาสนิกชนตัวอย่าง ตามที่กำหนด","แสดงความเคารพพระรัตนตรัย ปฏิบัติตามไตรสิกขาและหลักธรรม โอวาท ๓ ในพระพุทธศาสนา หรือ หลักธรรมของศาสนาที่ตนนับถือ ตามที่กำหนด"]},
+    {topic:"หน้าที่พลเมือง วัฒนธรรม (ส 2)",indicator:"ส 2.1 / ส 2.2 ป.3",track:"พื้นฐาน",
+     ind_text:"ปฏิบัติตนเป็นพลเมืองดี เข้าใจวัฒนธรรม ประเพณี และระบบการเมืองการปกครองแบบประชาธิปไตย",
+     bounds:"ตามตัวชี้วัดชั้น ป.3 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["สรุปประโยชน์และปฏิบัติตน ตามประเพณีและวัฒนธรรม ในครอบครัวและท้องถิ่น","บอกพฤติกรรมการดำเนินชีวิต ของตนเองและผู้อื่นที่อยู่ในกระแส วัฒนธรรมที่หลากหลาย","อธิบายความสำคัญของวันหยุด ราชการที่สำคัญ","ยกตัวอย่างบุคคลซึ่งมีผลงานที่เป็น ประโยชน์แก่ชุมชนและท้องถิ่นของตน","อธิบายความแตกต่างทางวัฒนธรรม ของกลุ่มคนในท้องถิ่น","เสนอวิธีการที่จะอยู่ร่วมกัน อย่างสันติสุขในชีวิตประจำวัน","ระบุบทบาทหน้าที่ของสมาชิก ของชุมชนในการมีส่วนร่วม ในกิจกรรมต่าง ๆ ตามกระบวนการ ประชาธิปไตย","วิเคราะห์ความแตกต่าง ของกระบวนการการตัดสินใจ ในชั้นเรียน โรงเรียนและชุมชน โดยวิธีการออกเสียงโดยตรงและ การเลือกตัวแทนออกเสียง"]},
+    {topic:"เศรษฐศาสตร์ (ส 3)",indicator:"ส 3.1 / ส 3.2 ป.3",track:"พื้นฐาน",
+     ind_text:"เข้าใจการบริหารจัดการทรัพยากร การผลิต–บริโภค การเงิน และระบบเศรษฐกิจ",
+     bounds:"ตามตัวชี้วัดชั้น ป.3 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["จำแนกความต้องการและ ความจำเป็นในการใช้สินค้าและ บริการในการดำรงชีวิต","วิเคราะห์การใช้จ่ายของตนเอง","บอกสินค้าและบริการที่รัฐจัดหา และให้บริการแก่ประชาชน","บอกความสำคัญของภาษีและ บทบาทของประชาชนในการ เสียภาษี","อธิบายเหตุผลการแข่งขันทาง การค้าที่มีผลทำให้ราคาสินค้าลดลง"]},
+    {topic:"ประวัติศาสตร์ (ส 4)",indicator:"ส 4.1 / ส 4.2 / ส 4.3 ป.3",track:"พื้นฐาน",
+     ind_text:"เข้าใจเวลา ยุคสมัย วิธีการทางประวัติศาสตร์ และพัฒนาการของมนุษยชาติและชาติไทย",
+     bounds:"ตามตัวชี้วัดชั้น ป.3 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["เทียบศักราชที่สำคัญตามปฏิทิน ที่ใช้ในชีวิตประจำวัน","แสดงลำดับเหตุการณ์สำคัญของ โรงเรียนและชุมชนโดยระบุหลักฐาน และแหล่งข้อมูลที่เกี่ยวข้อง","ระบุปัจจัยที่มีอิทธิพลต่อการ ตั้งถิ่นฐานและพัฒนาการของ ชุมชน","สรุปลักษณะที่สำคัญ ของขนบธรรมเนียม ประเพณี และวัฒนธรรมของชุมชน","เปรียบเทียบความเหมือน และความต่างทางวัฒนธรรม ของชุมชนตนเองกับชุมชนอื่น ๆ"]},
+    {topic:"ภูมิศาสตร์ (ส 5)",indicator:"ส 5.1 / ส 5.2 ป.3",track:"พื้นฐาน",
+     ind_text:"เข้าใจลักษณะทางกายภาพ ใช้เครื่องมือทางภูมิศาสตร์ และปฏิสัมพันธ์ระหว่างมนุษย์กับสิ่งแวดล้อม",
+     bounds:"ตามตัวชี้วัดชั้น ป.3 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ใช้แผนที่ แผนผังและภาพถ่ายในการ หาข้อมูลทางภูมิศาสตร์ในชุมชนได้ อย่างมีประสิทธิภาพ","เขียนแผนผังง่าย ๆ เพื่อแสดง ตำแหน่งที่ตั้งของสถานที่สำคัญ ในบริเวณโรงเรียนและชุมชน","บอกความสัมพันธ์ของลักษณะ กายภาพกับลักษณะทางสังคม ของชุมชน","เปรียบเทียบการเปลี่ยนแปลง สภาพแวดล้อมในชุมชนจากอดีต ถึงปัจจุบัน","อธิบายการพึ่งพาสิ่งแวดล้อมและ ทรัพยากรธรรมชาติในการสนอง ความต้องการพื้นฐานของมนุษย์ และการประกอบอาชีพ","อธิบายเกี่ยวกับมลพิษและการ ก่อให้เกิดมลพิษโดยมนุษย์","อธิบายความแตกต่างของเมือง และชนบท","ตระหนักถึงการเปลี่ยนแปลง ของสิ่งแวดล้อมในชุมชน"]}
   ],
   "ป.4":[
-    {topic:"ลักษณะกายภาพและเครื่องมือทางภูมิศาสตร์ (ส 5.1)",indicator:"ส 5.1 ป.4–6",track:"ประยุกต์",
-     ind_text:"เข้าใจลักษณะทางกายภาพ ภัยพิบัติ และลักษณะกิจกรรมทางเศรษฐกิจของจังหวัด/ภาค/ประเทศไทย ใช้แผนที่และเครื่องมือทางภูมิศาสตร์สืบค้น–วิเคราะห์ข้อมูล",
-     bounds:"ระดับ 'จบ ป.6': ระดับจังหวัด ภาค และประเทศไทย",
-     subs:["ลักษณะทางกายภาพและภัยพิบัติในจังหวัด/ภาค/ประเทศไทย","การใช้แผนที่ ลูกโลก และเครื่องมือทางภูมิศาสตร์","ความสัมพันธ์ระหว่างลักษณะกายภาพกับกิจกรรมทางเศรษฐกิจ"]},
-    {topic:"มนุษย์กับสิ่งแวดล้อม (ส 5.2)",indicator:"ส 5.2 ป.4–6",track:"ประยุกต์",
-     ind_text:"เข้าใจปฏิสัมพันธ์ระหว่างมนุษย์กับสิ่งแวดล้อม เตรียมรับมือการเปลี่ยนแปลงทางกายภาพและภัยพิบัติ และหาแนวทางจัดการทรัพยากร–สิ่งแวดล้อม",
-     bounds:"ระดับ 'จบ ป.6': ระดับจังหวัด ภาค และประเทศไทย",
-     subs:["การเตรียมรับมือการเปลี่ยนแปลงทางกายภาพและภัยพิบัติ","การใช้ทรัพยากรอย่างรับผิดชอบและยั่งยืน","แนวทางการจัดการทรัพยากรและสิ่งแวดล้อมในท้องถิ่น/ประเทศ"]}
+    {topic:"ศาสนา ศีลธรรม จริยธรรม (ส 1)",indicator:"ส 1.1 / ส 1.2 ป.4",track:"พื้นฐาน",
+     ind_text:"เข้าใจประวัติ ความสำคัญ หลักธรรมของศาสนาที่ตนนับถือ และปฏิบัติตนเป็นศาสนิกชนที่ดี",
+     bounds:"ตามตัวชี้วัดชั้น ป.4 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["อธิบายความสำคัญของ พระพุทธศาสนา หรือศาสนา ที่ตนนับถือ ในฐานะเป็นศูนย์รวมจิตใจ ของศาสนิกชน","ชื่นชมการทำความดีของตนเอง บุคคลในครอบครัว โรงเรียน และชุมชนตามหลักศาสนา พร้อมทั้ง บอกแนวปฏิบัติในการดำเนินชีวิต","เห็นคุณค่าและสวดมนต์ แผ่เมตตา มีสติที่เป็นพื้นฐานของสมาธิ ในพระพุทธศาสนา หรือการพัฒนาจิต ตามแนวทางของศาสนาที่ตนนับถือ ตามที่กำหนด","ปฏิบัติตนตามหลักธรรมของศาสนา ที่ตนนับถือ เพื่อการอยู่ร่วมกัน เป็นชาติได้อย่างสมานฉันท์","อธิบายประวัติศาสดาของศาสนา อื่น ๆ โดยสังเขป","เห็นคุณค่าและประพฤติตน ตามแบบอย่างการดำเนินชีวิต และข้อคิดจากประวัติสาวก ชาดก เรื่องเล่าและศาสนิกชนตัวอย่าง ตามที่กำหนด","อธิบายองค์ประกอบ และความสำคัญของพระไตรปิฎก หรือคัมภีร์ของศาสนาที่ตนนับถือ","แสดงความเคารพพระรัตนตรัย และปฏิบัติตามไตรสิกขา และหลักธรรมโอวาท ๓ ในพระพุทธศาสนาหรือหลักธรรม ของศาสนาที่ตนนับถือตามที่กำหนด"]},
+    {topic:"หน้าที่พลเมือง วัฒนธรรม (ส 2)",indicator:"ส 2.1 / ส 2.2 ป.4",track:"พื้นฐาน",
+     ind_text:"ปฏิบัติตนเป็นพลเมืองดี เข้าใจวัฒนธรรม ประเพณี และระบบการเมืองการปกครองแบบประชาธิปไตย",
+     bounds:"ตามตัวชี้วัดชั้น ป.4 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ปฏิบัติตนเป็นพลเมืองดีตามวิถี ประชาธิปไตยในฐานะสมาชิกที่ดี ของชุมชน","ปฏิบัติตนในการเป็นผู้นำ และผู้ตามที่ดี","วิเคราะห์สิทธิพื้นฐานที่เด็กทุกคน พึงได้รับตามกฎหมาย","อธิบายอำนาจอธิปไตยและ ความสำคัญของระบอบประชาธิปไตย","อธิบายบทบาท หน้าที่ของพลเมือง ในกระบวนการเลือกตั้ง","อธิบายความสำคัญของสถาบัน พระมหากษัตริย์ตามระบอบ ประชาธิปไตยอันมีพระมหากษัตริย์ ทรงเป็นประมุข"]},
+    {topic:"เศรษฐศาสตร์ (ส 3)",indicator:"ส 3.1 / ส 3.2 ป.4",track:"พื้นฐาน",
+     ind_text:"เข้าใจการบริหารจัดการทรัพยากร การผลิต–บริโภค การเงิน และระบบเศรษฐกิจ",
+     bounds:"ตามตัวชี้วัดชั้น ป.4 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ระบุปัจจัยที่มีผลต่อการเลือกซื้อ สินค้าและบริการ","บอกสิทธิพื้นฐานและรักษา ผลประโยชน์ของตนเองในฐานะ ผู้บริโภค","อธิบายหลักการของเศรษฐกิจ พอเพียงและนำไปใช้ในชีวิต ประจำวันของตนเอง","อธิบายความสัมพันธ์ทางเศรษฐกิจ ของคนในชุมชน"]},
+    {topic:"ประวัติศาสตร์ (ส 4)",indicator:"ส 4.1 / ส 4.2 / ส 4.3 ป.4",track:"พื้นฐาน",
+     ind_text:"เข้าใจเวลา ยุคสมัย วิธีการทางประวัติศาสตร์ และพัฒนาการของมนุษยชาติและชาติไทย",
+     bounds:"ตามตัวชี้วัดชั้น ป.4 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["นับช่วงเวลาเป็นทศวรรษ ศตวรรษ และสหัสวรรษ","อธิบายยุคสมัยในการศึกษาประวัติ ของมนุษยชาติโดยสังเขป","แยกแยะประเภทหลักฐานที่ใช้ใน การศึกษาความเป็นมาของท้องถิ่น","อธิบายการตั้งหลักแหล่งและพัฒนาการ ของมนุษย์ยุคก่อนประวัติศาสตร์ และยุคประวัติศาสตร์โดยสังเขป","ยกตัวอย่างหลักฐานทางประวัติศาสตร์ ที่พบในท้องถิ่นที่แสดงพัฒนาการ ของมนุษยชาติในดินแดนไทย","บอกประวัติและผลงานของบุคคล สำคัญสมัยสุโขทัย","อธิบายภูมิปัญญาไทยที่สำคัญ สมัยสุโขทัยที่น่าภาคภูมิใจ และควรค่าแก่การอนุรักษ์"]},
+    {topic:"ภูมิศาสตร์ (ส 5)",indicator:"ส 5.1 / ส 5.2 ป.4",track:"พื้นฐาน",
+     ind_text:"เข้าใจลักษณะทางกายภาพ ใช้เครื่องมือทางภูมิศาสตร์ และปฏิสัมพันธ์ระหว่างมนุษย์กับสิ่งแวดล้อม",
+     bounds:"ตามตัวชี้วัดชั้น ป.4 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ใช้แผนที่ ภาพถ่ายระบุลักษณะสำคัญ ทางกายภาพของจังหวัดตนเอง","ระบุแหล่งทรัพยากรและสิ่งต่าง ๆ ในจังหวัดของตนเองด้วยแผนที่","ใช้แผนที่อธิบายความสัมพันธ์ ของสิ่งต่าง ๆ ที่มีอยู่ในจังหวัด","อธิบายสภาพแวดล้อมทางกายภาพ ของชุมชนที่ส่งผลต่อการดำเนินชีวิต ของคนในจังหวัด","อธิบายการเปลี่ยนแปลงสภาพแวดล้อม ในจังหวัดและผลที่เกิดจากการ เปลี่ยนแปลงนั้น","มีส่วนร่วมในการอนุรักษ์สิ่งแวดล้อม ในจังหวัด"]}
   ],
   "ป.5":[
-    {topic:"ลักษณะกายภาพและเครื่องมือทางภูมิศาสตร์ (ส 5.1)",indicator:"ส 5.1 ป.4–6",track:"ประยุกต์",
-     ind_text:"เข้าใจลักษณะทางกายภาพ ภัยพิบัติ และลักษณะกิจกรรมทางเศรษฐกิจของจังหวัด/ภาค/ประเทศไทย ใช้แผนที่และเครื่องมือทางภูมิศาสตร์สืบค้น–วิเคราะห์ข้อมูล",
-     bounds:"ระดับ 'จบ ป.6': ระดับจังหวัด ภาค และประเทศไทย",
-     subs:["ลักษณะทางกายภาพและภัยพิบัติในจังหวัด/ภาค/ประเทศไทย","การใช้แผนที่ ลูกโลก และเครื่องมือทางภูมิศาสตร์","ความสัมพันธ์ระหว่างลักษณะกายภาพกับกิจกรรมทางเศรษฐกิจ"]},
-    {topic:"มนุษย์กับสิ่งแวดล้อม (ส 5.2)",indicator:"ส 5.2 ป.4–6",track:"ประยุกต์",
-     ind_text:"เข้าใจปฏิสัมพันธ์ระหว่างมนุษย์กับสิ่งแวดล้อม เตรียมรับมือการเปลี่ยนแปลงทางกายภาพและภัยพิบัติ และหาแนวทางจัดการทรัพยากร–สิ่งแวดล้อม",
-     bounds:"ระดับ 'จบ ป.6': ระดับจังหวัด ภาค และประเทศไทย",
-     subs:["การเตรียมรับมือการเปลี่ยนแปลงทางกายภาพและภัยพิบัติ","การใช้ทรัพยากรอย่างรับผิดชอบและยั่งยืน","แนวทางการจัดการทรัพยากรและสิ่งแวดล้อมในท้องถิ่น/ประเทศ"]}
+    {topic:"ศาสนา ศีลธรรม จริยธรรม (ส 1)",indicator:"ส 1.1 / ส 1.2 ป.5",track:"พื้นฐาน",
+     ind_text:"เข้าใจประวัติ ความสำคัญ หลักธรรมของศาสนาที่ตนนับถือ และปฏิบัติตนเป็นศาสนิกชนที่ดี",
+     bounds:"ตามตัวชี้วัดชั้น ป.5 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["วิเคราะห์ความสำคัญของพระพุทธ- ศาสนาหรือศาสนาที่ตนนับถือ ในฐานะที่เป็นมรดกทางวัฒนธรรม และหลักในการพัฒนาชาติไทย","สรุปพุทธประวัติตั้งแต่เสด็จ กรุงกบิลพัสดุ์ จนถึงพุทธกิจสำคัญ หรือประวัติศาสดาที่ตนนับถือ ตามที่กำหนด","เห็นคุณค่าและสวดมนต์ แผ่เมตตา มีสติที่เป็นพื้นฐานของสมาธิ ในพระพุทธศาสนา หรือการพัฒนาจิต ตามแนวทางของศาสนาที่ตนนับถือ ตามที่กำหนด","วิเคราะห์ความสำคัญและเคารพ พระรัตนตรัย ปฏิบัติตามไตรสิกขา และหลักธรรมโอวาท ๓ ในพระพุทธศาสนา หรือหลักธรรม ของศาสนาที่ตนนับถือตามที่กำหนด","จัดพิธีกรรมตามศาสนาที่ตนนับถือ อย่างเรียบง่าย มีประโยชน์ และปฏิบัติตนถูกต้อง","ปฏิบัติตนในศาสนพิธี พิธีกรรม และวันสำคัญทางศาสนา ตามที่กำหนด และอภิปรายประโยชน์ ที่ได้รับจากการเข้าร่วมกิจกรรม","มีมรรยาทของความเป็น ศาสนิกชนที่ดีตามที่กำหนด","ปฏิบัติตนในศาสนพิธี พิธีกรรม และวันสำคัญทางศาสนา ตามที่กำหนดได้ถูกต้อง"]},
+    {topic:"หน้าที่พลเมือง วัฒนธรรม (ส 2)",indicator:"ส 2.1 / ส 2.2 ป.5",track:"พื้นฐาน",
+     ind_text:"ปฏิบัติตนเป็นพลเมืองดี เข้าใจวัฒนธรรม ประเพณี และระบบการเมืองการปกครองแบบประชาธิปไตย",
+     bounds:"ตามตัวชี้วัดชั้น ป.5 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ยกตัวอย่างและปฏิบัติตน ตามสถานภาพ บทบาท สิทธิเสรีภาพและหน้าที่ในฐานะ พลเมืองดี","เสนอวิธีการปกป้องคุ้มครองตนเอง หรือผู้อื่นจากการละเมิดสิทธิเด็ก","เห็นคุณค่าวัฒนธรรมไทยที่มีผล ต่อการดำเนินชีวิตในสังคมไทย","อธิบายคุณค่าทางวัฒนธรรม ที่แตกต่างกันระหว่างกลุ่มคน ในสังคมไทย","ติดตามข้อมูลข่าวสาร เหตุการณ์ ต่าง ๆ ในชีวิตประจำวัน เลือกรับ และใช้ข้อมูล ข่าวสารในการเรียนรู้ ได้เหมาะสม","อธิบายโครงสร้าง อำนาจหน้าที่ และความสำคัญของการปกครอง ส่วนท้องถิ่น","ระบุบทบาท หน้าที่ และวิธีการ เข้าดำรงตำแหน่งของผู้บริหาร ท้องถิ่น","วิเคราะห์ประโยชน์ที่ชุมชนจะได้รับ จากองค์กรปกครองส่วนท้องถิ่น"]},
+    {topic:"เศรษฐศาสตร์ (ส 3)",indicator:"ส 3.1 / ส 3.2 ป.5",track:"พื้นฐาน",
+     ind_text:"เข้าใจการบริหารจัดการทรัพยากร การผลิต–บริโภค การเงิน และระบบเศรษฐกิจ",
+     bounds:"ตามตัวชี้วัดชั้น ป.5 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["อธิบายปัจจัยการผลิตสินค้า และบริการ","ประยุกต์ใช้แนวคิดของปรัชญาของ เศรษฐกิจพอเพียงในการทำกิจกรรม ต่าง ๆ ในครอบครัว โรงเรียน และชุมชน","อธิบายหลักการสำคัญและประโยชน์ ของสหกรณ์","อธิบายบทบาทหน้าที่เบื้องต้น ของธนาคาร","จำแนกผลดีและผลเสีย ของการกู้ยืม","อธิบายหน้าที่เบื้องต้นของเงิน"]},
+    {topic:"ประวัติศาสตร์ (ส 4)",indicator:"ส 4.1 / ส 4.2 / ส 4.3 ป.5",track:"พื้นฐาน",
+     ind_text:"เข้าใจเวลา ยุคสมัย วิธีการทางประวัติศาสตร์ และพัฒนาการของมนุษยชาติและชาติไทย",
+     bounds:"ตามตัวชี้วัดชั้น ป.5 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["สืบค้นความเป็นมาของท้องถิ่น โดยใช้หลักฐานที่หลากหลาย","รวมรวมข้อมูลจากแหล่งต่าง ๆ เพื่อตอบคำถามทางประวัติศาสตร์ อย่างมีเหตุผล","บอกประวัติความเป็นมาของตนเอง และครอบครัวโดยสอบถาม ผู้เกี่ยวข้อง","อธิบายความสำคัญของวิธีการทาง ประวัติศาสตร์ในการศึกษาเรื่องราว ทางประวัติศาสตร์อย่างง่าย ๆ","นำเสนอข้อมูลจากหลักฐาน ที่หลากหลายในการทำความเข้าใจ เรื่องราวลำคัญในอดีต","อธิบายอิทธิพลของอารยธรรม อินเดียและจีนที่มีต่อไทย และเอเชีย ตะวันออกเฉียงใต้โดยสังเขป","อภิปรายอิทธิพลของวัฒนธรรม ต่างชาติที่มีต่อสังคมไทยปัจจุบัน โดยสังเขป","อธิบายพัฒนาการของอาณาจักร อยุธยาและธนบุรีโดยสังเขป"]},
+    {topic:"ภูมิศาสตร์ (ส 5)",indicator:"ส 5.1 / ส 5.2 ป.5",track:"พื้นฐาน",
+     ind_text:"เข้าใจลักษณะทางกายภาพ ใช้เครื่องมือทางภูมิศาสตร์ และปฏิสัมพันธ์ระหว่างมนุษย์กับสิ่งแวดล้อม",
+     bounds:"ตามตัวชี้วัดชั้น ป.5 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["รู้ตำแหน่ง (พิกัดภูมิศาสตร์ ละติจูด ลองจิจูด) ระยะ ทิศทางของภูมิภาค ของตนเอง","ระบุลักษณะภูมิลักษณ์ที่สำคัญ ในภูมิภาคของตนเองในแผนที่","อธิบายความสัมพันธ์ของลักษณะ ทางกายภาพกับลักษณะทางสังคม ในภูมิภาคของตนเอง","วิเคราะห์สภาพแวดล้อมทางกายภาพ ที่มีอิทธิพลต่อลักษณะการตั้งถิ่นฐาน และการย้ายถิ่นของประชากรในภูมิภาค","อธิบายอิทธิพลของสิ่งแวดล้อม ทางธรรมชาติที่ก่อให้เกิดวิถีชีวิตและ การสร้างสรรค์วัฒนธรรมในภูมิภาค","นำเสนอตัวอย่างที่สะท้อนให้เห็นผล จากการรักษาและการทำลาย สภาพแวดล้อม และเสนอแนวคิด ในการรักษาสภาพแวดล้อมในภูมิภาค"]}
   ],
   "ป.6":[
-    {topic:"ลักษณะกายภาพและเครื่องมือทางภูมิศาสตร์ (ส 5.1)",indicator:"ส 5.1 ป.4–6",track:"ประยุกต์",
-     ind_text:"เข้าใจลักษณะทางกายภาพ ภัยพิบัติ และลักษณะกิจกรรมทางเศรษฐกิจของจังหวัด/ภาค/ประเทศไทย ใช้แผนที่และเครื่องมือทางภูมิศาสตร์สืบค้น–วิเคราะห์ข้อมูล",
-     bounds:"ระดับ 'จบ ป.6': ระดับจังหวัด ภาค และประเทศไทย",
-     subs:["ลักษณะทางกายภาพและภัยพิบัติในจังหวัด/ภาค/ประเทศไทย","การใช้แผนที่ ลูกโลก และเครื่องมือทางภูมิศาสตร์","ความสัมพันธ์ระหว่างลักษณะกายภาพกับกิจกรรมทางเศรษฐกิจ"]},
-    {topic:"มนุษย์กับสิ่งแวดล้อม (ส 5.2)",indicator:"ส 5.2 ป.4–6",track:"ประยุกต์",
-     ind_text:"เข้าใจปฏิสัมพันธ์ระหว่างมนุษย์กับสิ่งแวดล้อม เตรียมรับมือการเปลี่ยนแปลงทางกายภาพและภัยพิบัติ และหาแนวทางจัดการทรัพยากร–สิ่งแวดล้อม",
-     bounds:"ระดับ 'จบ ป.6': ระดับจังหวัด ภาค และประเทศไทย",
-     subs:["การเตรียมรับมือการเปลี่ยนแปลงทางกายภาพและภัยพิบัติ","การใช้ทรัพยากรอย่างรับผิดชอบและยั่งยืน","แนวทางการจัดการทรัพยากรและสิ่งแวดล้อมในท้องถิ่น/ประเทศ"]}
+    {topic:"ศาสนา ศีลธรรม จริยธรรม (ส 1)",indicator:"ส 1.1 / ส 1.2 ป.6",track:"พื้นฐาน",
+     ind_text:"เข้าใจประวัติ ความสำคัญ หลักธรรมของศาสนาที่ตนนับถือ และปฏิบัติตนเป็นศาสนิกชนที่ดี",
+     bounds:"ตามตัวชี้วัดชั้น ป.6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["วิเคราะห์ความสำคัญของพระพุทธ- ศาสนาในฐานะเป็นศาสนาประจำชาติ หรือความสำคัญของศาสนาที่ตนนับถือ","สรุปพุทธประวัติตั้งแต่ปลงอายุสังขาร จนถึงสังเวชนียสถาน หรือ ประวัติศาสดาที่ตนนับถือตามที่กำหนด","เห็นคุณค่าและประพฤติตน ตามแบบอย่างการดำเนินชีวิต และข้อคิดจากประวัติสาวก ชาดก เรื่องเล่า และศาสนิกชนตัวอย่าง ตามที่กำหนด","ปฏิบัติตนตามหลักธรรมของศาสนา ที่ตนนับถือ เพื่อการพัฒนาตนเอง และสิ่งแวดล้อม","ชื่นชมการทำความดีของบุคคล ในประเทศตามหลักศาสนา พร้อมทั้ง บอกแนวปฏิบัติในการดำเนินชีวิต","เห็นคุณค่าและสวดมนต์ แผ่เมตตา และบริหารจิต เจริญปัญญา มีสติที่เป็นพื้นฐานของสมาธิ ในพระพุทธศาสนา หรือการพัฒนาจิต ตามแนวทางของศาสนาที่ตนนับถือ ตามที่กำหนด","ปฏิบัติตนตามหลักธรรมของศาสนา ที่ตนนับถือ เพื่อแก้ปัญหาอบายมุข และสิ่งเสพติด","อธิบายหลักธรรมสำคัญของศาสนา อื่น ๆ โดยสังเขป"]},
+    {topic:"หน้าที่พลเมือง วัฒนธรรม (ส 2)",indicator:"ส 2.1 / ส 2.2 ป.6",track:"พื้นฐาน",
+     ind_text:"ปฏิบัติตนเป็นพลเมืองดี เข้าใจวัฒนธรรม ประเพณี และระบบการเมืองการปกครองแบบประชาธิปไตย",
+     bounds:"ตามตัวชี้วัดชั้น ป.6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ปฏิบัติตามกฎหมายที่เกี่ยวข้องกับ ชีวิตประจำวันของครอบครัว และชุมชน","วิเคราะห์การเปลี่ยนแปลง วัฒนธรรมตามกาลเวลาและธำรง รักษาวัฒนธรรมอันดีงาม","แสดงออกถึงมารยาทไทยได้เหมาะสม ถูกกาลเทศะ","มีส่วนร่วมในการอนุรักษ์และ เผยแพร่ภูมิปัญญาท้องถิ่น ของชุมชน","เปรียบเทียบบทบาท หน้าที่ของ องค์กรปกครองส่วนท้องถิ่นและรัฐบาล","มีส่วนร่วมในกิจกรรมต่าง ๆ ที่ส่งเสริม ประชาธิปไตยในท้องถิ่นและประเทศ"]},
+    {topic:"เศรษฐศาสตร์ (ส 3)",indicator:"ส 3.1 / ส 3.2 ป.6",track:"พื้นฐาน",
+     ind_text:"เข้าใจการบริหารจัดการทรัพยากร การผลิต–บริโภค การเงิน และระบบเศรษฐกิจ",
+     bounds:"ตามตัวชี้วัดชั้น ป.6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["อธิบายบทบาทของผู้ผลิตที่มี ความรับผิดชอบ","อธิบายบทบาทของผู้บริโภค ที่รู้เท่าทัน","บอกวิธีและประโยชน์ของการใช้ ทรัพยากรอย่างยั่งยืน","อธิบายความเป็นมา หลักการ และความสำคัญของปรัชญาของ เศรษฐกิจพอเพียงต่อสังคมไทย","อธิบายความสัมพันธ์ระหว่างผู้ผลิต ผู้บริโภค ธนาคารและรัฐบาล","ระบุปัจจัยที่มีอิทธิพลต่อการกำหนด อุปสงค์และอุปทาน","อภิปรายผลของการมีกฎหมาย เกี่ยวกับทรัพย์สินทางปัญญา"]},
+    {topic:"ประวัติศาสตร์ (ส 4)",indicator:"ส 4.1 / ส 4.2 / ส 4.3 ป.6",track:"พื้นฐาน",
+     ind_text:"เข้าใจเวลา ยุคสมัย วิธีการทางประวัติศาสตร์ และพัฒนาการของมนุษยชาติและชาติไทย",
+     bounds:"ตามตัวชี้วัดชั้น ป.6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["อธิบายสภาพสังคม เศรษฐกิจ และการเมืองของประเทศเพื่อนบ้าน ในปัจจุบัน","อธิบายพัฒนาการของไทย สมัยรัตนโกสินทร์ โดยสังเขป","อธิบายปัจจัยที่ส่งเสริมความเจริญ รุ่งเรืองทางเศรษฐกิจและการ ปกครองของไทยสมัยรัตนโกสินทร์","ยกตัวอย่างผลงานของบุคคลสำคัญ ด้านต่าง ๆ สมัยรัตนโกสินทร์","อธิบายภูมิปัญญาไทยที่สำคัญ สมัยรัตนโกสินทร์ที่น่าภาคภูมิใจ และควรค่าแก่การอนุรักษ์ไว้"]},
+    {topic:"ภูมิศาสตร์ (ส 5)",indicator:"ส 5.1 / ส 5.2 ป.6",track:"พื้นฐาน",
+     ind_text:"เข้าใจลักษณะทางกายภาพ ใช้เครื่องมือทางภูมิศาสตร์ และปฏิสัมพันธ์ระหว่างมนุษย์กับสิ่งแวดล้อม",
+     bounds:"ตามตัวชี้วัดชั้น ป.6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ใช้เครื่องมือทางภูมิศาสตร์ (แผนที่ ภาพถ่ายชนิดต่าง ๆ) ระบุลักษณะสำคัญทางกายภาพ และสังคมของประเทศ","อธิบายความสัมพันธ์ระหว่าง ลักษณะทางกายภาพกับ ปรากฏการณ์ทางธรรมชาติ ของประเทศ","วิเคราะห์ความสัมพันธ์ระหว่าง สิ่งแวดล้อมทางธรรมชาติกับ สิ่งแวดล้อมทางสังคมในประเทศ","อธิบายการแปลงสภาพธรรมชาติ ในประเทศไทยจากอดีตถึงปัจจุบัน และผลที่เกิดขึ้นจากการ เปลี่ยนแปลงนั้น","จัดทำแผนการใช้ทรัพยากรในชุมชน"]}
   ],
   "ม.1":[
-    {topic:"ลักษณะกายภาพและเครื่องมือทางภูมิศาสตร์ (ส 5.1)",indicator:"ส 5.1 ม.1–3",track:"ประยุกต์",
-     ind_text:"เข้าใจลักษณะทางกายภาพ ภัยพิบัติ และกิจกรรมทางเศรษฐกิจ–สังคมในภูมิภาคต่างๆ ของโลก ใช้แผนที่และเครื่องมือทางภูมิศาสตร์วิเคราะห์ตามกระบวนการทางภูมิศาสตร์",
-     bounds:"ระดับ 'จบ ม.3': ระดับทวีป/ภูมิภาคของโลก (เอเชีย ออสเตรเลีย โอเชียเนีย ฯลฯ)",
-     subs:["ลักษณะทางกายภาพและเขตภูมิอากาศของทวีป/ภูมิภาค","วิเคราะห์สาเหตุการเกิดภัยพิบัติและผลกระทบในทวีปเอเชีย ทวีปออสเตรเลีย และโอเชียเนีย (ตย. ส 5.1 ม.1/3)","การใช้แผนที่และเครื่องมือทางภูมิศาสตร์ตามกระบวนการทางภูมิศาสตร์"]},
-    {topic:"มนุษย์กับสิ่งแวดล้อม (ส 5.2)",indicator:"ส 5.2 ม.1–3",track:"ประยุกต์",
-     ind_text:"เข้าใจปฏิสัมพันธ์มนุษย์กับสิ่งแวดล้อม ความร่วมมือด้านทรัพยากร–สิ่งแวดล้อมระหว่างประเทศ เพื่อเตรียมรับมือภัยพิบัติและจัดการอย่างยั่งยืน",
-     bounds:"ระดับ 'จบ ม.3': ระดับภูมิภาคของโลกและความร่วมมือระหว่างประเทศ",
-     subs:["วิเคราะห์แนวทางการจัดการภัยพิบัติและการจัดการทรัพยากรและสิ่งแวดล้อมในทวีปเอเชีย (ตย. ส 5.2 ม.1/4)","ความร่วมมือด้านทรัพยากรและสิ่งแวดล้อมระหว่างประเทศ","แนวทางจัดการทรัพยากรและสิ่งแวดล้อมอย่างยั่งยืน"]}
+    {topic:"ศาสนา ศีลธรรม จริยธรรม (ส 1)",indicator:"ส 1.1 / ส 1.2 ม.1",track:"ประยุกต์",
+     ind_text:"เข้าใจประวัติ ความสำคัญ หลักธรรมของศาสนาที่ตนนับถือ และปฏิบัติตนเป็นศาสนิกชนที่ดี",
+     bounds:"ตามตัวชี้วัดชั้น ม.1 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["อธิบายการเผยแผ่พระพุทธศาสนา หรือศาสนาที่ตนนับถือสู่ประเทศไทย","วิเคราะห์ความสำคัญของ พระพุทธศาสนาหรือศาสนาที่ตนนับถือ ที่มีต่อสภาพแวดล้อมในสังคมไทย รวมทั้งการพัฒนาตนและครอบครัว","เห็นคุณค่าของการพัฒนาจิต เพื่อการเรียนรู้และการดำเนินชีวิต ด้วยวิธีคิดแบบโยนิโสมนสิการคือ","สวดมนต์ แผ่เมตตา บริหารจิต และเจริญปัญญาด้วยอานาปานสติ หรือตามแนวทางของศาสนา ที่ตนนับถือตามที่กำหนด","วิเคราะห์และปฏิบัติตนตามหลักธรรม ทางศาสนาที่ตนนับถือในการดำรงชีวิต แบบพอเพียง และดูแลรักษาสิ่งแวดล้อม เพื่อการอยู่ร่วมกันได้อย่างสันติสุข","วิเคราะห์เหตุผลความจำเป็นที่ทุกคน ต้องศึกษาเรียนรู้ศาสนาอื่น ๆ","ปฏิบัติตนต่อศาสนิกชนอื่นใน สถานการณ์ต่าง ๆ ได้อย่างเหมาะสม","วิเคราะห์การกระทำของบุคคล ที่เป็นแบบอย่างด้านศาสนสัมพันธ์ และนำเสนอแนวทางการปฏิบัติ ของตนเอง"]},
+    {topic:"หน้าที่พลเมือง วัฒนธรรม (ส 2)",indicator:"ส 2.1 / ส 2.2 ม.1",track:"ประยุกต์",
+     ind_text:"ปฏิบัติตนเป็นพลเมืองดี เข้าใจวัฒนธรรม ประเพณี และระบบการเมืองการปกครองแบบประชาธิปไตย",
+     bounds:"ตามตัวชี้วัดชั้น ม.1 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ปฏิบัติตามกฎหมายในการคุ้มครอง สิทธิของบุคคล","ระบุความสามารถของตนเอง ในการทำประโยชน์ต่อสังคมและ ประเทศชาติ","อภิปรายเกี่ยวกับคุณค่าทาง วัฒนธรรมที่เป็นปัจจัยในการ สร้างความสัมพันธ์ที่ดีหรืออาจ นำไปสู่ความเข้าใจผิดต่อกัน","แสดงออกถึงการเคารพในสิทธิ เสรีภาพของตนเองและผู้อื่น","เห็นคุณค่าในการปฏิบัติตน ตามสถานภาพ บทบาท สิทธิเสรีภาพ หน้าที่ในฐานะพลเมืองดี ตามวิถีประชาธิปไตย","วิเคราะห์บทบาท ความสำคัญและ ความสัมพันธ์ของสถาบันทางสังคม","อธิบายความคล้ายคลึงและ ความแตกต่างของวัฒนธรรมไทย และวัฒนธรรมของประเทศ ในภูมิภาคเอเชีย เพื่อนำไปสู่ ความเข้าใจอันดีระหว่างกัน","อธิบายหลักการ เจตนารมณ์ โครงสร้าง และสาระสำคัญ ของรัฐธรรมนูญแห่งราชอาณาจักรไทย ฉบับปัจจุบัน โดยสังเขป"]},
+    {topic:"เศรษฐศาสตร์ (ส 3)",indicator:"ส 3.1 / ส 3.2 ม.1",track:"ประยุกต์",
+     ind_text:"เข้าใจการบริหารจัดการทรัพยากร การผลิต–บริโภค การเงิน และระบบเศรษฐกิจ",
+     bounds:"ตามตัวชี้วัดชั้น ม.1 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["อธิบายความหมายและความสำคัญ ของเศรษฐศาสตร์","วิเคราะห์ค่านิยมและพฤติกรรม การบริโภคของคนในสังคม ซึ่งส่งผลต่อเศรษฐกิจของชุมชน และประเทศ","อธิบายปัจจัยการผลิตสินค้าและ บริการ และปัจจัยที่มีอิทธิพล ต่อการผลิตสินค้าและบริการ","เสนอแนวทางการพัฒนาการผลิต ในท้องถิ่นตามปรัชญาของ เศรษฐกิจพอเพียง","อภิปรายแนวทางการคุ้มครองสิทธิ ของตนเองในฐานะผู้บริโภค","วิเคราะห์บทบาทหน้าที่และ ความแตกต่างของสถาบันการเงิน แต่ละประเภทและธนาคารกลาง","ยกตัวอย่างที่สะท้อนให้เห็น การพึ่งพาอาศัยกัน และการ แข่งขันกันทางเศรษฐกิจในประเทศ","ยกตัวอย่างการรวมกลุ่ม ทางเศรษฐกิจภายในท้องถิ่น"]},
+    {topic:"ประวัติศาสตร์ (ส 4)",indicator:"ส 4.1 / ส 4.2 / ส 4.3 ม.1",track:"ประยุกต์",
+     ind_text:"เข้าใจเวลา ยุคสมัย วิธีการทางประวัติศาสตร์ และพัฒนาการของมนุษยชาติและชาติไทย",
+     bounds:"ตามตัวชี้วัดชั้น ม.1 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["วิเคราะห์ความสำคัญของเวลา ในการศึกษาประวัติศาสตร์","เทียบศักราชตามระบบต่าง ๆ ที่ใช้ศึกษาประวัติศาสตร์","นำวิธีการทางประวัติศาสตร์มาใช้ ศึกษาเหตุการณ์ทางประวัติศาสตร์","อธิบายพัฒนาการทางสังคม เศรษฐกิจ และการเมืองของประเทศต่าง ๆ ในภูมิภาคเอเชียตะวันออกเฉียงใต้","บอกความสัมพันธ์ของกลุ่มอาเซียน โดยสังเขป","อธิบายเรื่องราวทางประวัติศาสตร์ สมัยก่อนสุโขทัยในดินแดนไทย โดยสังเขป","วิเคราะห์พัฒนาการของอาณาจักร สุโขทัยในด้านต่าง ๆ","วิเคราะห์อิทธิพลของวัฒนธรรม และภูมิปัญญาไทยสมัยสุโขทัย และสังคมไทยในปัจจุบัน"]},
+    {topic:"ภูมิศาสตร์ (ส 5)",indicator:"ส 5.1 / ส 5.2 ม.1",track:"ประยุกต์",
+     ind_text:"เข้าใจลักษณะทางกายภาพ ใช้เครื่องมือทางภูมิศาสตร์ และปฏิสัมพันธ์ระหว่างมนุษย์กับสิ่งแวดล้อม",
+     bounds:"ตามตัวชี้วัดชั้น ม.1 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["เลือกใช้เครื่องมือทางภูมิศาสตร์ (ลูกโลก แผนที่ กราฟ แผนภูมิ) ในการสืบค้นข้อมูล เพื่อวิเคราะห์ ลักษณะทางกายภาพและสังคมของ ประเทศไทยและทวีปเอเชีย ออสเตรเลีย และโอเชียเนีย","อธิบายเส้นแบ่งเวลาและ เปรียบเทียบ วัน เวลา ของประเทศไทยกับทวีปต่าง ๆ","วิเคราะห์เชื่อมโยง สาเหตุและแนวทาง ป้องกันภัยธรรมชาติและการระวังภัย ที่เกิดขึ้นในประเทศไทยและทวีปเอเชีย ออสเตรเลีย และโอเชียเนีย","วิเคราะห์ผลกระทบจากการ เปลี่ยนแปลงทางธรรมชาติของ ทวีปเอเชีย ออสเตรเลีย และโอเชียเนีย","วิเคราะห์ความร่วมมือของประเทศ ต่าง ๆ ที่มีผลต่อสิ่งแวดล้อม ทางธรรมชาติของทวีปเอเชีย ออสเตรเลีย และโอเชียเนีย","สำรวจและอธิบายทำเลที่ตั้งกิจกรรม ทางเศรษฐกิจและสังคมในทวีป เอเชีย ออสเตรเลียและโอเชียเนีย โดยใช้แหล่งข้อมูลที่หลากหลาย","วิเคราะห์ปัจจัยทางกายภาพและ สังคมที่มีผลต่อการเลื่อนไหลของ ความคิด เทคโนโลยี สินค้าและ ประชากรในทวีปเอเชีย ออสเตรเลีย และโอเชียเนีย"]}
   ],
   "ม.2":[
-    {topic:"ลักษณะกายภาพและเครื่องมือทางภูมิศาสตร์ (ส 5.1)",indicator:"ส 5.1 ม.1–3",track:"ประยุกต์",
-     ind_text:"เข้าใจลักษณะทางกายภาพ ภัยพิบัติ และกิจกรรมทางเศรษฐกิจ–สังคมในภูมิภาคต่างๆ ของโลก ใช้แผนที่และเครื่องมือทางภูมิศาสตร์วิเคราะห์ตามกระบวนการทางภูมิศาสตร์",
-     bounds:"ระดับ 'จบ ม.3': ระดับทวีป/ภูมิภาคของโลก (เอเชีย ออสเตรเลีย โอเชียเนีย ฯลฯ)",
-     subs:["ลักษณะทางกายภาพและเขตภูมิอากาศของทวีป/ภูมิภาค","วิเคราะห์สาเหตุการเกิดภัยพิบัติและผลกระทบในทวีปเอเชีย ทวีปออสเตรเลีย และโอเชียเนีย (ตย. ส 5.1 ม.1/3)","การใช้แผนที่และเครื่องมือทางภูมิศาสตร์ตามกระบวนการทางภูมิศาสตร์"]},
-    {topic:"มนุษย์กับสิ่งแวดล้อม (ส 5.2)",indicator:"ส 5.2 ม.1–3",track:"ประยุกต์",
-     ind_text:"เข้าใจปฏิสัมพันธ์มนุษย์กับสิ่งแวดล้อม ความร่วมมือด้านทรัพยากร–สิ่งแวดล้อมระหว่างประเทศ เพื่อเตรียมรับมือภัยพิบัติและจัดการอย่างยั่งยืน",
-     bounds:"ระดับ 'จบ ม.3': ระดับภูมิภาคของโลกและความร่วมมือระหว่างประเทศ",
-     subs:["วิเคราะห์แนวทางการจัดการภัยพิบัติและการจัดการทรัพยากรและสิ่งแวดล้อมในทวีปเอเชีย (ตย. ส 5.2 ม.1/4)","ความร่วมมือด้านทรัพยากรและสิ่งแวดล้อมระหว่างประเทศ","แนวทางจัดการทรัพยากรและสิ่งแวดล้อมอย่างยั่งยืน"]}
+    {topic:"ศาสนา ศีลธรรม จริยธรรม (ส 1)",indicator:"ส 1.1 / ส 1.2 ม.2",track:"ประยุกต์",
+     ind_text:"เข้าใจประวัติ ความสำคัญ หลักธรรมของศาสนาที่ตนนับถือ และปฏิบัติตนเป็นศาสนิกชนที่ดี",
+     bounds:"ตามตัวชี้วัดชั้น ม.2 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["อธิบายโครงสร้างและสาระโดยสังเขป ของพระไตรปิฎก หรือคัมภีร์ของ ศาสนาที่ตนนับถือ","อธิบายธรรมคุณและข้อธรรมสำคัญ ในกรอบอริยสัจ ๔ หรือหลักธรรม ของศาสนาที่ตนนับถือตามที่กำหนด เห็นคุณค่าและนำไปพัฒนา แก้ปัญหาของชุมชนและสังคม","เห็นคุณค่าของการพัฒนาจิต เพื่อการเรียนรู้และดำเนินชีวิต ด้วยวิธีคิดแบบโยนิโสมนสิการคือ วิธีคิดแบบอุบายปลุกเร้าคุณธรรม และวิธีคิดแบบอรรถธรรมสัมพันธ์ หรือการพัฒนาจิตตามแนวทาง ของศาสนาที่ตนนับถือ","สวดมนต์ แผ่เมตตา บริหารจิต และเจริญปัญญาด้วยอานาปานสติ หรือตามแนวทางของศาสนา ที่ตนนับถือ","อธิบายการเผยแผ่พระพุทธศาสนา หรือศาสนาที่ตนนับถือ สู่ประเทศต่าง ๆ ทั่วโลก","วิเคราะห์ความสำคัญของ พระพุทธศาสนาหรือศาสนา ที่ตนนับถือในฐานะที่ช่วยสร้างสรรค์ อารยธรรม และความสงบสุขแก่โลก","อภิปรายความสำคัญของ พระพุทธศาสนา หรือศาสนา ที่ตนนับถือกับปรัชญาของเศรษฐกิจ พอเพียงและการพัฒนาอย่างยั่งยืน","วิเคราะห์พุทธประวัติจากพระพุทธรูป ปางต่าง ๆ หรือประวัติศาสดา ที่ตนนับถือตามที่กำหนด"]},
+    {topic:"หน้าที่พลเมือง วัฒนธรรม (ส 2)",indicator:"ส 2.1 / ส 2.2 ม.2",track:"ประยุกต์",
+     ind_text:"ปฏิบัติตนเป็นพลเมืองดี เข้าใจวัฒนธรรม ประเพณี และระบบการเมืองการปกครองแบบประชาธิปไตย",
+     bounds:"ตามตัวชี้วัดชั้น ม.2 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["อธิบายและปฏิบัติตนตามกฎหมาย ที่เกี่ยวข้องกับตนเอง ครอบครัว ชุมชนและประเทศ","มีส่วนร่วมในการปกป้องคุ้มครอง ผู้อื่นตามหลักสิทธิมนุษยชน","อนุรักษ์วัฒนธรรมไทยและเลือกรับ วัฒนธรรมสากลที่เหมาะสม","วิเคราะห์ปัจจัยที่ก่อให้เกิดปัญหา ความขัดแย้งในประเทศ และเสนอ แนวคิดในการลดความขัดแย้ง","เสนอแนวคิดในการดำรงชีวิตอย่าง มีความสุขในประเทศและสังคมโลก","อธิบายกระบวนการในการ ตรากฎหมาย","วิเคราะห์ข้อมูล ข่าวสารทาง การเมือง การปกครองที่มีผลกระทบ ต่อสังคมไทยสมัยปัจจุบัน"]},
+    {topic:"เศรษฐศาสตร์ (ส 3)",indicator:"ส 3.1 / ส 3.2 ม.2",track:"ประยุกต์",
+     ind_text:"เข้าใจการบริหารจัดการทรัพยากร การผลิต–บริโภค การเงิน และระบบเศรษฐกิจ",
+     bounds:"ตามตัวชี้วัดชั้น ม.2 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["วิเคราะห์ปัจจัยที่มีผลต่อการลงทุน และการออม","อภิปรายระบบเศรษฐกิจแบบต่าง ๆ","ยกตัวอย่างที่สะท้อนให้เห็นการ พึ่งพาอาศัยกันและการแข่งขันกัน ทางเศรษฐกิจในภูมิภาคเอเชีย","วิเคราะห์การกระจายของทรัพยากร ในโลกที่ส่งผลต่อความสัมพันธ์ ทางเศรษฐกิจระหว่างประเทศ","วิเคราะห์การแข่งขันทางการค้า ในประเทศและต่างประเทศที่ส่งผล ต่อคุณภาพสินค้า ปริมาณการผลิต และราคาสินค้า"]},
+    {topic:"ประวัติศาสตร์ (ส 4)",indicator:"ส 4.1 / ส 4.2 / ส 4.3 ม.2",track:"ประยุกต์",
+     ind_text:"เข้าใจเวลา ยุคสมัย วิธีการทางประวัติศาสตร์ และพัฒนาการของมนุษยชาติและชาติไทย",
+     bounds:"ตามตัวชี้วัดชั้น ม.2 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ประเมินความน่าเชื่อถือของหลักฐาน ทางประวัติศาสตร์ในลักษณะต่าง ๆ","วิเคราะห์ความแตกต่างระหว่าง ความจริงกับข้อเท็จจริงของ เหตุการณ์ทางประวัติศาสตร์","เห็นความสำคัญของการตีความ หลักฐานทางประวัติศาสตร์ ที่น่าเชื่อถือ","อธิบายพัฒนาการทางสังคม เศรษฐกิจ และการเมืองของภูมิภาคเอเชีย","ระบุความสำคัญของแหล่งอารยธรรม โบราณในภูมิภาคเอเชีย","ระบุความสำคัญของแหล่งอารยธรรม ในภูมิภาคเอเชียตะวันออกเฉียงใต้","วิเคราะห์พัฒนาการของอาณาจักร อยุธยาและธนบุรีในด้านต่าง ๆ","วิเคราะห์ปัจจัยที่ส่งผลต่อความมั่นคง และความเจริญรุ่งเรืองของ อาณาจักรอยุธยา"]},
+    {topic:"ภูมิศาสตร์ (ส 5)",indicator:"ส 5.1 / ส 5.2 ม.2",track:"ประยุกต์",
+     ind_text:"เข้าใจลักษณะทางกายภาพ ใช้เครื่องมือทางภูมิศาสตร์ และปฏิสัมพันธ์ระหว่างมนุษย์กับสิ่งแวดล้อม",
+     bounds:"ตามตัวชี้วัดชั้น ม.2 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ใช้เครื่องมือทางภูมิศาสตร์ในการ รวบรวม วิเคราะห์และนำเสนอข้อมูล เกี่ยวกับลักษณะทางกายภาพและ สังคมของทวีปยุโรปและแอฟริกา","วิเคราะห์ความสัมพันธ์ระหว่างลักษณะ ทางกายภาพและสังคมของทวีปยุโรป และแอฟริกา"]}
   ],
   "ม.3":[
-    {topic:"ลักษณะกายภาพและเครื่องมือทางภูมิศาสตร์ (ส 5.1)",indicator:"ส 5.1 ม.1–3",track:"ประยุกต์",
-     ind_text:"เข้าใจลักษณะทางกายภาพ ภัยพิบัติ และกิจกรรมทางเศรษฐกิจ–สังคมในภูมิภาคต่างๆ ของโลก ใช้แผนที่และเครื่องมือทางภูมิศาสตร์วิเคราะห์ตามกระบวนการทางภูมิศาสตร์",
-     bounds:"ระดับ 'จบ ม.3': ระดับทวีป/ภูมิภาคของโลก (เอเชีย ออสเตรเลีย โอเชียเนีย ฯลฯ)",
-     subs:["ลักษณะทางกายภาพและเขตภูมิอากาศของทวีป/ภูมิภาค","วิเคราะห์สาเหตุการเกิดภัยพิบัติและผลกระทบในทวีปเอเชีย ทวีปออสเตรเลีย และโอเชียเนีย (ตย. ส 5.1 ม.1/3)","การใช้แผนที่และเครื่องมือทางภูมิศาสตร์ตามกระบวนการทางภูมิศาสตร์"]},
-    {topic:"มนุษย์กับสิ่งแวดล้อม (ส 5.2)",indicator:"ส 5.2 ม.1–3",track:"ประยุกต์",
-     ind_text:"เข้าใจปฏิสัมพันธ์มนุษย์กับสิ่งแวดล้อม ความร่วมมือด้านทรัพยากร–สิ่งแวดล้อมระหว่างประเทศ เพื่อเตรียมรับมือภัยพิบัติและจัดการอย่างยั่งยืน",
-     bounds:"ระดับ 'จบ ม.3': ระดับภูมิภาคของโลกและความร่วมมือระหว่างประเทศ",
-     subs:["วิเคราะห์แนวทางการจัดการภัยพิบัติและการจัดการทรัพยากรและสิ่งแวดล้อมในทวีปเอเชีย (ตย. ส 5.2 ม.1/4)","ความร่วมมือด้านทรัพยากรและสิ่งแวดล้อมระหว่างประเทศ","แนวทางจัดการทรัพยากรและสิ่งแวดล้อมอย่างยั่งยืน"]}
+    {topic:"ศาสนา ศีลธรรม จริยธรรม (ส 1)",indicator:"ส 1.1 / ส 1.2 ม.3",track:"ประยุกต์",
+     ind_text:"เข้าใจประวัติ ความสำคัญ หลักธรรมของศาสนาที่ตนนับถือ และปฏิบัติตนเป็นศาสนิกชนที่ดี",
+     bounds:"ตามตัวชี้วัดชั้น ม.3 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["เห็นคุณค่าและวิเคราะห์การปฏิบัติตน ตามหลักธรรมในการพัฒนาตน เพื่อเตรียมพร้อมสำหรับการทำงาน และการมีครอบครัว","เห็นคุณค่าของการพัฒนาจิต เพื่อการเรียนรู้และดำเนินชีวิต ด้วยวิธีคิดแบบโยนิโสมนสิการคือ วิธีคิดแบบอริยสัจ และวิธีคิดแบบ สืบสาวเหตุปัจจัย หรือการพัฒนาจิต ตามแนวทางของศาสนาที่ตนนับถือ","วิเคราะห์การพัฒนาศรัทธาและ ปัญญาที่ถูกต้องในพระพุทธศาสนา หรือแนวคิดของศาสนาที่ตนนับถือ ตามที่กำหนด","วิเคราะห์ลักษณะประชาธิปไตย ในพระพุทธศาสนา หรือแนวคิด ของศาสนาที่ตนนับถือตามที่กำหนด","วิเคราะห์หลักการของพระพุทธศาสนา กับหลักวิทยาศาสตร์ หรือแนวคิด ของศาสนาที่ตนนับถือตามที่กำหนด","วิเคราะห์การฝึกฝนและพัฒนาตนเอง การพึ่งตนเอง และการมุ่งอิสรภาพ ในพระพุทธศาสนา หรือแนวคิด ของศาสนาที่ตนนับถือตามที่กำหนด","วิเคราะห์พระพุทธศาสนาว่าเป็นศาสตร์ แห่งการศึกษาซึ่งเน้นความสัมพันธ์ ของเหตุปัจจัยกับวิธีการแก้ปัญหา หรือแนวคิดของศาสนาที่ตนนับถือ ตามที่กำหนด","วิเคราะห์พระพุทธศาสนาในการฝึกตน ไม่ให้ประมาท มุ่งประโยชน์และ สันติภาพบุคคล สังคมและโลก หรือแนวคิดของศาสนาที่ตนนับถือ ตามที่กำหนด"]},
+    {topic:"หน้าที่พลเมือง วัฒนธรรม (ส 2)",indicator:"ส 2.1 / ส 2.2 ม.3",track:"ประยุกต์",
+     ind_text:"ปฏิบัติตนเป็นพลเมืองดี เข้าใจวัฒนธรรม ประเพณี และระบบการเมืองการปกครองแบบประชาธิปไตย",
+     bounds:"ตามตัวชี้วัดชั้น ม.3 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["อธิบายความแตกต่างของการกระทำ ความผิดระหว่างคดีอาญา และคดีแพ่ง","ปฏิบัติตนและมีส่วนสนับสนุน ให้ผู้อื่น ประพฤติปฏิบัติเพื่อเป็น พลเมืองดีของประเทศชาติ และสังคมโลก","ประเมินสถานการณ์สิทธิมนุษยชน ในประเทศไทย และเสนอแนวทาง พัฒนา","อธิบายระบอบการปกครอง แบบต่าง ๆ ที่ใช้ในยุคปัจจุบัน","วิเคราะห์ เปรียบเทียบระบอบ การปกครองของไทยกับประเทศอื่น ๆ ที่มีการปกครองระบอบ ประชาธิปไตย","วิเคราะห์รัฐธรรมนูญฉบับปัจจุบัน ในมาตราต่าง ๆ ที่เกี่ยวข้องกับการ เลือกตั้ง การมีส่วนร่วม และ การตรวจสอบการใช้อำนาจรัฐ","วิเคราะห์ประเด็นปัญหาที่เป็น อุปสรรคต่อการพัฒนาประชาธิปไตย ของประเทศไทยและเสนอ แนวทางแก้ไข"]},
+    {topic:"เศรษฐศาสตร์ (ส 3)",indicator:"ส 3.1 / ส 3.2 ม.3",track:"ประยุกต์",
+     ind_text:"เข้าใจการบริหารจัดการทรัพยากร การผลิต–บริโภค การเงิน และระบบเศรษฐกิจ",
+     bounds:"ตามตัวชี้วัดชั้น ม.3 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["อธิบายกลไกราคาในระบบเศรษฐกิจ","มีส่วนร่วมในการแก้ไขปัญหาและ พัฒนาท้องถิ่นตามปรัชญาของ เศรษฐกิจพอเพียง","วิเคราะห์ความสัมพันธ์ระหว่าง แนวคิดเศรษฐกิจพอเพียงกับ ระบบสหกรณ์","ตระหนักถึงความสำคัญของ ระบบสหกรณ์ในการพัฒนาเศรษฐกิจ ในระดับชุมชนและประเทศ","วิเคราะห์ปัญหาทางเศรษฐกิจ ในชุมชนและเสนอแนวทางแก้ไข","อธิบายบทบาทหน้าที่ของรัฐบาล ในระบบเศรษฐกิจ","แสดงความคิดเห็นต่อนโยบายและ กิจกรรมทางเศรษฐกิจของรัฐที่มี ต่อบุคคล กลุ่มคนและประเทศชาติ","อภิปรายบทบาทความสำคัญของ การรวมกลุ่มทางเศรษฐกิจ ระหว่างประเทศ"]},
+    {topic:"ประวัติศาสตร์ (ส 4)",indicator:"ส 4.1 / ส 4.2 / ส 4.3 ม.3",track:"ประยุกต์",
+     ind_text:"เข้าใจเวลา ยุคสมัย วิธีการทางประวัติศาสตร์ และพัฒนาการของมนุษยชาติและชาติไทย",
+     bounds:"ตามตัวชี้วัดชั้น ม.3 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["วิเคราะห์เรื่องราวเหตุการณ์สำคัญ ทางประวัติศาสตร์ได้อย่างมีเหตุผล ตามวิธีการทางประวัติศาสตร์","ใช้วิธีการทางประวัติศาสตร์ ในการศึกษาเรื่องราวต่าง ๆ ที่ตนสนใจ","อธิบายพัฒนาการทางสังคม เศรษฐกิจ และการเมืองของภูมิภาคต่าง ๆ ในโลกโดยสังเขป","วิเคราะห์ผลของการเปลี่ยนแปลง ที่นำไปสู่ความร่วมมือ และความ ขัดแย้งในคริสต์ศตวรรษที่ ๒๐ ตลอดจนความพยายามในการ ขจัดปัญหาความขัดแย้ง","วิเคราะห์พัฒนาการของไทย สมัยรัตนโกสินทร์ในด้านต่าง ๆ","วิเคราะห์ปัจจัยที่ส่งผลต่อความมั่นคง และความเจริญรุ่งเรืองของไทย ในสมัยรัตนโกสินทร์","วิเคราะห์ภูมิปัญญาและวัฒนธรรมไทย สมัยรัตนโกสินทร์ และอิทธิพล ต่อการพัฒนาชาติไทย","วิเคราะห์บทบาทของไทย ในสมัยประชาธิปไตย"]},
+    {topic:"ภูมิศาสตร์ (ส 5)",indicator:"ส 5.1 / ส 5.2 ม.3",track:"ประยุกต์",
+     ind_text:"เข้าใจลักษณะทางกายภาพ ใช้เครื่องมือทางภูมิศาสตร์ และปฏิสัมพันธ์ระหว่างมนุษย์กับสิ่งแวดล้อม",
+     bounds:"ตามตัวชี้วัดชั้น ม.3 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ใช้เครื่องมือทางภูมิศาสตร์ในการ รวบรวม วิเคราะห์ และนำเสนอข้อมูล เกี่ยวกับลักษณะทางกายภาพและ","วิเคราะห์การก่อเกิดสิ่งแวดล้อมใหม่ ทางสังคม อันเป็นผลจากการ เปลี่ยนแปลงทางธรรมชาติและ ทางสังคมของทวีปอเมริกาเหนือ และอเมริกาใต้","ระบุแนวทางการอนุรักษ์ทรัพยากร ธรรมชาติและสิ่งแวดล้อมใน ทวีปอเมริกาเหนือและอเมริกาใต้","วิเคราะห์การก่อเกิดสิ่งแวดล้อมใหม่ ทางสังคม อันเป็นผลจากการ เปลี่ยนแปลงทางธรรมชาติและ ทางสังคมของทวีปยุโรปและแอฟริกา","ระบุแนวทางการอนุรักษ์ ทรัพยากรธรรมชาติและสิ่งแวดล้อม ในทวีปยุโรปและแอฟริกา","สำรวจ อภิปรายประเด็นปัญหา เกี่ยวกับสิ่งแวดล้อมที่เกิดขึ้น ในทวีปยุโรปและแอฟริกา","วิเคราะห์เหตุและผลกระทบ ที่ประเทศไทยได้รับจากการ เปลี่ยนแปลงของสิ่งแวดล้อม ในทวีปยุโรปและแอฟริกา","สำรวจ อภิปรายประเด็นปัญหา เกี่ยวกับสิ่งแวดล้อมที่เกิดขึ้น ในทวีปอเมริกาเหนือและอเมริกาใต้"]}
   ],
   "ม.4":[
-    {topic:"ลักษณะกายภาพและเครื่องมือทางภูมิศาสตร์ (ส 5.1)",indicator:"ส 5.1 ม.4–6",track:"สูง",
-     ind_text:"วิเคราะห์การเปลี่ยนแปลงทางกายภาพ ปัญหาและภัยพิบัติทางธรรมชาติในประเทศไทยและภูมิภาคต่างๆ ของโลก ใช้แผนที่และเครื่องมือทางภูมิศาสตร์ตามกระบวนการทางภูมิศาสตร์",
-     bounds:"ระดับ 'จบ ม.6': ระดับประเทศไทยและภูมิภาคต่างๆ ของโลก",
-     subs:["วิเคราะห์การเปลี่ยนแปลงทางกายภาพซึ่งได้รับอิทธิพลจากปัจจัยทางภูมิศาสตร์ (ส 5.1 ม.4–6/1)","วิเคราะห์ลักษณะทางกายภาพซึ่งทำให้เกิดปัญหาและภัยพิบัติทางธรรมชาติ (ส 5.1 ม.4–6/2)","ใช้แผนที่และเครื่องมือทางภูมิศาสตร์ตามกระบวนการทางภูมิศาสตร์ (ส 5.1 ม.4–6/3)"]},
-    {topic:"มนุษย์กับสิ่งแวดล้อม (ส 5.2)",indicator:"ส 5.2 ม.4–6",track:"สูง",
-     ind_text:"วิเคราะห์ปฏิสัมพันธ์ระหว่างสิ่งแวดล้อมทางกายภาพกับกิจกรรม/วิถีการดำเนินชีวิตของมนุษย์ เพื่อเตรียมรับมือการเปลี่ยนแปลงของโลกและการจัดการทรัพยากร–สิ่งแวดล้อมเพื่อการพัฒนาอย่างยั่งยืน",
-     bounds:"ระดับ 'จบ ม.6': ระดับประเทศและระหว่างประเทศ เพื่อการพัฒนาที่ยั่งยืน",
-     subs:["วิเคราะห์ปฏิสัมพันธ์ระหว่างสิ่งแวดล้อมทางกายภาพกับกิจกรรมของมนุษย์ (ส 5.2 ม.4–6/1)","การจัดการทรัพยากรและสิ่งแวดล้อมในประเทศและระหว่างประเทศ","การพัฒนาอย่างยั่งยืนและการเตรียมรับมือการเปลี่ยนแปลงของโลก"]}
+    {topic:"ศาสนา ศีลธรรม จริยธรรม (ส 1)",indicator:"ส 1.1 / ส 1.2 ม.4-6",track:"สูง",
+     ind_text:"เข้าใจประวัติ ความสำคัญ หลักธรรมของศาสนาที่ตนนับถือ และปฏิบัติตนเป็นศาสนิกชนที่ดี",
+     bounds:"ตามตัวชี้วัดชั้น ม.4-6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["วิเคราะห์สังคมชมพูทวีปและ คติความเชื่อทางศาสนาสมัยก่อน พระพุทธเจ้า หรือสังคมสมัย ของศาสดาที่ตนนับถือ","วิเคราะห์พระพุทธเจ้าในฐานะ เป็นมนุษย์ผู้ฝึกตนได้อย่างสูงสุด ในการตรัสรู้ การก่อตั้ง วิธีการสอน และการเผยแผ่พระพุทธศาสนา หรือวิเคราะห์ประวัติศาสดาที่ตน นับถือตามที่กำหนด","วิเคราะห์พุทธประวัติด้านการบริหาร และการธำรงรักษาศาสนา หรือ วิเคราะห์ประวัติศาสดาที่ตนนับถือ ตามที่กำหนด","วิเคราะห์ข้อปฏิบัติทางสายกลาง ในพระพุทธศาสนา หรือแนวคิด ของศาสนาที่ตนนับถือตามที่กำหนด","สวดมนต์ แผ่เมตตา บริหารจิต และเจริญปัญญาด้วยอานาปานสติ หรือตามแนวทางของศาสนา ที่ตนนับถือ","วิเคราะห์ความแตกต่างและยอมรับ วิถีการดำเนินชีวิตของศาสนิกชน ในศาสนาอื่น ๆ"]},
+    {topic:"หน้าที่พลเมือง วัฒนธรรม (ส 2)",indicator:"ส 2.1 / ส 2.2 ม.4-6",track:"สูง",
+     ind_text:"ปฏิบัติตนเป็นพลเมืองดี เข้าใจวัฒนธรรม ประเพณี และระบบการเมืองการปกครองแบบประชาธิปไตย",
+     bounds:"ตามตัวชี้วัดชั้น ม.4-6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["วิเคราะห์และปฏิบัติตนตามกฎหมาย ที่เกี่ยวข้องกับตนเอง ครอบครัว ชุมชน ประเทศชาติและสังคมโลก","วิเคราะห์ความสำคัญของโครงสร้าง ทางสังคม การขัดเกลาทางสังคม และการเปลี่ยนแปลงทางสังคม","วิเคราะห์ความจำเป็นที่จะต้องมีการ ปรับปรุงเปลี่ยนแปลงและอนุรักษ์ วัฒนธรรมไทยและเลือกรับ วัฒนธรรมสากล","วิเคราะห์ปัญหาการเมืองที่สำคัญ ในประเทศจากแหล่งข้อมูลต่าง ๆ พร้อมทั้งเสนอแนวทางแก้ไข","เสนอแนวทาง ทางการเมือง การปกครองที่นำไปสู่ความเข้าใจ และการประสานประโยชน์ร่วมกัน ระหว่างประเทศ","วิเคราะห์ความสำคัญและ ความจำเป็นที่ต้องธำรงรักษาไว้ ซึ่งการปกครองตามระบอบ ประชาธิปไตยอันมีพระมหากษัตริย์ ทรงเป็นประมุข"]},
+    {topic:"เศรษฐศาสตร์ (ส 3)",indicator:"ส 3.1 / ส 3.2 ม.4-6",track:"สูง",
+     ind_text:"เข้าใจการบริหารจัดการทรัพยากร การผลิต–บริโภค การเงิน และระบบเศรษฐกิจ",
+     bounds:"ตามตัวชี้วัดชั้น ม.4-6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["อภิปรายการกำหนดราคา และค่าจ้างในระบบเศรษฐกิจ","ตระหนักถึงความสำคัญของปรัชญา ของเศรษฐกิจพอเพียงที่มี ต่อเศรษฐกิจ สังคมของประเทศ","อธิบายบทบาทของรัฐบาลเกี่ยวกับ นโยบายการเงิน การคลังในการ พัฒนาเศรษฐกิจของประเทศ"]},
+    {topic:"ประวัติศาสตร์ (ส 4)",indicator:"ส 4.1 / ส 4.2 / ส 4.3 ม.4-6",track:"สูง",
+     ind_text:"เข้าใจเวลา ยุคสมัย วิธีการทางประวัติศาสตร์ และพัฒนาการของมนุษยชาติและชาติไทย",
+     bounds:"ตามตัวชี้วัดชั้น ม.4-6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ตระหนักถึงความสำคัญของเวลา และยุคสมัยทางประวัติศาสตร์ ที่แสดงถึงการเปลี่ยนแปลง ของมนุษยชาติ","สร้างองค์ความรู้ใหม่ทางประวัติศาสตร์ โดยใช้วิธีการทางประวัติศาสตร์ อย่างเป็นระบบ","วิเคราะห์อิทธิพลของอารยธรรรม โบราณ และการติดต่อระหว่างโลก ตะวันออกกับโลกตะวันตกที่มีผลต่อ พัฒนาการและการเปลี่ยนแปลง ของโลก","วิเคราะห์เหตุการณ์สำคัญต่าง ๆ ที่ส่งผลต่อการเปลี่ยนแปลงทางสังคม","วิเคราะห์ผลกระทบของการขยาย อิทธิพลของประเทศในยุโรปไปยัง ทวีปอเมริกา แอฟริกา และเอเชีย","วิเคราะห์สถานการณ์ของโลก ในคริสต์ศตวรรษที่ ๒๑"]},
+    {topic:"ภูมิศาสตร์ (ส 5)",indicator:"ส 5.1 / ส 5.2 ม.4-6",track:"สูง",
+     ind_text:"เข้าใจลักษณะทางกายภาพ ใช้เครื่องมือทางภูมิศาสตร์ และปฏิสัมพันธ์ระหว่างมนุษย์กับสิ่งแวดล้อม",
+     bounds:"ตามตัวชี้วัดชั้น ม.4-6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ใช้เครื่องมือทางภูมิศาสตร์ในการ รวบรวม วิเคราะห์และนำเสนอข้อมูล ภูมิสารสนเทศอย่างมีประสิทธิภาพ","วิเคราะห์อิทธิพลของสภาพภูมิศาสตร์ ซึ่งทำให้เกิดปัญหาทางกายภาพหรือ ภัยพิบัติทางธรรมชาติใน ประเทศไทยและภูมิภาคต่าง ๆ ของโลก","วิเคราะห์การเปลี่ยนแปลงของพื้นที่ ซึ่งได้รับอิทธิพลจากปัจจัย ทางภูมิศาสตร์ในประเทศไทย และทวีปต่าง ๆ","ประเมินการเปลี่ยนแปลงธรรมชาติ ในโลกว่าเป็นผลมาจากการกระทำ ของมนุษย์และหรือธรรมชาติ","วิเคราะห์ความสัมพันธ์ระหว่างลักษณะ ทางกายภาพและสังคมของ ทวีปอเมริกาเหนือและอเมริกาใต้","วิเคราะห์สถานการณ์และวิกฤตการณ์ ด้านทรัพยากรธรรมชาติและ สิ่งแวดล้อมของประเทศไทยและโลก"]}
   ],
   "ม.5":[
-    {topic:"ลักษณะกายภาพและเครื่องมือทางภูมิศาสตร์ (ส 5.1)",indicator:"ส 5.1 ม.4–6",track:"สูง",
-     ind_text:"วิเคราะห์การเปลี่ยนแปลงทางกายภาพ ปัญหาและภัยพิบัติทางธรรมชาติในประเทศไทยและภูมิภาคต่างๆ ของโลก ใช้แผนที่และเครื่องมือทางภูมิศาสตร์ตามกระบวนการทางภูมิศาสตร์",
-     bounds:"ระดับ 'จบ ม.6': ระดับประเทศไทยและภูมิภาคต่างๆ ของโลก",
-     subs:["วิเคราะห์การเปลี่ยนแปลงทางกายภาพซึ่งได้รับอิทธิพลจากปัจจัยทางภูมิศาสตร์ (ส 5.1 ม.4–6/1)","วิเคราะห์ลักษณะทางกายภาพซึ่งทำให้เกิดปัญหาและภัยพิบัติทางธรรมชาติ (ส 5.1 ม.4–6/2)","ใช้แผนที่และเครื่องมือทางภูมิศาสตร์ตามกระบวนการทางภูมิศาสตร์ (ส 5.1 ม.4–6/3)"]},
-    {topic:"มนุษย์กับสิ่งแวดล้อม (ส 5.2)",indicator:"ส 5.2 ม.4–6",track:"สูง",
-     ind_text:"วิเคราะห์ปฏิสัมพันธ์ระหว่างสิ่งแวดล้อมทางกายภาพกับกิจกรรม/วิถีการดำเนินชีวิตของมนุษย์ เพื่อเตรียมรับมือการเปลี่ยนแปลงของโลกและการจัดการทรัพยากร–สิ่งแวดล้อมเพื่อการพัฒนาอย่างยั่งยืน",
-     bounds:"ระดับ 'จบ ม.6': ระดับประเทศและระหว่างประเทศ เพื่อการพัฒนาที่ยั่งยืน",
-     subs:["วิเคราะห์ปฏิสัมพันธ์ระหว่างสิ่งแวดล้อมทางกายภาพกับกิจกรรมของมนุษย์ (ส 5.2 ม.4–6/1)","การจัดการทรัพยากรและสิ่งแวดล้อมในประเทศและระหว่างประเทศ","การพัฒนาอย่างยั่งยืนและการเตรียมรับมือการเปลี่ยนแปลงของโลก"]}
+    {topic:"ศาสนา ศีลธรรม จริยธรรม (ส 1)",indicator:"ส 1.1 / ส 1.2 ม.4-6",track:"สูง",
+     ind_text:"เข้าใจประวัติ ความสำคัญ หลักธรรมของศาสนาที่ตนนับถือ และปฏิบัติตนเป็นศาสนิกชนที่ดี",
+     bounds:"ตามตัวชี้วัดชั้น ม.4-6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["วิเคราะห์สังคมชมพูทวีปและ คติความเชื่อทางศาสนาสมัยก่อน พระพุทธเจ้า หรือสังคมสมัย ของศาสดาที่ตนนับถือ","วิเคราะห์พระพุทธเจ้าในฐานะ เป็นมนุษย์ผู้ฝึกตนได้อย่างสูงสุด ในการตรัสรู้ การก่อตั้ง วิธีการสอน และการเผยแผ่พระพุทธศาสนา หรือวิเคราะห์ประวัติศาสดาที่ตน นับถือตามที่กำหนด","วิเคราะห์พุทธประวัติด้านการบริหาร และการธำรงรักษาศาสนา หรือ วิเคราะห์ประวัติศาสดาที่ตนนับถือ ตามที่กำหนด","วิเคราะห์ข้อปฏิบัติทางสายกลาง ในพระพุทธศาสนา หรือแนวคิด ของศาสนาที่ตนนับถือตามที่กำหนด","สวดมนต์ แผ่เมตตา บริหารจิต และเจริญปัญญาด้วยอานาปานสติ หรือตามแนวทางของศาสนา ที่ตนนับถือ","วิเคราะห์ความแตกต่างและยอมรับ วิถีการดำเนินชีวิตของศาสนิกชน ในศาสนาอื่น ๆ"]},
+    {topic:"หน้าที่พลเมือง วัฒนธรรม (ส 2)",indicator:"ส 2.1 / ส 2.2 ม.4-6",track:"สูง",
+     ind_text:"ปฏิบัติตนเป็นพลเมืองดี เข้าใจวัฒนธรรม ประเพณี และระบบการเมืองการปกครองแบบประชาธิปไตย",
+     bounds:"ตามตัวชี้วัดชั้น ม.4-6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["วิเคราะห์และปฏิบัติตนตามกฎหมาย ที่เกี่ยวข้องกับตนเอง ครอบครัว ชุมชน ประเทศชาติและสังคมโลก","วิเคราะห์ความสำคัญของโครงสร้าง ทางสังคม การขัดเกลาทางสังคม และการเปลี่ยนแปลงทางสังคม","วิเคราะห์ความจำเป็นที่จะต้องมีการ ปรับปรุงเปลี่ยนแปลงและอนุรักษ์ วัฒนธรรมไทยและเลือกรับ วัฒนธรรมสากล","วิเคราะห์ปัญหาการเมืองที่สำคัญ ในประเทศจากแหล่งข้อมูลต่าง ๆ พร้อมทั้งเสนอแนวทางแก้ไข","เสนอแนวทาง ทางการเมือง การปกครองที่นำไปสู่ความเข้าใจ และการประสานประโยชน์ร่วมกัน ระหว่างประเทศ","วิเคราะห์ความสำคัญและ ความจำเป็นที่ต้องธำรงรักษาไว้ ซึ่งการปกครองตามระบอบ ประชาธิปไตยอันมีพระมหากษัตริย์ ทรงเป็นประมุข"]},
+    {topic:"เศรษฐศาสตร์ (ส 3)",indicator:"ส 3.1 / ส 3.2 ม.4-6",track:"สูง",
+     ind_text:"เข้าใจการบริหารจัดการทรัพยากร การผลิต–บริโภค การเงิน และระบบเศรษฐกิจ",
+     bounds:"ตามตัวชี้วัดชั้น ม.4-6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["อภิปรายการกำหนดราคา และค่าจ้างในระบบเศรษฐกิจ","ตระหนักถึงความสำคัญของปรัชญา ของเศรษฐกิจพอเพียงที่มี ต่อเศรษฐกิจ สังคมของประเทศ","อธิบายบทบาทของรัฐบาลเกี่ยวกับ นโยบายการเงิน การคลังในการ พัฒนาเศรษฐกิจของประเทศ"]},
+    {topic:"ประวัติศาสตร์ (ส 4)",indicator:"ส 4.1 / ส 4.2 / ส 4.3 ม.4-6",track:"สูง",
+     ind_text:"เข้าใจเวลา ยุคสมัย วิธีการทางประวัติศาสตร์ และพัฒนาการของมนุษยชาติและชาติไทย",
+     bounds:"ตามตัวชี้วัดชั้น ม.4-6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ตระหนักถึงความสำคัญของเวลา และยุคสมัยทางประวัติศาสตร์ ที่แสดงถึงการเปลี่ยนแปลง ของมนุษยชาติ","สร้างองค์ความรู้ใหม่ทางประวัติศาสตร์ โดยใช้วิธีการทางประวัติศาสตร์ อย่างเป็นระบบ","วิเคราะห์อิทธิพลของอารยธรรรม โบราณ และการติดต่อระหว่างโลก ตะวันออกกับโลกตะวันตกที่มีผลต่อ พัฒนาการและการเปลี่ยนแปลง ของโลก","วิเคราะห์เหตุการณ์สำคัญต่าง ๆ ที่ส่งผลต่อการเปลี่ยนแปลงทางสังคม","วิเคราะห์ผลกระทบของการขยาย อิทธิพลของประเทศในยุโรปไปยัง ทวีปอเมริกา แอฟริกา และเอเชีย","วิเคราะห์สถานการณ์ของโลก ในคริสต์ศตวรรษที่ ๒๑"]},
+    {topic:"ภูมิศาสตร์ (ส 5)",indicator:"ส 5.1 / ส 5.2 ม.4-6",track:"สูง",
+     ind_text:"เข้าใจลักษณะทางกายภาพ ใช้เครื่องมือทางภูมิศาสตร์ และปฏิสัมพันธ์ระหว่างมนุษย์กับสิ่งแวดล้อม",
+     bounds:"ตามตัวชี้วัดชั้น ม.4-6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ใช้เครื่องมือทางภูมิศาสตร์ในการ รวบรวม วิเคราะห์และนำเสนอข้อมูล ภูมิสารสนเทศอย่างมีประสิทธิภาพ","วิเคราะห์อิทธิพลของสภาพภูมิศาสตร์ ซึ่งทำให้เกิดปัญหาทางกายภาพหรือ ภัยพิบัติทางธรรมชาติใน ประเทศไทยและภูมิภาคต่าง ๆ ของโลก","วิเคราะห์การเปลี่ยนแปลงของพื้นที่ ซึ่งได้รับอิทธิพลจากปัจจัย ทางภูมิศาสตร์ในประเทศไทย และทวีปต่าง ๆ","ประเมินการเปลี่ยนแปลงธรรมชาติ ในโลกว่าเป็นผลมาจากการกระทำ ของมนุษย์และหรือธรรมชาติ","วิเคราะห์ความสัมพันธ์ระหว่างลักษณะ ทางกายภาพและสังคมของ ทวีปอเมริกาเหนือและอเมริกาใต้","วิเคราะห์สถานการณ์และวิกฤตการณ์ ด้านทรัพยากรธรรมชาติและ สิ่งแวดล้อมของประเทศไทยและโลก"]}
   ],
   "ม.6":[
-    {topic:"ลักษณะกายภาพและเครื่องมือทางภูมิศาสตร์ (ส 5.1)",indicator:"ส 5.1 ม.4–6",track:"สูง",
-     ind_text:"วิเคราะห์การเปลี่ยนแปลงทางกายภาพ ปัญหาและภัยพิบัติทางธรรมชาติในประเทศไทยและภูมิภาคต่างๆ ของโลก ใช้แผนที่และเครื่องมือทางภูมิศาสตร์ตามกระบวนการทางภูมิศาสตร์",
-     bounds:"ระดับ 'จบ ม.6': ระดับประเทศไทยและภูมิภาคต่างๆ ของโลก",
-     subs:["วิเคราะห์การเปลี่ยนแปลงทางกายภาพซึ่งได้รับอิทธิพลจากปัจจัยทางภูมิศาสตร์ (ส 5.1 ม.4–6/1)","วิเคราะห์ลักษณะทางกายภาพซึ่งทำให้เกิดปัญหาและภัยพิบัติทางธรรมชาติ (ส 5.1 ม.4–6/2)","ใช้แผนที่และเครื่องมือทางภูมิศาสตร์ตามกระบวนการทางภูมิศาสตร์ (ส 5.1 ม.4–6/3)"]},
-    {topic:"มนุษย์กับสิ่งแวดล้อม (ส 5.2)",indicator:"ส 5.2 ม.4–6",track:"สูง",
-     ind_text:"วิเคราะห์ปฏิสัมพันธ์ระหว่างสิ่งแวดล้อมทางกายภาพกับกิจกรรม/วิถีการดำเนินชีวิตของมนุษย์ เพื่อเตรียมรับมือการเปลี่ยนแปลงของโลกและการจัดการทรัพยากร–สิ่งแวดล้อมเพื่อการพัฒนาอย่างยั่งยืน",
-     bounds:"ระดับ 'จบ ม.6': ระดับประเทศและระหว่างประเทศ เพื่อการพัฒนาที่ยั่งยืน",
-     subs:["วิเคราะห์ปฏิสัมพันธ์ระหว่างสิ่งแวดล้อมทางกายภาพกับกิจกรรมของมนุษย์ (ส 5.2 ม.4–6/1)","การจัดการทรัพยากรและสิ่งแวดล้อมในประเทศและระหว่างประเทศ","การพัฒนาอย่างยั่งยืนและการเตรียมรับมือการเปลี่ยนแปลงของโลก"]}
+    {topic:"ศาสนา ศีลธรรม จริยธรรม (ส 1)",indicator:"ส 1.1 / ส 1.2 ม.4-6",track:"สูง",
+     ind_text:"เข้าใจประวัติ ความสำคัญ หลักธรรมของศาสนาที่ตนนับถือ และปฏิบัติตนเป็นศาสนิกชนที่ดี",
+     bounds:"ตามตัวชี้วัดชั้น ม.4-6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["วิเคราะห์สังคมชมพูทวีปและ คติความเชื่อทางศาสนาสมัยก่อน พระพุทธเจ้า หรือสังคมสมัย ของศาสดาที่ตนนับถือ","วิเคราะห์พระพุทธเจ้าในฐานะ เป็นมนุษย์ผู้ฝึกตนได้อย่างสูงสุด ในการตรัสรู้ การก่อตั้ง วิธีการสอน และการเผยแผ่พระพุทธศาสนา หรือวิเคราะห์ประวัติศาสดาที่ตน นับถือตามที่กำหนด","วิเคราะห์พุทธประวัติด้านการบริหาร และการธำรงรักษาศาสนา หรือ วิเคราะห์ประวัติศาสดาที่ตนนับถือ ตามที่กำหนด","วิเคราะห์ข้อปฏิบัติทางสายกลาง ในพระพุทธศาสนา หรือแนวคิด ของศาสนาที่ตนนับถือตามที่กำหนด","สวดมนต์ แผ่เมตตา บริหารจิต และเจริญปัญญาด้วยอานาปานสติ หรือตามแนวทางของศาสนา ที่ตนนับถือ","วิเคราะห์ความแตกต่างและยอมรับ วิถีการดำเนินชีวิตของศาสนิกชน ในศาสนาอื่น ๆ"]},
+    {topic:"หน้าที่พลเมือง วัฒนธรรม (ส 2)",indicator:"ส 2.1 / ส 2.2 ม.4-6",track:"สูง",
+     ind_text:"ปฏิบัติตนเป็นพลเมืองดี เข้าใจวัฒนธรรม ประเพณี และระบบการเมืองการปกครองแบบประชาธิปไตย",
+     bounds:"ตามตัวชี้วัดชั้น ม.4-6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["วิเคราะห์และปฏิบัติตนตามกฎหมาย ที่เกี่ยวข้องกับตนเอง ครอบครัว ชุมชน ประเทศชาติและสังคมโลก","วิเคราะห์ความสำคัญของโครงสร้าง ทางสังคม การขัดเกลาทางสังคม และการเปลี่ยนแปลงทางสังคม","วิเคราะห์ความจำเป็นที่จะต้องมีการ ปรับปรุงเปลี่ยนแปลงและอนุรักษ์ วัฒนธรรมไทยและเลือกรับ วัฒนธรรมสากล","วิเคราะห์ปัญหาการเมืองที่สำคัญ ในประเทศจากแหล่งข้อมูลต่าง ๆ พร้อมทั้งเสนอแนวทางแก้ไข","เสนอแนวทาง ทางการเมือง การปกครองที่นำไปสู่ความเข้าใจ และการประสานประโยชน์ร่วมกัน ระหว่างประเทศ","วิเคราะห์ความสำคัญและ ความจำเป็นที่ต้องธำรงรักษาไว้ ซึ่งการปกครองตามระบอบ ประชาธิปไตยอันมีพระมหากษัตริย์ ทรงเป็นประมุข"]},
+    {topic:"เศรษฐศาสตร์ (ส 3)",indicator:"ส 3.1 / ส 3.2 ม.4-6",track:"สูง",
+     ind_text:"เข้าใจการบริหารจัดการทรัพยากร การผลิต–บริโภค การเงิน และระบบเศรษฐกิจ",
+     bounds:"ตามตัวชี้วัดชั้น ม.4-6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["อภิปรายการกำหนดราคา และค่าจ้างในระบบเศรษฐกิจ","ตระหนักถึงความสำคัญของปรัชญา ของเศรษฐกิจพอเพียงที่มี ต่อเศรษฐกิจ สังคมของประเทศ","อธิบายบทบาทของรัฐบาลเกี่ยวกับ นโยบายการเงิน การคลังในการ พัฒนาเศรษฐกิจของประเทศ"]},
+    {topic:"ประวัติศาสตร์ (ส 4)",indicator:"ส 4.1 / ส 4.2 / ส 4.3 ม.4-6",track:"สูง",
+     ind_text:"เข้าใจเวลา ยุคสมัย วิธีการทางประวัติศาสตร์ และพัฒนาการของมนุษยชาติและชาติไทย",
+     bounds:"ตามตัวชี้วัดชั้น ม.4-6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ตระหนักถึงความสำคัญของเวลา และยุคสมัยทางประวัติศาสตร์ ที่แสดงถึงการเปลี่ยนแปลง ของมนุษยชาติ","สร้างองค์ความรู้ใหม่ทางประวัติศาสตร์ โดยใช้วิธีการทางประวัติศาสตร์ อย่างเป็นระบบ","วิเคราะห์อิทธิพลของอารยธรรรม โบราณ และการติดต่อระหว่างโลก ตะวันออกกับโลกตะวันตกที่มีผลต่อ พัฒนาการและการเปลี่ยนแปลง ของโลก","วิเคราะห์เหตุการณ์สำคัญต่าง ๆ ที่ส่งผลต่อการเปลี่ยนแปลงทางสังคม","วิเคราะห์ผลกระทบของการขยาย อิทธิพลของประเทศในยุโรปไปยัง ทวีปอเมริกา แอฟริกา และเอเชีย","วิเคราะห์สถานการณ์ของโลก ในคริสต์ศตวรรษที่ ๒๑"]},
+    {topic:"ภูมิศาสตร์ (ส 5)",indicator:"ส 5.1 / ส 5.2 ม.4-6",track:"สูง",
+     ind_text:"เข้าใจลักษณะทางกายภาพ ใช้เครื่องมือทางภูมิศาสตร์ และปฏิสัมพันธ์ระหว่างมนุษย์กับสิ่งแวดล้อม",
+     bounds:"ตามตัวชี้วัดชั้น ม.4-6 เท่านั้น ห้ามใช้เนื้อหาระดับที่สูงกว่า",
+     subs:["ใช้เครื่องมือทางภูมิศาสตร์ในการ รวบรวม วิเคราะห์และนำเสนอข้อมูล ภูมิสารสนเทศอย่างมีประสิทธิภาพ","วิเคราะห์อิทธิพลของสภาพภูมิศาสตร์ ซึ่งทำให้เกิดปัญหาทางกายภาพหรือ ภัยพิบัติทางธรรมชาติใน ประเทศไทยและภูมิภาคต่าง ๆ ของโลก","วิเคราะห์การเปลี่ยนแปลงของพื้นที่ ซึ่งได้รับอิทธิพลจากปัจจัย ทางภูมิศาสตร์ในประเทศไทย และทวีปต่าง ๆ","ประเมินการเปลี่ยนแปลงธรรมชาติ ในโลกว่าเป็นผลมาจากการกระทำ ของมนุษย์และหรือธรรมชาติ","วิเคราะห์ความสัมพันธ์ระหว่างลักษณะ ทางกายภาพและสังคมของ ทวีปอเมริกาเหนือและอเมริกาใต้","วิเคราะห์สถานการณ์และวิกฤตการณ์ ด้านทรัพยากรธรรมชาติและ สิ่งแวดล้อมของประเทศไทยและโลก"]}
   ],
 };
 
@@ -2760,7 +2904,7 @@ function closeDash(){
   stopLivePoll();
   document.getElementById('liveStatus').textContent='ออฟไลน์';
   const btn=document.getElementById('livePollBtn');
-  if(btn){btn.textContent='▶ เปิดติดตามสด';btn.style.background='#1d6aff';}
+  if(btn){btn.textContent='▶ เปิดติดตามสด';btn.style.background='#2a44d4';}
 }
 
 function toggleLivePoll(){
@@ -2769,7 +2913,7 @@ function toggleLivePoll(){
   if(livePollInterval){
     stopLivePoll();
     status.textContent='ออฟไลน์';
-    btn.textContent='▶ เปิดติดตามสด';btn.style.background='#1d6aff';
+    btn.textContent='▶ เปิดติดตามสด';btn.style.background='#2a44d4';
   } else {
     startLivePoll();
     status.textContent='● กำลังติดตามสด (อัปเดตทุก 5 วินาที)';status.style.color='#059669';
@@ -2958,18 +3102,18 @@ async function renderLiveDash(){
       elapsed = diff < 60 ? `${diff}วิที่แล้ว` : `${Math.round(diff/60)}นาทีที่แล้ว`;
       if(diff >= 240) inactiveWarn = true; // เตือนตั้งแต่ 4 นาที (จะหลุดใน 1 นาที)
     }
-    const borderCol = needHelp ? '#f97316' : '#1d6aff';
-    const bgCol = needHelp ? '#fff7ed' : '#f0f6ff';
+    const borderCol = needHelp ? '#f97316' : '#2a44d4';
+    const bgCol = needHelp ? '#fff7ed' : '#f2f5ff';
 
     return `<div style="background:${bgCol};border:2px solid ${borderCol};border-radius:12px;padding:12px 14px;margin-bottom:8px;transition:all .3s;">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:6px;">
         <div style="display:flex;align-items:center;gap:8px;">
-          ${needHelp ? '<span style="font-size:16px;">🆘</span>' : '<span style="width:8px;height:8px;background:#1d6aff;border-radius:50%;display:inline-block;animation:pulse 1.5s infinite;"></span>'}
+          ${needHelp ? '<span style="font-size:16px;">🆘</span>' : '<span style="width:8px;height:8px;background:#2a44d4;border-radius:50%;display:inline-block;animation:pulse 1.5s infinite;"></span>'}
           <span style="font-weight:700;font-size:14px;color:var(--text);">${s.name}</span>
           <span style="font-size:11px;color:var(--muted);background:var(--s2);border:1px solid var(--border);border-radius:4px;padding:1px 6px;">${s.grade}</span>
         </div>
         <div style="display:flex;align-items:center;gap:6px;">
-          <span style="background:#1d6aff;color:white;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:700;">● กำลังทำ</span>
+          <span style="background:#2a44d4;color:white;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:700;">● กำลังทำ</span>
           <span style="font-size:11px;color:${inactiveWarn?'#dc2626':'var(--muted)'};${inactiveWarn?'font-weight:700;':''}">${inactiveWarn?'⚠️ ':''}${elapsed}</span>
         </div>
       </div>
@@ -2977,7 +3121,7 @@ async function renderLiveDash(){
       <!-- Progress -->
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
         <div style="flex:1;height:10px;background:#dde3ec;border-radius:5px;overflow:hidden;">
-          <div style="width:${prog}%;height:100%;background:#1d6aff;border-radius:5px;transition:width .6s ease;"></div>
+          <div style="width:${prog}%;height:100%;background:#2a44d4;border-radius:5px;transition:width .6s ease;"></div>
         </div>
         <span style="font-size:12px;color:var(--text2);font-weight:600;white-space:nowrap;">${s.qIndex||0}/${s.total||10} ข้อ</span>
       </div>
@@ -3645,7 +3789,7 @@ function _renderUrgent(rpt){
       <div style="display:flex;flex-direction:column;gap:6px;">
         ${reasonLines.map((r,i)=>`
           <div style="display:flex;align-items:flex-start;gap:8px;">
-            <span style="background:#4338ca;color:white;font-size:10px;font-weight:700;padding:1px 7px;border-radius:10px;margin-top:2px;white-space:nowrap;">ข้อ ${i+1}</span>
+            <span style="background:#3730a8;color:white;font-size:10px;font-weight:700;padding:1px 7px;border-radius:10px;margin-top:2px;white-space:nowrap;">ข้อ ${i+1}</span>
             <div style="font-size:12px;color:#e0e7ff;line-height:1.6;">${r}</div>
           </div>`).join('')}
         <div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.15);font-size:12px;color:#c7d2fe;">
@@ -3825,7 +3969,7 @@ function _renderStep1_Mastery(rpt){
     </div>
     <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px;">
       <div style="display:flex;align-items:center;gap:8px;font-size:12px;"><span style="width:110px;">Mastery Rate</span>${bar(masteryRate,'#059669')}<span style="width:40px;text-align:right;font-weight:700;color:#059669;">${masteryRate}%</span></div>
-      <div style="display:flex;align-items:center;gap:8px;font-size:12px;"><span style="width:110px;">Avg Score</span>${bar(avgPct,'#1d6aff')}<span style="width:40px;text-align:right;font-weight:700;color:#1d6aff;">${avgPct}%</span></div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:12px;"><span style="width:110px;">Avg Score</span>${bar(avgPct,'#2a44d4')}<span style="width:40px;text-align:right;font-weight:700;color:#2a44d4;">${avgPct}%</span></div>
     </div>
     <div style="display:flex;gap:12px;font-size:12px;color:var(--muted);flex-wrap:wrap;">
       <span>📊 นักเรียนทั้งหมด: <strong>${n} คน</strong></span>
@@ -3849,7 +3993,7 @@ function _renderStep2_Misconception(rpt){
   const catCounts={};
   allMCTags.forEach(t=>{ const cat=_mcCategory(t.mc); catCounts[cat]=(catCounts[cat]||0)+t.n; });
   const catHtml = Object.entries(catCounts).sort((a,b)=>b[1]-a[1]).map(([cat,n])=>{
-    const colors={'Conceptual Misconception':'#dc2626','Procedural Misconception':'#d97706','Computational Error':'#7c3aed','Symbol Misunderstanding':'#0891b2','Visual-Spatial Misunderstanding':'#0f766e','Reading/Interpretation Error':'#374151'};
+    const colors={'Conceptual Misconception':'#dc2626','Procedural Misconception':'#d97706','Computational Error':'#7c3aed','Symbol Misunderstanding':'#2a46d6','Visual-Spatial Misunderstanding':'#0f766e','Reading/Interpretation Error':'#374151'};
     const c=colors[cat]||'#64748b';
     return `<div style="padding:6px 12px;background:${c}1a;border:1px solid ${c}44;border-radius:8px;font-size:12px;display:flex;justify-content:space-between;">
       <span style="color:${c};font-weight:600;">${_MC_CATEGORY_TH[cat]||cat}</span>
@@ -3941,7 +4085,7 @@ function _renderStep4_Health(rpt){
     : {label:'เร่งด่วน ‼️', desc:'นักเรียนส่วนใหญ่ยังไม่เข้าใจเนื้อหา', action:'หยุดสอนบทใหม่ก่อน — ทบทวนพื้นฐานให้ทั้งห้อง'};
 
   const bar=(pct,color,label,weight)=>`<div style="display:flex;align-items:center;gap:8px;font-size:12px;margin-bottom:5px;">
-    <span style="width:160px;color:#bfdbfe;">${label} <span style="opacity:.6;">(${weight}%)</span></span>
+    <span style="width:160px;color:#c9d3f7;">${label} <span style="opacity:.6;">(${weight}%)</span></span>
     <div style="flex:1;height:8px;background:rgba(255,255,255,0.2);border-radius:4px;overflow:hidden;"><div style="height:100%;width:${Math.min(pct,100)}%;background:${color};"></div></div>
     <span style="width:38px;text-align:right;font-weight:700;color:${color};">${Math.round(pct)}%</span>
   </div>`;
@@ -3954,13 +4098,13 @@ function _renderStep4_Health(rpt){
       <div style="text-align:center;min-width:140px;background:rgba(255,255,255,0.1);border-radius:12px;padding:16px;">
         <div style="font-family:'Prompt',sans-serif;font-size:56px;font-weight:700;color:${hc};line-height:1;">${healthScore}</div>
         <div style="font-size:13px;color:white;font-weight:700;margin-top:4px;">${meaning.label}</div>
-        <div style="font-size:10px;color:#bfdbfe;margin-top:2px;">/100 คะแนน</div>
+        <div style="font-size:10px;color:#c9d3f7;margin-top:2px;">/100 คะแนน</div>
       </div>
       <!-- คำอธิบายและ breakdown -->
       <div style="flex:1;min-width:200px;display:flex;flex-direction:column;justify-content:space-between;gap:10px;">
         <div>
           <div style="font-size:13px;color:white;font-weight:600;margin-bottom:4px;">${meaning.desc}</div>
-          <div style="font-size:12px;color:#bfdbfe;padding:8px 10px;background:rgba(255,255,255,0.1);border-radius:8px;">
+          <div style="font-size:12px;color:#c9d3f7;padding:8px 10px;background:rgba(255,255,255,0.1);border-radius:8px;">
             ➡️ ${meaning.action}
           </div>
         </div>
@@ -3968,12 +4112,12 @@ function _renderStep4_Health(rpt){
           ${bar(masteryRate,'#34d399','ความรอบรู้',40)}
           ${bar(100-mcSeverityPenalty,'#a78bfa','ความรุนแรงจุดบกพร่อง',30)}
           ${bar(growthScore,'#fbbf24','พัฒนาการการเรียนรู้',20)}
-          ${bar(participationScore,'#60a5fa','การมีส่วนร่วม',10)}
+          ${bar(participationScore,'#6f84ee','การมีส่วนร่วม',10)}
         </div>
       </div>
     </div>
     ${weakNote?`<div style="margin-top:12px;padding:10px 14px;background:rgba(255,255,255,0.12);border-radius:10px;font-size:12px;color:#e0e7ff;">📌 หัวข้อที่ควรให้ความสนใจ: <strong>"${weakNote}"</strong> — คะแนนเฉลี่ยต่ำสุดในห้อง (${weakTopics[0].avg}%)</div>`:''}
-    <div style="margin-top:8px;font-size:10px;color:#93c5fd;opacity:0.8;">สูตร: 40% ความรอบรู้ + 30% ความรุนแรงจุดบกพร่อง + 20% พัฒนาการ + 10% การมีส่วนร่วม</div>
+    <div style="margin-top:8px;font-size:10px;color:#a6b4f5;opacity:0.8;">สูตร: 40% ความรอบรู้ + 30% ความรุนแรงจุดบกพร่อง + 20% พัฒนาการ + 10% การมีส่วนร่วม</div>
   `;
 }
 
@@ -4027,9 +4171,9 @@ function _renderStep6_Recommendation(rpt){
       <div style="font-size:13px;font-weight:700;margin-bottom:4px;">${r.icon} ${r.title}</div>
       <div style="font-size:13px;color:var(--text);margin-bottom:4px;">${r.body}</div>
       <div style="font-size:11px;color:var(--muted);font-style:italic;margin-bottom:${r.research?'6px':'0'};">${r.evidence}</div>
-      ${r.research ? `<div style="display:inline-flex;align-items:center;gap:5px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:3px 8px;">
+      ${r.research ? `<div style="display:inline-flex;align-items:center;gap:5px;background:#f1f4ff;border:1px solid #c9d3f7;border-radius:6px;padding:3px 8px;">
         <span style="font-size:10px;">📚</span>
-        <span style="font-size:10px;color:#1d4ed8;font-weight:600;">${r.research}</span>
+        <span style="font-size:10px;color:#1e34b0;font-weight:600;">${r.research}</span>
       </div>` : ''}
     </div>`).join('');
 
@@ -4109,7 +4253,7 @@ function _renderFinal(rpt){
 
   el.innerHTML = `
     <div style="display:flex;flex-direction:column;gap:10px;">
-      ${[['1️⃣','ใครมีปัญหาการเรียนรู้?',q1,'#dc2626'],['2️⃣','ปัญหาการเรียนรู้คืออะไร?',q2,'#d97706'],['3️⃣','ทำไมจึงเกิดปัญหานี้?',q3,'#7c3aed'],['4️⃣','ครูควรทำอะไรต่อไป?',q4,'#059669'],['5️⃣','การช่วยเหลือที่ผ่านมาได้ผลหรือไม่?',q5,'#0891b2']].map(([num,q,a,c])=>`
+      ${[['1️⃣','ใครมีปัญหาการเรียนรู้?',q1,'#dc2626'],['2️⃣','ปัญหาการเรียนรู้คืออะไร?',q2,'#d97706'],['3️⃣','ทำไมจึงเกิดปัญหานี้?',q3,'#7c3aed'],['4️⃣','ครูควรทำอะไรต่อไป?',q4,'#059669'],['5️⃣','การช่วยเหลือที่ผ่านมาได้ผลหรือไม่?',q5,'#2a46d6']].map(([num,q,a,c])=>`
       <div style="padding:12px 14px;border-left:4px solid ${c};border-radius:0 10px 10px 0;background:${c}0d;">
         <div style="font-size:12px;font-weight:700;color:${c};margin-bottom:4px;">${num} ${q}</div>
         <div style="font-size:13px;color:var(--text);">${a}</div>
@@ -4186,7 +4330,7 @@ Output ONLY valid JSON array, no markdown:
       // ล้มเหลว Stage 9 → แสดง warning แต่ใช้ auto-fixed data แทน
       console.warn('[MQAF Stage 9] Misconception validation issues:', gate9.failedStages);
     }
-    const catColors={'Conceptual Misconception':'#dc2626','Procedural Misconception':'#d97706','Computational Error':'#7c3aed','Symbol Misunderstanding':'#0891b2','Visual-Spatial Misunderstanding':'#0f766e','Reading/Interpretation Error':'#374151'};
+    const catColors={'Conceptual Misconception':'#dc2626','Procedural Misconception':'#d97706','Computational Error':'#7c3aed','Symbol Misunderstanding':'#2a46d6','Visual-Spatial Misunderstanding':'#0f766e','Reading/Interpretation Error':'#374151'};
     el.innerHTML=`<div style="font-size:12px;color:var(--muted);margin-bottom:10px;">🧪 AI Cognitive Diagnostic Assessment — Topic: ${topTopic}</div>`+
     validatedMCs.map(mc=>{const c=catColors[mc.category]||'#64748b';return`<div style="padding:12px 14px;background:var(--s2);border:1px solid ${c}44;border-left:4px solid ${c};border-radius:0 10px 10px 0;margin-bottom:8px;">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap;">
@@ -4256,9 +4400,9 @@ Sort by priority (1=highest).`;
       </div>
       <div style="font-size:11px;color:var(--muted);font-style:italic;margin-bottom:${r.researchBasis?'6px':'0'};">หลักฐาน: ${r.evidence}</div>
       ${r.researchBasis ? `<div style="display:flex;flex-wrap:wrap;gap:5px;">${
-        r.researchBasis.map(b=>`<div style="display:inline-flex;align-items:center;gap:4px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:2px 8px;">
-          <span style="font-size:9px;font-weight:700;color:#1d4ed8;">📚</span>
-          <span style="font-size:10px;color:#1d4ed8;font-weight:600;">${b.label}</span>
+        r.researchBasis.map(b=>`<div style="display:inline-flex;align-items:center;gap:4px;background:#f1f4ff;border:1px solid #c9d3f7;border-radius:6px;padding:2px 8px;">
+          <span style="font-size:9px;font-weight:700;color:#1e34b0;">📚</span>
+          <span style="font-size:10px;color:#1e34b0;font-weight:600;">${b.label}</span>
           <span style="font-size:10px;color:#64748b;">— ${b.sub}</span>
         </div>`).join('')}
       </div>` : ''}
@@ -4295,15 +4439,15 @@ function copyStudentLink(){
       <div style="font-size:12px;color:#64748b;margin-bottom:14px;">วางใน LINE กลุ่ม หรือช่องทางที่ใช้ส่งงาน</div>
       <div style="display:flex;gap:8px;margin-bottom:16px;">
         <input id="_linkInput" type="text" readonly value="${link}" onclick="this.select()"
-          style="flex:1;padding:10px 12px;border:2px solid #bfdbfe;border-radius:8px;font-size:12px;color:#1e293b;background:#f8faff;font-family:monospace;outline:none;">
+          style="flex:1;padding:10px 12px;border:2px solid #c9d3f7;border-radius:8px;font-size:12px;color:#1e293b;background:#f8faff;font-family:monospace;outline:none;">
         <button id="_copyBtn" onclick="
           const inp=document.getElementById('_linkInput');
           inp.select();inp.setSelectionRange(0,99999);
           navigator.clipboard.writeText(inp.value).then(()=>{
             this.textContent='✅ คัดลอกแล้ว!';this.style.background='#059669';
-            setTimeout(()=>{this.textContent='📋 คัดลอก';this.style.background='#1d6aff';},2000);
+            setTimeout(()=>{this.textContent='📋 คัดลอก';this.style.background='#2a44d4';},2000);
           }).catch(()=>{ document.execCommand('copy'); this.textContent='✅ คัดลอกแล้ว!'; });
-        " style="padding:10px 18px;background:#1d6aff;color:white;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Prompt',sans-serif;white-space:nowrap;">📋 คัดลอก</button>
+        " style="padding:10px 18px;background:#2a44d4;color:white;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Prompt',sans-serif;white-space:nowrap;">📋 คัดลอก</button>
       </div>
       <div style="display:flex;justify-content:flex-end;">
         <button onclick="document.getElementById('_linkModal').style.display='none'"
@@ -4383,7 +4527,7 @@ function showAcademicFramework(){
   modal.style.cssText='position:fixed;inset:0;background:rgba(15,23,42,0.6);z-index:99999;display:flex;align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto;';
   modal.onclick=function(e){ if(e.target===modal) modal.remove(); };
   modal.innerHTML='<div style="background:#f8fafc;border-radius:16px;max-width:680px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.3);overflow:hidden;font-family:\'Sarabun\',sans-serif;position:relative;">'
-    +'<div style="background:linear-gradient(135deg,#1e3a8a,#4338ca);color:#fff;padding:18px 22px;">'
+    +'<div style="background:linear-gradient(135deg,#1a2a7a,#3730a8);color:#fff;padding:18px 22px;">'
     +  '<div style="font-family:\'Prompt\',sans-serif;font-size:19px;font-weight:800;">📚 กรอบทฤษฎีและงานวิจัยของ NEXUS AI</div>'
     +  '<div style="font-size:12px;color:#c7d2fe;margin-top:3px;">ทุกฟีเจอร์ออกแบบบนหลักการที่ตรวจสอบย้อนกลับได้ · อิงหลักสูตรแกนกลาง พ.ศ. 2560</div>'
     +'</div>'
@@ -4394,7 +4538,7 @@ function showAcademicFramework(){
     +  '<div style="font-family:\'Prompt\',sans-serif;font-size:14px;font-weight:700;color:#7c3aed;margin:14px 0 8px;">🎨 อ้างอิงเชิงออกแบบ (Design Reference)</div>'
     +  designHtml
     +  '<div style="font-size:11px;color:#94a3b8;margin-top:12px;text-align:center;line-height:1.6;">NEXUS AI · โรงเรียนมัธยมวัดหนองแขม × สวนกุหลาบวิทยาลัย ธนบุรี<br>ระบบไม่อ้างอิงโมเดลที่ยังไม่ได้ปรับเทียบข้อมูล (เช่น IRT/Rasch, DINA) เพื่อความถูกต้องทางวิชาการ</div>'
-    +  '<button onclick="printAcademicFramework()" style="width:100%;margin-top:14px;padding:11px;background:linear-gradient(135deg,#1e3a8a,#4338ca);color:#fff;border:none;border-radius:10px;font-family:\'Prompt\',sans-serif;font-size:13px;font-weight:700;cursor:pointer;">🖨️ พิมพ์เอกสารกรอบวิชาการ (A4 สำหรับกรรมการ)</button>'
+    +  '<button onclick="printAcademicFramework()" style="width:100%;margin-top:14px;padding:11px;background:linear-gradient(135deg,#1a2a7a,#3730a8);color:#fff;border:none;border-radius:10px;font-family:\'Prompt\',sans-serif;font-size:13px;font-weight:700;cursor:pointer;">🖨️ พิมพ์เอกสารกรอบวิชาการ (A4 สำหรับกรรมการ)</button>'
     +'</div>'
     +'<button onclick="this.closest(\'[style*=fixed]\').remove();" style="position:absolute;top:14px;right:16px;background:rgba(255,255,255,0.2);border:none;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:16px;color:#fff;">✕</button>'
     +'</div>';
@@ -4416,7 +4560,7 @@ function printAcademicFramework(){
     +'*{margin:0;padding:0;box-sizing:border-box;}'
     +'body{font-family:"Sarabun","TH Sarabun New",sans-serif;color:#1e293b;font-size:13px;line-height:1.6;padding:0;}'
     +'.page{width:210mm;min-height:290mm;margin:0 auto;padding:16mm 18mm;}'
-    +'h1{font-size:22px;color:#1e3a8a;border-bottom:3px solid #4338ca;padding-bottom:8px;margin-bottom:4px;}'
+    +'h1{font-size:22px;color:#1a2a7a;border-bottom:3px solid #3730a8;padding-bottom:8px;margin-bottom:4px;}'
     +'.sub{font-size:12px;color:#64748b;margin-bottom:16px;}'
     +'.intro{font-size:12px;background:#eef2ff;border-radius:8px;padding:10px 14px;margin-bottom:16px;line-height:1.7;}'
     +'h2{font-size:15px;margin:16px 0 8px;padding:6px 12px;border-radius:6px;color:#fff;}'
@@ -4424,19 +4568,19 @@ function printAcademicFramework(){
     +'table{width:100%;border-collapse:collapse;margin-bottom:8px;font-size:11.5px;}'
     +'th,td{border:1px solid #cbd5e1;padding:6px 9px;text-align:left;vertical-align:top;}'
     +'th{background:#f1f5f9;font-weight:700;font-size:11px;}'
-    +'td.n{text-align:center;font-weight:700;color:#4338ca;width:24px;}'
+    +'td.n{text-align:center;font-weight:700;color:#3730a8;width:24px;}'
     +'td.see{color:#0369a1;font-size:11px;}'
     +'.au{font-size:10.5px;color:#64748b;}'
     +'.foot{margin-top:18px;padding-top:10px;border-top:1px solid #e2e8f0;font-size:10.5px;color:#94a3b8;text-align:center;line-height:1.6;}'
     +'.note{font-size:11px;color:#475569;background:#fffbeb;border:1px solid #fde68a;border-radius:6px;padding:8px 12px;margin-top:12px;}'
     +'@media print{@page{size:A4;margin:0;}.page{margin:0;}.noprint{display:none;}}'
     +'.noprint{position:fixed;top:12px;right:12px;}'
-    +'.noprint button{padding:9px 18px;background:#4338ca;color:#fff;border:none;border-radius:8px;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;}'
+    +'.noprint button{padding:9px 18px;background:#3730a8;color:#fff;border:none;border-radius:8px;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;}'
     +'</style></head><body>'
     +'<div class="noprint"><button onclick="window.print()">🖨️ พิมพ์ / Save as PDF</button></div>'
     +'<div class="page">'
     +'<h1>กรอบทฤษฎีและงานวิจัย — NEXUS AI</h1>'
-    +'<div class="sub">ระบบวิเคราะห์ผู้เรียนวิชาสังคมศึกษา สาระภูมิศาสตร์ (ส 5) ด้วยปัญญาประดิษฐ์ · อิงหลักสูตรแกนกลางการศึกษาขั้นพื้นฐาน พ.ศ. 2560</div>'
+    +'<div class="sub">ระบบวิเคราะห์ผู้เรียนวิชาสังคมศึกษา ศาสนาและวัฒนธรรม (ครบ ๕ สาระ) ด้วยปัญญาประดิษฐ์ · อิงหลักสูตรแกนกลางการศึกษาขั้นพื้นฐาน พ.ศ. 2560</div>'
     +'<div class="intro">เอกสารนี้แสดง<b>ตารางตรวจสอบย้อนกลับ (Traceability)</b> ระหว่างทฤษฎี/งานวิจัยกับการทำงานจริงของระบบ โดยแยกชัดเป็น 2 ระดับ: <b style="color:#059669;">ใช้เป็นกลไกจริง</b> (ควบคุมการทำงานของระบบโดยตรง) และ <b style="color:#7c3aed;">อ้างอิงเชิงออกแบบ</b> (ใช้เป็นหลักออกแบบรูปแบบ) เพื่อความโปร่งใสและถูกต้องทางวิชาการ</div>'
     +'<h2 class="mech">✅ ทฤษฎีที่ใช้เป็นกลไกจริง (Mechanism)</h2>'
     +'<table><tr><th>#</th><th style="width:22%;">ทฤษฎี / ผู้วิจัย</th><th>ใช้ทำอะไรในระบบ</th><th style="width:28%;">เห็นได้ที่</th></tr>'+rowsFor(ACADEMIC_FRAMEWORK.mechanism)+'</table>'
@@ -4850,11 +4994,11 @@ async function printStudentWorksheet(idx){
   overlay.style.cssText='position:fixed;inset:0;background:rgba(15,23,42,0.65);z-index:9999;display:flex;align-items:center;justify-content:center;';
   overlay.innerHTML=`<div style="background:white;border-radius:16px;padding:32px 40px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.25);max-width:340px;">
     <div style="font-size:38px;margin-bottom:12px;">🤖</div>
-    <div style="font-family:'Prompt',sans-serif;font-size:16px;font-weight:700;color:#1d6aff;margin-bottom:8px;">AI กำลังวิเคราะห์และสร้างใบงาน</div>
+    <div style="font-family:'Prompt',sans-serif;font-size:16px;font-weight:700;color:#2a44d4;margin-bottom:8px;">AI กำลังวิเคราะห์และสร้างใบงาน</div>
     <div style="font-size:14px;color:#334155;font-weight:600;">${r.name} — ${r.subtopic}</div>
     <div style="margin-top:6px;font-size:13px;color:#64748b;">คะแนน ${r.pct}% → ${numQ} ข้อ ${qNote}</div>
     <div style="margin-top:14px;width:240px;height:6px;background:#e2e8f0;border-radius:3px;margin-left:auto;margin-right:auto;">
-      <div id="wsLoadBar" style="height:6px;background:#1d6aff;border-radius:3px;width:0%;transition:width 0.4s;"></div>
+      <div id="wsLoadBar" style="height:6px;background:#2a44d4;border-radius:3px;width:0%;transition:width 0.4s;"></div>
     </div>
     <div style="margin-top:10px;font-size:12px;color:#94a3b8;" id="wsLoadMsg">กำลังวิเคราะห์จุดอ่อน...</div>
   </div>`;
@@ -5090,7 +5234,7 @@ ${latexRule2}
            </div>` : '';
       const lc = levelColors[ex.level] || '#64748b';
       return `<div style="border:1px solid #dde3ec;border-radius:8px;padding:14px;margin-bottom:12px;page-break-inside:avoid;">
-        <div style="font-size:11px;font-weight:700;color:#1d6aff;letter-spacing:1px;margin-bottom:8px;">
+        <div style="font-size:11px;font-weight:700;color:#2a44d4;letter-spacing:1px;margin-bottom:8px;">
           ข้อที่ ${ex.num}
           <span style="background:${lc};color:white;padding:1px 8px;border-radius:10px;font-size:10px;margin-left:6px;">${ex.level}</span>
         </div>
@@ -5109,16 +5253,16 @@ ${latexRule2}
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Sarabun',sans-serif;background:#fff;color:#0f172a;padding:20px 24px;max-width:820px;margin:0 auto;font-size:14px;}
-.hdr{border-bottom:3px solid #1d6aff;padding-bottom:14px;margin-bottom:20px;}
-.hdr h1{color:#1d6aff;font-size:20px;margin-bottom:8px;}
+.hdr{border-bottom:3px solid #2a44d4;padding-bottom:14px;margin-bottom:20px;}
+.hdr h1{color:#2a44d4;font-size:20px;margin-bottom:8px;}
 .tags{display:flex;gap:8px;flex-wrap:wrap;font-size:12px;margin-top:8px;}
-.tags span{background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:3px 10px;color:#334155;}
+.tags span{background:#f1f4ff;border:1px solid #c9d3f7;border-radius:6px;padding:3px 10px;color:#334155;}
 .score-badge{background:${scoreColor};color:white!important;border:none!important;font-weight:700;}
 .analysis-box{background:#fef9ee;border:1.5px solid #fcd34d;border-radius:8px;padding:12px 16px;margin:14px 0;font-size:13px;color:#78350f;line-height:1.7;}
 .analysis-box strong{color:#92400e;}
-.print-bar{position:fixed;bottom:0;left:0;right:0;background:#1d6aff;padding:10px 16px;display:flex;gap:10px;justify-content:center;z-index:999;box-shadow:0 -4px 20px rgba(29,106,255,0.3);}
+.print-bar{position:fixed;bottom:0;left:0;right:0;background:#2a44d4;padding:10px 16px;display:flex;gap:10px;justify-content:center;z-index:999;box-shadow:0 -4px 20px rgba(42,68,212,0.3);}
 .print-bar button{padding:10px 28px;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Sarabun',sans-serif;}
-.btn-print{background:white;color:#1d6aff;}
+.btn-print{background:white;color:#2a44d4;}
 .btn-close{background:rgba(255,255,255,0.2);color:white;}
 .footer{margin-top:24px;margin-bottom:56px;font-size:11px;color:#94a3b8;text-align:center;border-top:1px solid #dde3ec;padding-top:10px;}
 svg{max-width:100%!important;height:auto!important;display:block;margin:6px auto;}
@@ -7799,7 +7943,7 @@ function addGrid(type,items,onSelect){
       // disable ทุกปุ่มใน grid นี้
       grid.querySelectorAll('button').forEach(b=>{b.disabled=true;b.style.opacity='0.5';});
       // highlight ที่เลือก
-      btn.style.opacity='1';btn.style.borderColor='var(--blue)';btn.style.background='#eff6ff';
+      btn.style.opacity='1';btn.style.borderColor='var(--blue)';btn.style.background='#f1f4ff';
       onSelect(item);
     };
     grid.appendChild(btn);
@@ -7812,7 +7956,7 @@ function greetUser(){
   const m = window._missionData;
   const introMsg = m
     ? `สวัสดีครับ 👋 ยินดีต้อนรับสู่ **NEXUS AI**\n\n🎯 คุณได้รับภารกิจจากครู: **${m.subtopic}** (${m.grade} / ห้อง ${m.room})\n\nก่อนเริ่ม กรุณาเลือกว่าขณะนี้คุณใช้อุปกรณ์ใดอยู่ครับ 📱💻`
-    : 'สวัสดีครับ 👋 ยินดีต้อนรับสู่ **NEXUS AI**\nระบบวิเคราะห์ผู้เรียนวิชาสังคมศึกษา สาระภูมิศาสตร์ (ส 5) ด้วยปัญญาประดิษฐ์\nอ้างอิงตัวชี้วัดหลักสูตรแกนกลาง พ.ศ. 2560\n\nก่อนเริ่ม กรุณาเลือกว่าขณะนี้คุณใช้อุปกรณ์ใดอยู่ครับ 📱💻';
+    : 'สวัสดีครับ 👋 ยินดีต้อนรับสู่ **NEXUS AI**\nระบบวิเคราะห์ผู้เรียนวิชาสังคมศึกษา ศาสนาและวัฒนธรรม (ครบ ๕ สาระ) ด้วยปัญญาประดิษฐ์\nอ้างอิงตัวชี้วัดหลักสูตรแกนกลาง พ.ศ. 2560\n\nก่อนเริ่ม กรุณาเลือกว่าขณะนี้คุณใช้อุปกรณ์ใดอยู่ครับ 📱💻';
   addMsg('ai', introMsg);
   setTimeout(()=>{
     addGrid('device',['📱 มือถือ','📟 แท็บเล็ต','💻 คอมพิวเตอร์'],dev=>{
@@ -7922,16 +8066,16 @@ function addSVGtoMessage(svgCode){
 
 // วาดรูปสามเหลี่ยม พร้อมป้าย side a,b,c และมุม
 // ===== GEOMETRY SVG BUILDERS — มาตรฐาน (แก้ไข v33) =====
-// สีมาตรฐาน: เส้น #1d6aff (น้ำเงิน), fill เย็น, ป้ายชัดเจน
+// สีมาตรฐาน: เส้น #2a44d4 (น้ำเงิน), fill เย็น, ป้ายชัดเจน
 
-const GEO_LINE  = '#1e3a8a';   // เส้นขอบ 2D
-const GEO_FILL  = '#dbeafe';   // ฟิล 2D อ่อน
+const GEO_LINE  = '#1a2a7a';   // เส้นขอบ 2D
+const GEO_FILL  = '#e2e8fb';   // ฟิล 2D อ่อน
 const GEO_DIM   = '#dc2626';   // ป้ายกำกับ
 const GEO_AUX   = '#64748b';   // เส้นเสริม/ประ
-const C3D_LINE  = '#1e40af';   // เส้นขอบ 3D
-const C3D_LIGHT = '#dbeafe';   // หน้าสว่าง
-const C3D_MID   = '#93c5fd';   // หน้ากลาง
-const C3D_DARK  = '#bfdbfe';   // หน้ามืด
+const C3D_LINE  = '#223594';   // เส้นขอบ 3D
+const C3D_LIGHT = '#e2e8fb';   // หน้าสว่าง
+const C3D_MID   = '#a6b4f5';   // หน้ากลาง
+const C3D_DARK  = '#c9d3f7';   // หน้ามืด
 
 // --- ตัวช่วย: label พร้อมเส้นชี้ ---
 function _lbl(x1,y1,x2,y2,text,anchor='middle',col=GEO_DIM){
@@ -8049,7 +8193,7 @@ function svgCircleTheorem(params={}, label=''){
   });
 
   let svg = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:280px;display:block;margin:0 auto;background:#f8fafc;border-radius:10px;">`;
-  svg += `<defs><radialGradient id="ctG" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#eff6ff"/><stop offset="100%" stop-color="#bfdbfe"/></radialGradient></defs>`;
+  svg += `<defs><radialGradient id="ctG" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#f1f4ff"/><stop offset="100%" stop-color="#c9d3f7"/></radialGradient></defs>`;
   // วงกลม
   svg += `<circle cx="${cx}" cy="${cy}" r="${R}" fill="url(#ctG)" stroke="${GEO_LINE}" stroke-width="2"/>`;
 
@@ -8129,8 +8273,8 @@ function svgCircle(r, label=''){
   return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:260px;display:block;margin:0 auto;background:#f8fafc;border-radius:10px;">
     <defs>
       <radialGradient id="cG${r}" cx="35%" cy="30%" r="65%">
-        <stop offset="0%" stop-color="#eff6ff"/>
-        <stop offset="100%" stop-color="#bfdbfe"/>
+        <stop offset="0%" stop-color="#f1f4ff"/>
+        <stop offset="100%" stop-color="#c9d3f7"/>
       </radialGradient>
     </defs>
     <circle cx="${cx}" cy="${cy}" r="${R}" fill="url(#cG${r})" stroke="${GEO_LINE}" stroke-width="2"/>
@@ -8179,8 +8323,8 @@ function svgCylinder(r, h, label){
   return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:320px;display:block;margin:0 auto;background:#f8fafc;border-radius:10px;">
     <defs>
       <linearGradient id="${gid}" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%"   stop-color="#93c5fd"/>
-        <stop offset="40%"  stop-color="#dbeafe"/>
+        <stop offset="0%"   stop-color="#a6b4f5"/>
+        <stop offset="40%"  stop-color="#e2e8fb"/>
         <stop offset="100%" stop-color="#7dd3fc"/>
       </linearGradient>
     </defs>
@@ -8190,9 +8334,9 @@ function svgCylinder(r, h, label){
     <line x1="${cx-rx}" y1="${by-ph}" x2="${cx-rx}" y2="${by}" stroke="${col}" stroke-width="1.8"/>
     <line x1="${cx+rx}" y1="${by-ph}" x2="${cx+rx}" y2="${by}" stroke="${col}" stroke-width="1.8"/>
     <!-- ฐาน ellipse (ล่าง) -->
-    <ellipse cx="${cx}" cy="${by}" rx="${rx}" ry="${ry}" fill="#bfdbfe" stroke="${col}" stroke-width="1.8"/>
+    <ellipse cx="${cx}" cy="${by}" rx="${rx}" ry="${ry}" fill="#c9d3f7" stroke="${col}" stroke-width="1.8"/>
     <!-- ฝาบน ellipse -->
-    <ellipse cx="${cx}" cy="${by-ph}" rx="${rx}" ry="${ry}" fill="#dbeafe" stroke="${col}" stroke-width="1.8"/>
+    <ellipse cx="${cx}" cy="${by-ph}" rx="${rx}" ry="${ry}" fill="#e2e8fb" stroke="${col}" stroke-width="1.8"/>
     <!-- เส้นประแกนกลาง (ซ่อนด้านหลัง) -->
     <line x1="${cx}" y1="${by-ph-ry-2}" x2="${cx}" y2="${by+ry+2}" stroke="${col}" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
     <!-- ป้าย h (ขวา) -->
@@ -8347,19 +8491,19 @@ const GEO2 = (() => {
 
   // ── ค่าคงที่สี ──────────────────────────────────────────────────────
   const COLOR = {
-    topFace:    '#dbeafe',   // หน้าบน
-    frontFace:  '#bfdbfe',   // หน้าหน้า
-    rightFace:  '#93c5fd',   // หน้าขวา
-    edgeOuter:  '#1e3a8a',   // เส้นขอบนอก
-    edgeInner:  '#3b82f6',   // เส้นขอบใน
-    viewFill:   '#dbeafe',   // ช่องที่มีลูกบาศก์ใน 2D view
-    viewGrid:   '#93c5fd',   // เส้นกริด 2D
+    topFace:    '#e2e8fb',   // หน้าบน
+    frontFace:  '#c9d3f7',   // หน้าหน้า
+    rightFace:  '#a6b4f5',   // หน้าขวา
+    edgeOuter:  '#1a2a7a',   // เส้นขอบนอก
+    edgeInner:  '#4056e0',   // เส้นขอบใน
+    viewFill:   '#e2e8fb',   // ช่องที่มีลูกบาศก์ใน 2D view
+    viewGrid:   '#a6b4f5',   // เส้นกริด 2D
     viewEmpty:  'none',      // ช่องว่าง
     viewDash:   '#cbd5e1',   // เส้นประช่องว่าง
-    labelFg:    '#1e3a8a',   // ตัวเลขใน view
+    labelFg:    '#1a2a7a',   // ตัวเลขใน view
     titleFg:    '#334155',   // ชื่อ view
-    bg:         '#f0f6ff',   // พื้นหลัง panel
-    border:     '#bfdbfe',   // ขอบ panel
+    bg:         '#f2f5ff',   // พื้นหลัง panel
+    border:     '#c9d3f7',   // ขอบ panel
   };
 
   // ══════════════════════════════════════════════════════════════════════
@@ -9460,11 +9604,11 @@ function svgVenn(setA, setB, intersect, labelA='A', labelB='B'){
   return `<svg viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg" style="max-width:320px;display:block;margin:0 auto;background:#f8fafc;border-radius:10px;">
     <rect x="10" y="10" width="280" height="150" rx="8" fill="none" stroke="${GEO_AUX}" stroke-width="1.5"/>
     <text x="278" y="24" text-anchor="end" font-size="10" fill="${GEO_AUX}">U</text>
-    <circle cx="108" cy="88" r="58" fill="rgba(29,106,255,0.12)" stroke="${GEO_LINE}" stroke-width="2"/>
+    <circle cx="108" cy="88" r="58" fill="rgba(42,68,212,0.12)" stroke="${GEO_LINE}" stroke-width="2"/>
     <circle cx="192" cy="88" r="58" fill="rgba(220,38,38,0.10)" stroke="#dc2626" stroke-width="2"/>
     <text x="72" y="42" text-anchor="middle" font-size="14" font-weight="700" fill="${GEO_LINE}">${labelA}</text>
     <text x="228" y="42" text-anchor="middle" font-size="14" font-weight="700" fill="#dc2626">${labelB}</text>
-    <text x="72" y="90" text-anchor="middle" font-size="12" fill="#1e3a8a">${aOnly.slice(0,4).join(', ')}</text>
+    <text x="72" y="90" text-anchor="middle" font-size="12" fill="#1a2a7a">${aOnly.slice(0,4).join(', ')}</text>
     <text x="150" y="90" text-anchor="middle" font-size="12" fill="#334155">${intersect.slice(0,3).join(', ')}</text>
     <text x="228" y="90" text-anchor="middle" font-size="12" fill="#7a1d1d">${bOnly.slice(0,4).join(', ')}</text>
   </svg>`;
@@ -9473,16 +9617,16 @@ function svgVenn(setA, setB, intersect, labelA='A', labelB='B'){
 // --- การแปลงทางเรขาคณิต ---
 function svgTransform(type, label=''){
   const shapes = {
-    translation: `<polygon points="30,120 70,120 70,80 30,80" fill="#dbeafe" stroke="${GEO_LINE}" stroke-width="2"/>
+    translation: `<polygon points="30,120 70,120 70,80 30,80" fill="#e2e8fb" stroke="${GEO_LINE}" stroke-width="2"/>
       <polygon points="115,105 155,105 155,65 115,65" fill="#fef3c7" stroke="#d97706" stroke-width="2" stroke-dasharray="5"/>
       <defs><marker id="arr_t" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="${GEO_AUX}"/></marker></defs>
       <line x1="72" y1="100" x2="113" y2="85" stroke="${GEO_AUX}" stroke-width="1.8" marker-end="url(#arr_t)"/>
       <text x="92" y="118" text-anchor="middle" font-size="11" fill="${GEO_AUX}">เลื่อนขนาน</text>`,
-    reflection: `<polygon points="44,130 80,130 80,72 44,72" fill="#dbeafe" stroke="${GEO_LINE}" stroke-width="2"/>
+    reflection: `<polygon points="44,130 80,130 80,72 44,72" fill="#e2e8fb" stroke="${GEO_LINE}" stroke-width="2"/>
       <line x1="100" y1="34" x2="100" y2="155" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="6,3"/>
       <polygon points="156,130 120,130 120,72 156,72" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
       <text x="100" y="168" text-anchor="middle" font-size="11" fill="${GEO_AUX}">สะท้อน</text>`,
-    rotation: `<polygon points="100,78 132,128 68,128" fill="#dbeafe" stroke="${GEO_LINE}" stroke-width="2"/>
+    rotation: `<polygon points="100,78 132,128 68,128" fill="#e2e8fb" stroke="${GEO_LINE}" stroke-width="2"/>
       <polygon points="100,78 140,78 140,46 100,46" fill="#fef3c7" stroke="#d97706" stroke-width="2" stroke-dasharray="5"/>
       <circle cx="100" cy="78" r="4" fill="#dc2626"/>
       <path d="M122,62 A26,26 0 0,1 117,97" fill="none" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="4"/>
@@ -9564,7 +9708,7 @@ function svgNumberLine(p){
   const step = p.step || 1;
   const W=440, H=110, padX=30, axisY=64;
   const X = v => padX + (v-min)/(max-min)*(W-2*padX);
-  const GEO_LINE='#1e293b', ACCENT='#1d6aff';
+  const GEO_LINE='#1e293b', ACCENT='#2a44d4';
   let svg=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" font-family="'Sarabun',sans-serif">`;
   // ช่วงคำตอบ (อสมการ)
   (p.intervals||[]).forEach(iv=>{
@@ -9599,7 +9743,7 @@ function svgFractionModel(p){
   const shadedSet = Array.isArray(p.shaded)
     ? new Set(p.shaded)
     : new Set(Array.from({length:Math.max(0,Math.min(p.shaded||0,parts))},(_,i)=>i));
-  const FILL='#1d6aff', LINE='#1e293b', EMPTY='#f1f5f9';
+  const FILL='#2a44d4', LINE='#1e293b', EMPTY='#f1f5f9';
   const shape = p.shape==='circle' ? 'circle' : 'bar';
   let svg;
   if(shape==='bar'){
@@ -9637,7 +9781,7 @@ function svgMatrixHighlight(p){
   const cellW=46, cellH=38, padX=26, padY=22;
   const gridW=cols*cellW, gridH=rows*cellH;
   const W=gridW+padX*2+16, H=gridH+padY*2;
-  const LINE='#1e293b', HL='#fde68a', HLROW='#bfdbfe', HLCOL='#bbf7d0';
+  const LINE='#1e293b', HL='#fde68a', HLROW='#c9d3f7', HLCOL='#bbf7d0';
   const hl = p.highlight||{};
   const cellSet = new Set((hl.cells||[]).map(c=>c[0]+','+c[1]));
   let svg=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" font-family="'Sarabun',sans-serif">`;
@@ -9725,7 +9869,7 @@ function buildSVGForWorksheet(svgParams){
 }
 
 // ===== STATISTICS SVG BUILDERS =====
-const STAT_COLORS=['#1d6aff','#dc2626','#059669','#d97706','#7c3aed','#0891b2','#be185d','#65a30d'];
+const STAT_COLORS=['#2a44d4','#dc2626','#059669','#d97706','#7c3aed','#2a46d6','#be185d','#65a30d'];
 
 // แผนภูมิแท่ง (Bar Chart) — แนวตั้ง
 function svgBarChart(labels, values, title){
@@ -9866,10 +10010,10 @@ function svgLineGraph(labels, values, title){
     gridlines+=`<line x1="${pad.l}" y1="${y}" x2="${W-pad.r}" y2="${y}" stroke="#e2e8f0" stroke-width="1"/>
     <text x="${pad.l-4}" y="${y+4}" text-anchor="end" font-size="11" fill="#64748b">${val}</text>`;
   });
-  polyline=`<polyline points="${pts.map(p=>`${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ')}" fill="none" stroke="#1d6aff" stroke-width="2.5" stroke-linejoin="round"/>`;
+  polyline=`<polyline points="${pts.map(p=>`${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ')}" fill="none" stroke="#2a44d4" stroke-width="2.5" stroke-linejoin="round"/>`;
   pts.forEach(({x,y,v},i)=>{
-    dots+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5" fill="#1d6aff" stroke="white" stroke-width="2"/>
-    <text x="${x.toFixed(1)}" y="${(y-8).toFixed(1)}" text-anchor="middle" font-size="12" fill="#1d6aff" font-weight="700">${v}</text>`;
+    dots+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5" fill="#2a44d4" stroke="white" stroke-width="2"/>
+    <text x="${x.toFixed(1)}" y="${(y-8).toFixed(1)}" text-anchor="middle" font-size="12" fill="#2a44d4" font-weight="700">${v}</text>`;
     const lbl=labels[i].length>4?labels[i].substring(0,4):labels[i];
     xlabels+=`<text x="${x.toFixed(1)}" y="${H-pad.b+14}" text-anchor="middle" font-size="11" fill="#334155" font-weight="600">${lbl}</text>`;
   });
@@ -9891,7 +10035,7 @@ function svgStemLeaf(data, title){
   let rows='';
   data.forEach((row,i)=>{
     const y=padT+i*rowH+16;
-    rows+=`<text x="${padL-8}" y="${y}" text-anchor="end" font-size="12" font-weight="700" fill="#1d6aff">${row.stem}</text>`;
+    rows+=`<text x="${padL-8}" y="${y}" text-anchor="end" font-size="12" font-weight="700" fill="#2a44d4">${row.stem}</text>`;
     rows+=`<text x="${padL+4}" y="${y}" font-size="12" fill="#334155" font-family="monospace">${row.leaves}</text>`;
   });
   return `<svg viewBox="0 0 ${W} ${Math.max(H,80)}" xmlns="http://www.w3.org/2000/svg" style="max-width:260px;background:#fff;border-radius:8px;">
@@ -9955,14 +10099,14 @@ function svgBoxPlot(minV, q1, median, q3, maxV, title){
     <line x1="${xMin}" y1="${mid-8}" x2="${xMin}" y2="${mid+8}" stroke="#64748b" stroke-width="2"/>
     <line x1="${xMax}" y1="${mid-8}" x2="${xMax}" y2="${mid+8}" stroke="#64748b" stroke-width="2"/>
     <!-- box -->
-    <rect x="${xQ1}" y="${mid-bh/2}" width="${xQ3-xQ1}" height="${bh}" fill="#dbeafe" stroke="#1d6aff" stroke-width="2"/>
+    <rect x="${xQ1}" y="${mid-bh/2}" width="${xQ3-xQ1}" height="${bh}" fill="#e2e8fb" stroke="#2a44d4" stroke-width="2"/>
     <!-- median -->
     <line x1="${xMed}" y1="${mid-bh/2}" x2="${xMed}" y2="${mid+bh/2}" stroke="#dc2626" stroke-width="2.5"/>
     <!-- labels -->
     <text x="${xMin}" y="${mid+bh/2+12}" text-anchor="middle" font-size="9" fill="#64748b">${minV}</text>
-    <text x="${xQ1}" y="${mid+bh/2+12}" text-anchor="middle" font-size="9" fill="#1d6aff">Q1=${q1}</text>
+    <text x="${xQ1}" y="${mid+bh/2+12}" text-anchor="middle" font-size="9" fill="#2a44d4">Q1=${q1}</text>
     <text x="${xMed}" y="${mid-bh/2-4}" text-anchor="middle" font-size="9" fill="#dc2626">Med=${median}</text>
-    <text x="${xQ3}" y="${mid+bh/2+12}" text-anchor="middle" font-size="9" fill="#1d6aff">Q3=${q3}</text>
+    <text x="${xQ3}" y="${mid+bh/2+12}" text-anchor="middle" font-size="9" fill="#2a44d4">Q3=${q3}</text>
     <text x="${xMax}" y="${mid+bh/2+12}" text-anchor="middle" font-size="9" fill="#64748b">${maxV}</text>
   </svg>`;
 }
@@ -9986,7 +10130,7 @@ function svgDotPlot(data, title){
     const cnt=freq[v];
     for(let k=0;k<cnt;k++){
       const y=H-28-k*dotR*2.2;
-      dots+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${dotR-1}" fill="#1d6aff" opacity="0.85"/>`;
+      dots+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${dotR-1}" fill="#2a44d4" opacity="0.85"/>`;
     }
     xlabels+=`<text x="${x.toFixed(1)}" y="${H-12}" text-anchor="middle" font-size="10" fill="#334155">${v}</text>`;
   });
@@ -10009,9 +10153,9 @@ function svgProbTree(branches, title){
   const n1=branches.length;
   branches.forEach((b,i)=>{
     const y1=40+i*(H-40)/(n1);
-    lines+=`<line x1="${startX}" y1="${H/2}" x2="${midX}" y2="${y1}" stroke="#1d6aff" stroke-width="1.5"/>`;
+    lines+=`<line x1="${startX}" y1="${H/2}" x2="${midX}" y2="${y1}" stroke="#2a44d4" stroke-width="1.5"/>`;
     texts+=`<text x="${(startX+midX)/2-8}" y="${(H/2+y1)/2-4}" font-size="10" fill="#dc2626">${b.p||''}</text>`;
-    texts+=`<circle cx="${midX}" cy="${y1}" r="4" fill="#1d6aff"/>`;
+    texts+=`<circle cx="${midX}" cy="${y1}" r="4" fill="#2a44d4"/>`;
     texts+=`<text x="${midX+7}" y="${y1+4}" font-size="11" font-weight="600" fill="#0f172a">${b.label||''}</text>`;
     if(b.sub){
       const n2=b.sub.length;
@@ -10027,7 +10171,7 @@ function svgProbTree(branches, title){
 
   return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:480px;background:#fff;border-radius:10px;display:block;margin:0 auto;">
     ${title?`<text x="${W/2}" y="14" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">${title}</text>`:''}
-    <circle cx="${startX}" cy="${H/2}" r="5" fill="#1d6aff"/>
+    <circle cx="${startX}" cy="${H/2}" r="5" fill="#2a44d4"/>
     ${lines}${texts}
   </svg>`;
 }
@@ -10175,15 +10319,15 @@ function ct_drawIso(){
   [...ct_cubes].sort((a,b)=>(a.x+a.y+a.z)-(b.x+b.y+b.z)).forEach(({x,y,z})=>{
     if(!has(x,y,z+1)){
       ctx.beginPath();ctx.moveTo(...p(x,y,z+1));ctx.lineTo(...p(x+1,y,z+1));ctx.lineTo(...p(x+1,y+1,z+1));ctx.lineTo(...p(x,y+1,z+1));ctx.closePath();
-      ctx.fillStyle='#bfdbfe';ctx.fill();ctx.strokeStyle='#0f172a';ctx.lineWidth=1;ctx.stroke();
+      ctx.fillStyle='#c9d3f7';ctx.fill();ctx.strokeStyle='#0f172a';ctx.lineWidth=1;ctx.stroke();
     }
     if(!has(x,y+1,z)){
       ctx.beginPath();ctx.moveTo(...p(x,y+1,z));ctx.lineTo(...p(x+1,y+1,z));ctx.lineTo(...p(x+1,y+1,z+1));ctx.lineTo(...p(x,y+1,z+1));ctx.closePath();
-      ctx.fillStyle='#93c5fd';ctx.fill();ctx.strokeStyle='#0f172a';ctx.lineWidth=1;ctx.stroke();
+      ctx.fillStyle='#a6b4f5';ctx.fill();ctx.strokeStyle='#0f172a';ctx.lineWidth=1;ctx.stroke();
     }
     if(!has(x+1,y,z)){
       ctx.beginPath();ctx.moveTo(...p(x+1,y,z));ctx.lineTo(...p(x+1,y+1,z));ctx.lineTo(...p(x+1,y+1,z+1));ctx.lineTo(...p(x+1,y,z+1));ctx.closePath();
-      ctx.fillStyle='#3b82f6';ctx.fill();ctx.strokeStyle='#0f172a';ctx.lineWidth=1;ctx.stroke();
+      ctx.fillStyle='#4056e0';ctx.fill();ctx.strokeStyle='#0f172a';ctx.lineWidth=1;ctx.stroke();
     }
   });
 }
@@ -10205,10 +10349,10 @@ function ct_drawOrtho(canvasId, gridData, cols, rows, showNums){
     const rf=rows-1-r;
     const v=gridData[`${c},${rf}`]||0;
     const x=ox+c*cs,y=oy+r*cs;
-    ctx.fillStyle=v?'#1e40af':'#0f172a';ctx.fillRect(x+1,y+1,cs-2,cs-2);
-    ctx.strokeStyle=v?'#3b82f6':'#1e293b';ctx.lineWidth=0.8;ctx.strokeRect(x+0.5,y+0.5,cs-1,cs-1);
+    ctx.fillStyle=v?'#223594':'#0f172a';ctx.fillRect(x+1,y+1,cs-2,cs-2);
+    ctx.strokeStyle=v?'#4056e0':'#1e293b';ctx.lineWidth=0.8;ctx.strokeRect(x+0.5,y+0.5,cs-1,cs-1);
     if(v&&showNums&&cs>14){
-      ctx.fillStyle='#bfdbfe';ctx.font=`bold ${Math.max(8,cs*0.38)}px monospace`;
+      ctx.fillStyle='#c9d3f7';ctx.font=`bold ${Math.max(8,cs*0.38)}px monospace`;
       ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(v,x+cs/2,y+cs/2);
     }
   }
@@ -10661,7 +10805,7 @@ heights คือ 2D array ของจำนวนลูกบาศก์ท�
     ? `{"q":"...","explain":"...","correctValue":"40°","choices":["ก. 40°","ข. 80°","ค. 20°","ง. 60°"],"ans":0,"skill":"...","difficultyLevel":"${lvl}","svgParams":{"type":"circle_theorem","center":true,"points":[{"angle":40,"label":"A"},{"angle":150,"label":"B"}],"chords":[["A","B"]]}}`
     : needsSVG
     ? `{"q":"...","explain":"...","correctValue":"24","choices":["ก. 24","ข. 12","ค. 48","ง. 36"],"ans":0,"skill":"...","difficultyLevel":"${lvl}","svgParams":{"type":"..."}}`
-    : `{"q":"เครื่องมือทางภูมิศาสตร์ชนิดใดเหมาะสมที่สุดในการแสดงความสูง-ต่ำของลักษณะภูมิประเทศ","explain":"เนื่องจากเส้นชั้นความสูงบนแผนที่ภูมิประเทศแสดงระดับความสูงของพื้นที่ ดังนั้นแผนที่ภูมิประเทศจึงเหมาะสมที่สุด","correctValue":"แผนที่ภูมิประเทศ","choices":["ก. แผนที่ภูมิประเทศ","ข. แผนที่รัฐกิจ","ค. ภาพถ่ายทางอากาศ","ง. ตารางสถิติ"],"ans":0,"skill":"...","difficultyLevel":"${lvl}"}`;
+    : `{"q":"การกระทำใดแสดงถึงการเป็นพลเมืองดีตามวิถีประชาธิปไตย","explain":"เนื่องจากการเคารพเสียงส่วนใหญ่และรับฟังความเห็นต่างเป็นหลักการประชาธิปไตย ดังนั้นข้อนี้จึงถูกต้อง","correctValue":"รับฟังความคิดเห็นของผู้อื่นและเคารพมติเสียงส่วนใหญ่","choices":["ก. รับฟังความคิดเห็นของผู้อื่นและเคารพมติเสียงส่วนใหญ่","ข. ตัดสินใจตามความพอใจของตนเอง","ค. บังคับให้ผู้อื่นทำตามความคิดของตน","ง. เพิกเฉยต่อกฎกติกาของส่วนรวม"],"ans":0,"skill":"...","difficultyLevel":"${lvl}"}`;
 
   const subsList = (selectedTopic.subs||[]).map((s,i)=>`${i+1}. ${s}`).join('\n');
 
@@ -10754,7 +10898,7 @@ ${jsonTemplate}`;
 
   try{
     // กฎสากลทุกข้อรวมไว้ที่เดียว — เคยกระจายซ้ำอยู่ใน Rule 1-5, Regen, NGOG, NFOG
-    const _mcqSystem = 'Output ONE valid JSON object only, no markdown. You write Thai multiple-choice questions for the Thai B.E.2560 core curriculum, subject: สังคมศึกษา สาระภูมิศาสตร์ (ส 5). Hard rules: (1) "q" is Thai and content-based (concepts, maps and geographic tools, human-environment interaction, natural hazards, resource management) — this is NOT a math question, do NOT force numbers or LaTeX; (2) for medium/hard put a short situation/data/map description before the question so the student must analyze; (3) exactly 4 choices prefixed "ก. ","ข. ","ค. ","ง. " with real answers, no placeholders; (4) choices[ans] MUST equal correctValue exactly (ans: 0=ก 1=ข 2=ค 3=ง) — verify before answering; (5) "explain": formal Thai (เนื่องจาก/จะได้ว่า/ดังนั้น), max 3 steps, max 60 words; (6) wrong choices = plausible misconceptions students actually hold.';
+    const _mcqSystem = 'Output ONE valid JSON object only, no markdown. You write Thai multiple-choice questions for the Thai B.E.2560 core curriculum, subject: สังคมศึกษา ศาสนาและวัฒนธรรม (๕ สาระ: ศาสนา/หน้าที่พลเมือง/เศรษฐศาสตร์/ประวัติศาสตร์/ภูมิศาสตร์). Hard rules: (1) "q" is Thai and content-based (concepts, facts, cause-effect, interpretation, applying principles to real situations) — this is NOT a math question, do NOT force numbers or LaTeX; (2) for medium/hard put a short situation/data/map description before the question so the student must analyze; (3) exactly 4 choices prefixed "ก. ","ข. ","ค. ","ง. " with real answers, no placeholders; (4) choices[ans] MUST equal correctValue exactly (ans: 0=ก 1=ข 2=ค 3=ง) — verify before answering; (5) "explain": formal Thai (เนื่องจาก/จะได้ว่า/ดังนั้น), max 3 steps, max 60 words; (6) wrong choices = plausible misconceptions students actually hold.';
     // ★ โจทย์ที่ต้องส่ง svgParams (cube heights / coordinate / circle theorem / รูปทรง)
     //   JSON ใหญ่กว่าปกติมาก — 600 tokens ไม่พอ ทำให้ JSON โดนตัดกลาง parse ไม่ได้
     //   แล้ว regen วนจนขึ้น "สร้างไม่สำเร็จหลายครั้ง" จึงเพิ่มเพดานเฉพาะกรณีนี้
@@ -11683,18 +11827,18 @@ function _buildWSHtml(name, grade, subtopic, wsBodyHTML){
   const css = '<style>'
     + '*{margin:0;padding:0;box-sizing:border-box;}'
     + 'body{font-family:"Sarabun",sans-serif;background:#fff;color:#0f172a;padding:20px 24px;max-width:800px;margin:0 auto;}'
-    + '.hdr{border-bottom:3px solid #1d6aff;padding-bottom:12px;margin-bottom:20px;}'
-    + '.hdr h1{color:#1d6aff;font-size:19px;margin-bottom:6px;}'
+    + '.hdr{border-bottom:3px solid #2a44d4;padding-bottom:12px;margin-bottom:20px;}'
+    + '.hdr h1{color:#2a44d4;font-size:19px;margin-bottom:6px;}'
     + '.tags{display:flex;gap:8px;flex-wrap:wrap;font-size:12px;margin-top:6px;}'
-    + '.tags span{background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:2px 10px;color:#334155;}'
+    + '.tags span{background:#f1f4ff;border:1px solid #c9d3f7;border-radius:6px;padding:2px 10px;color:#334155;}'
     + '.ws-item,.item{border:1px solid #dde3ec;border-radius:8px;padding:14px;margin-bottom:14px;page-break-inside:avoid;}'
-    + '.ws-num,.num{font-size:11px;font-weight:700;color:#1d6aff;letter-spacing:1px;margin-bottom:8px;}'
+    + '.ws-num,.num{font-size:11px;font-weight:700;color:#2a44d4;letter-spacing:1px;margin-bottom:8px;}'
     + '.ws-q,.q{font-size:15px;font-weight:600;margin-bottom:10px;line-height:1.9;}'
     + 'div[style*="border-bottom"]{border-bottom:1.5px solid #c8d3e0;height:28px;margin-bottom:3px;}'
     + '.footer{margin-top:20px;font-size:11px;color:#94a3b8;text-align:center;border-top:1px solid #dde3ec;padding-top:10px;}'
-    + '.print-bar{position:fixed;bottom:0;left:0;right:0;background:#1d6aff;padding:10px 16px;display:flex;gap:10px;justify-content:center;z-index:999;}'
+    + '.print-bar{position:fixed;bottom:0;left:0;right:0;background:#2a44d4;padding:10px 16px;display:flex;gap:10px;justify-content:center;z-index:999;}'
     + '.print-bar button{padding:10px 28px;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:"Sarabun",sans-serif;}'
-    + '.btn-print{background:white;color:#1d6aff;}'
+    + '.btn-print{background:white;color:#2a44d4;}'
     + '.btn-close{background:rgba(255,255,255,0.2);color:white;}'
     + '.ws-actions,.no-print{display:none!important;}'
     + 'svg{max-width:100%!important;height:auto!important;display:block;margin:8px auto;}'
@@ -12256,20 +12400,20 @@ function _wbBuildBookHtml_(ctx, mGroup, plan, problems){
     + '.wb-page:last-child{page-break-after:auto;}'
     + '.wb-page-head{display:flex;justify-content:space-between;font-size:11px;color:#64748b;'
     +   'border-bottom:2px solid #e2e8f0;padding-bottom:6px;margin-bottom:12px;font-weight:600;}'
-    + 'h2{font-size:17px;color:#1d6aff;margin:6px 0 8px;}'
+    + 'h2{font-size:17px;color:#2a44d4;margin:6px 0 8px;}'
     + 'h3{font-size:14px;margin:12px 0 4px;}'
     + 'ul{margin:0 0 6px 22px;font-size:13px;line-height:1.8;}'
     /* ปก */
     + '.wb-cover{padding:0;overflow:hidden;}'
-    + '.wb-cover-band{height:16mm;background:linear-gradient(135deg,#7c3aed,#1d6aff);}'
+    + '.wb-cover-band{height:16mm;background:linear-gradient(135deg,#7c3aed,#2a44d4);}'
     + '.wb-cover-inner{padding:12mm 16mm;}'
     + '.wb-brand{font-size:11px;letter-spacing:3px;color:#7c3aed;font-weight:700;margin-bottom:8px;}'
     + '.wb-cover h1{font-size:40px;color:#0f172a;line-height:1.2;}'
     + '.wb-cover-topic{font-size:24px;font-weight:700;color:#7c3aed;margin:6px 0 2px;}'
     + '.wb-cover-sub{font-size:14px;color:#64748b;margin-bottom:16px;}'
     + '.wb-cover-score{display:flex;align-items:center;gap:14px;margin:14px 0;}'
-    + '.wb-score-circle{width:88px;height:88px;border-radius:50%;background:#eff6ff;border:4px solid #1d6aff;'
-    +   'display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#1d6aff;}'
+    + '.wb-score-circle{width:88px;height:88px;border-radius:50%;background:#f1f4ff;border:4px solid #2a44d4;'
+    +   'display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#2a44d4;}'
     + '.wb-score-note{font-size:13px;line-height:1.7;color:#334155;}'
     + '.wb-cover-info{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0;}'
     + '.wb-cover-info td{border:1px solid #dde3ec;padding:8px 12px;}'
@@ -12278,7 +12422,7 @@ function _wbBuildBookHtml_(ctx, mGroup, plan, problems){
     +   'font-size:12.5px;line-height:1.9;margin-top:12px;}'
     + '.wb-cover-footer{margin-top:14px;font-size:11px;color:#94a3b8;text-align:center;}'
     /* แผน */
-    + '.wb-plan-note{background:#eff6ff;border:1.5px solid #bfdbfe;border-radius:10px;padding:10px 14px;'
+    + '.wb-plan-note{background:#f1f4ff;border:1.5px solid #c9d3f7;border-radius:10px;padding:10px 14px;'
     +   'font-size:13px;line-height:1.9;margin-bottom:8px;}'
     + '.wb-plan-table{width:100%;border-collapse:collapse;font-size:12.5px;}'
     + '.wb-plan-table th,.wb-plan-table td{border:1px solid #dde3ec;padding:8px 10px;text-align:left;line-height:1.6;}'
@@ -12296,7 +12440,7 @@ function _wbBuildBookHtml_(ctx, mGroup, plan, problems){
     + '.wb-section-banner{color:#fff;border-radius:10px;padding:8px 14px;font-size:14px;font-weight:700;margin-bottom:10px;}'
     + '.wb-section-banner span{display:block;font-size:11px;font-weight:400;opacity:0.9;margin-top:2px;}'
     + '.wb-item{border:1px solid #dde3ec;border-radius:8px;padding:9px 12px;margin-bottom:8px;page-break-inside:avoid;}'
-    + '.wb-num{font-size:11px;font-weight:700;color:#1d6aff;margin-bottom:5px;}'
+    + '.wb-num{font-size:11px;font-weight:700;color:#2a44d4;margin-bottom:5px;}'
     + '.wb-badge{color:#fff;padding:1px 8px;border-radius:10px;font-size:9.5px;margin-left:6px;}'
     + '.wb-q{font-size:14px;font-weight:600;line-height:1.85;margin-bottom:6px;}'
     + '.wb-line{border-bottom:1.4px solid #cbd5e1;height:24px;}'
@@ -12361,11 +12505,11 @@ function _buildWSDocx(name, grade, subtopic, bodyHTML){
   body { font-family: 'TH SarabunPSK', 'Sarabun', 'Cordia New', sans-serif;
     font-size: 16pt; margin: 2cm; color: #000; }
   h1 { font-size: 20pt; font-weight: bold; text-align: center;
-    color: #1e3a8a; border-bottom: 2px solid #1e3a8a; padding-bottom: 6pt; }
-  h2 { font-size: 16pt; font-weight: bold; color: #1e3a8a; margin-top: 14pt; }
+    color: #1a2a7a; border-bottom: 2px solid #1a2a7a; padding-bottom: 6pt; }
+  h2 { font-size: 16pt; font-weight: bold; color: #1a2a7a; margin-top: 14pt; }
   .ws-exercise { margin-bottom: 18pt; padding: 10pt;
     border: 1pt solid #cbd5e1; border-radius: 4pt; }
-  .ws-num { font-weight: bold; color: #1e3a8a; font-size: 15pt; }
+  .ws-num { font-weight: bold; color: #1a2a7a; font-size: 15pt; }
   .ws-q  { font-size: 15pt; margin: 4pt 0 10pt 0; }
   .ws-level { font-size: 11pt; color: #64748b; }
   .ws-lines { margin-top: 8pt; }
@@ -12634,7 +12778,7 @@ function _tcRowUI(r, i){
   const v = _tcFind(r);
   const wsBtn = `<button onclick="printStudentWorksheet(${i})" style="padding:5px 10px;background:linear-gradient(135deg,var(--blue),var(--indigo));color:white;border:none;border-radius:7px;font-family:'Sarabun',sans-serif;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;margin-left:4px;" title="พิมพ์ใบงานสำหรับ ${r.name}">🖨️ ใบงาน</button>`;
   const wbBtn = `<button onclick="printStudentWorkbook(${i})" style="padding:5px 10px;background:linear-gradient(135deg,#7c3aed,#5b21b6);color:white;border:none;border-radius:7px;font-family:'Sarabun',sans-serif;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;margin-left:4px;" title="สร้างเล่มแบบฝึกหัด 10+ หน้า สำหรับ ${r.name} (ใช้ AI เมื่อกด)">📘 เล่ม</button>`;
-  const planBtn = `<button onclick="showStudentPlan(${i})" style="padding:5px 10px;background:#fff;color:#4338ca;border:1.5px solid #c7d2fe;border-radius:7px;font-family:'Sarabun',sans-serif;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;margin-left:4px;" title="ดูแผนช่วยเหลือ ${r.name} — ติดอะไร ช่วยยังไง">👤 แผนช่วย</button>`;
+  const planBtn = `<button onclick="showStudentPlan(${i})" style="padding:5px 10px;background:#fff;color:#3730a8;border:1.5px solid #c7d2fe;border-radius:7px;font-family:'Sarabun',sans-serif;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;margin-left:4px;" title="ดูแผนช่วยเหลือ ${r.name} — ติดอะไร ช่วยยังไง">👤 แผนช่วย</button>`;
   if(v){
     const badge = v.matched
       ? `<span class="tc-badge ok" title="ครูยืนยันตามการประเมินของ AI เมื่อ ${new Date(v.ts).toLocaleString('th-TH')}">✓ ครูยืนยันตาม AI</span>`
@@ -12859,7 +13003,7 @@ function openResearch(){
     _gEl.style.fontSize = '';
   } else {
     // ยังไม่มีข้อมูล → บอกวิธีทำให้มี แทนขึ้น "—" เฉยๆ
-    _gEl.innerHTML = '<span style="font-size:12px;color:#0891b2;font-weight:600;line-height:1.4;display:block;">รอข้อมูล<br><span style="font-size:9.5px;color:#64748b;">ให้เด็กสอบซ้ำหัวข้อเดิม</span></span>';
+    _gEl.innerHTML = '<span style="font-size:12px;color:#2a46d6;font-weight:600;line-height:1.4;display:block;">รอข้อมูล<br><span style="font-size:9.5px;color:#64748b;">ให้เด็กสอบซ้ำหัวข้อเดิม</span></span>';
   }
 
 
@@ -12932,10 +13076,10 @@ function _renderEffectSize(R){
         <div style="font-size:11px;color:#6d28d9;font-weight:600;">Cohen's d</div>
         <div style="font-size:10px;color:#7c3aed;margin-top:2px;">${dLabel}</div>
       </div>
-      <div style="background:#eff6ff;border:1.5px solid #bfdbfe;border-radius:10px;padding:12px;text-align:center;">
-        <div style="font-size:22px;font-weight:700;color:#1d4ed8;font-family:'Space Mono',monospace;">${etaSq || '—'}</div>
-        <div style="font-size:11px;color:#1e40af;font-weight:600;">Eta-squared (η²)</div>
-        <div style="font-size:10px;color:#3b82f6;margin-top:2px;">${etaSq ? (parseFloat(etaSq)>=0.14?'ขนาดใหญ่':parseFloat(etaSq)>=0.06?'ขนาดกลาง':'ขนาดเล็ก') : ''}</div>
+      <div style="background:#f1f4ff;border:1.5px solid #c9d3f7;border-radius:10px;padding:12px;text-align:center;">
+        <div style="font-size:22px;font-weight:700;color:#1e34b0;font-family:'Space Mono',monospace;">${etaSq || '—'}</div>
+        <div style="font-size:11px;color:#223594;font-weight:600;">Eta-squared (η²)</div>
+        <div style="font-size:10px;color:#4056e0;margin-top:2px;">${etaSq ? (parseFloat(etaSq)>=0.14?'ขนาดใหญ่':parseFloat(etaSq)>=0.06?'ขนาดกลาง':'ขนาดเล็ก') : ''}</div>
       </div>
       <div style="background:#f0fdf4;border:1.5px solid #86efac;border-radius:10px;padding:12px;text-align:center;">
         <div style="font-size:22px;font-weight:700;color:#059669;font-family:'Space Mono',monospace;">${avgPre}% → ${avgPost}%</div>
@@ -12999,9 +13143,9 @@ function _renderCDAEvidence(R){
         <div style="font-size:20px;font-weight:700;color:#7c3aed;">${sorted.length}</div>
         <div style="font-size:10px;color:#6d28d9;">Misconception Types</div>
       </div>
-      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:8px 14px;text-align:center;">
-        <div style="font-size:20px;font-weight:700;color:#1d4ed8;">${totalMC}</div>
-        <div style="font-size:10px;color:#1e40af;">ครั้งที่ตรวจพบ</div>
+      <div style="background:#f1f4ff;border:1px solid #c9d3f7;border-radius:8px;padding:8px 14px;text-align:center;">
+        <div style="font-size:20px;font-weight:700;color:#1e34b0;">${totalMC}</div>
+        <div style="font-size:10px;color:#223594;">ครั้งที่ตรวจพบ</div>
       </div>
       <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:8px 14px;text-align:center;">
         <div style="font-size:20px;font-weight:700;color:#059669;">${detectionRate}%</div>
@@ -13267,7 +13411,7 @@ function _renderValidationLog(vals){
   </tbody></table>
   <div style="margin-top:10px;font-size:13px;color:#64748b;">
     รวม ${vals.length} ครั้ง | ตรงกัน ${vals.filter(v=>v.matched).length} ครั้ง |
-    <b style="color:#1d6aff;">Accuracy = ${Math.round(vals.filter(v=>v.matched).length/vals.length*100)}%</b>
+    <b style="color:#2a44d4;">Accuracy = ${Math.round(vals.filter(v=>v.matched).length/vals.length*100)}%</b>
   </div>`;
   document.getElementById('val-toolbar').style.display='none';
 }
@@ -14628,7 +14772,7 @@ if(typeof window !== 'undefined'){
 
       return '<div class="kb-standard-badge" style="border:1px solid #c7d2fe;background:#eef2ff;'
         + 'border-radius:8px;padding:8px 12px;margin:8px 0;font-size:11.5px;line-height:1.7;color:#3730a3;">'
-        + '<div style="font-weight:700;color:#4338ca;margin-bottom:2px;">📋 มาตรฐานและหลักการอ้างอิง</div>'
+        + '<div style="font-weight:700;color:#3730a8;margin-bottom:2px;">📋 มาตรฐานและหลักการอ้างอิง</div>'
         + items.join('<br>') + '</div>';
     }catch(e){ return ''; }
   };
@@ -14674,18 +14818,18 @@ function showKBInspector(){
   const el = document.getElementById('ideFinalBody');
   if(!el) return;
   el.innerHTML = `
-    <div style="padding:12px 14px;background:linear-gradient(135deg,#0f172a,#1e3a8a);color:white;border-radius:10px;margin-bottom:12px;">
+    <div style="padding:12px 14px;background:linear-gradient(135deg,#0f172a,#1a2a7a);color:white;border-radius:10px;margin-bottom:12px;">
       <div style="font-size:14px;font-weight:700;margin-bottom:8px;">📚 NEXUS AI Knowledge Base — M.1 Mathematics</div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:12px;">
-        <div style="text-align:center;padding:8px;background:rgba(255,255,255,0.1);border-radius:8px;"><div style="font-size:20px;font-weight:700;">${Object.keys(kb.curriculum_db).length}</div><div style="color:#bfdbfe;">Topics</div></div>
-        <div style="text-align:center;padding:8px;background:rgba(255,255,255,0.1);border-radius:8px;"><div style="font-size:20px;font-weight:700;">${mcCount}</div><div style="color:#bfdbfe;">Misconceptions</div></div>
-        <div style="text-align:center;padding:8px;background:rgba(255,255,255,0.1);border-radius:8px;"><div style="font-size:20px;font-weight:700;">${recCount}</div><div style="color:#bfdbfe;">Recommendations</div></div>
-        <div style="text-align:center;padding:8px;background:rgba(255,255,255,0.1);border-radius:8px;"><div style="font-size:20px;font-weight:700;">7</div><div style="color:#bfdbfe;">Rule Engines</div></div>
+        <div style="text-align:center;padding:8px;background:rgba(255,255,255,0.1);border-radius:8px;"><div style="font-size:20px;font-weight:700;">${Object.keys(kb.curriculum_db).length}</div><div style="color:#c9d3f7;">Topics</div></div>
+        <div style="text-align:center;padding:8px;background:rgba(255,255,255,0.1);border-radius:8px;"><div style="font-size:20px;font-weight:700;">${mcCount}</div><div style="color:#c9d3f7;">Misconceptions</div></div>
+        <div style="text-align:center;padding:8px;background:rgba(255,255,255,0.1);border-radius:8px;"><div style="font-size:20px;font-weight:700;">${recCount}</div><div style="color:#c9d3f7;">Recommendations</div></div>
+        <div style="text-align:center;padding:8px;background:rgba(255,255,255,0.1);border-radius:8px;"><div style="font-size:20px;font-weight:700;">7</div><div style="color:#c9d3f7;">Rule Engines</div></div>
       </div>
     </div>
     <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px;">TOPICS COVERED</div>
     ${Object.entries(kb.curriculum_db).map(([code,t])=>`<div style="padding:8px 12px;background:var(--s2);border-radius:8px;margin-bottom:5px;display:flex;justify-content:space-between;align-items:center;">
-      <div><span style="font-size:10px;font-family:'Space Mono',monospace;color:#1d6aff;">${code}</span> <strong>${t.topic}</strong></div>
+      <div><span style="font-size:10px;font-family:'Space Mono',monospace;color:#2a44d4;">${code}</span> <strong>${t.topic}</strong></div>
       <span style="font-size:11px;color:var(--muted);">${t.indicators.join(', ')}</span>
     </div>`).join('')}
     <div style="margin-top:12px;font-size:11px;color:var(--muted);">
@@ -16227,12 +16371,12 @@ function ppCreateLinks(){
       <div style="font-size:12px;color:#0369a1;font-weight:600;margin-bottom:16px;">รหัสนักเรียน: ${prefix}01 – ${prefix}${String(studentCount).padStart(2,'0')} (${studentCount} คน)</div>
 
       <!-- PRE-TEST -->
-      <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border:2px solid #3b82f6;border-radius:12px;padding:16px;margin-bottom:12px;">
-        <div style="font-size:14px;font-weight:700;color:#1d4ed8;margin-bottom:8px;">📝 PRE-TEST (ก่อนเรียน)</div>
+      <div style="background:linear-gradient(135deg,#f1f4ff,#e2e8fb);border:2px solid #4056e0;border-radius:12px;padding:16px;margin-bottom:12px;">
+        <div style="font-size:14px;font-weight:700;color:#1e34b0;margin-bottom:8px;">📝 PRE-TEST (ก่อนเรียน)</div>
         <div style="font-size:11px;color:#64748b;margin-bottom:8px;">ส่งให้นักเรียนทำ <strong>ก่อน</strong>เรียนเนื้อหา</div>
-        <input readonly value="${preLink}" onclick="this.select()" style="width:100%;padding:8px 10px;border:1px solid #93c5fd;border-radius:6px;font-size:10px;font-family:monospace;color:#1e40af;background:#f0f9ff;box-sizing:border-box;margin-bottom:8px;">
+        <input readonly value="${preLink}" onclick="this.select()" style="width:100%;padding:8px 10px;border:1px solid #a6b4f5;border-radius:6px;font-size:10px;font-family:monospace;color:#223594;background:#f0f9ff;box-sizing:border-box;margin-bottom:8px;">
         <div style="display:flex;gap:6px;">
-          <button onclick="ppCopyLink('${preLink.replace(/'/g,"\\'")}','ppPreStatus')" style="flex:1;padding:7px 10px;background:#3b82f6;color:white;border:none;border-radius:6px;cursor:pointer;font-size:12px;font-family:'Prompt',sans-serif;">📋 Copy ลิงก์</button>
+          <button onclick="ppCopyLink('${preLink.replace(/'/g,"\\'")}','ppPreStatus')" style="flex:1;padding:7px 10px;background:#4056e0;color:white;border:none;border-radius:6px;cursor:pointer;font-size:12px;font-family:'Prompt',sans-serif;">📋 Copy ลิงก์</button>
           <button onclick="ppCopyLineMsg('${sessionId}','pre','${preLink.replace(/'/g,"\\'")}','ppPreStatus')" style="flex:1;padding:7px 10px;background:#059669;color:white;border:none;border-radius:6px;cursor:pointer;font-size:12px;font-family:'Prompt',sans-serif;">💬 Copy ข้อความ LINE</button>
         </div>
         <span id="ppPreStatus" style="font-size:11px;color:#059669;display:block;margin-top:4px;"></span>
@@ -16306,7 +16450,7 @@ function ppGetStudentIdFlow(callback){
   const m=window._ppMode;
   if(!m){callback(null);return;}
   const testLabel=m.testType==='pre'?'📝 PRE-TEST (ก่อนเรียน)':'🎯 POST-TEST (หลังเรียน)';
-  const testColor=m.testType==='pre'?'#1d4ed8':'#6d28d9';
+  const testColor=m.testType==='pre'?'#1e34b0':'#6d28d9';
 
   // ดึง validCodes จาก localStorage (ถ้ามี)
   let validCodes=null;
@@ -16347,7 +16491,7 @@ function ppGetStudentIdFlow(callback){
         <div style="font-size:11px;color:#0369a1;margin-top:3px;">รูปแบบ: ${(m.prefix||'NK')}01 – ${(m.prefix||'NK')}${String(m.studentCount||30).padStart(2,'0')} (ดูจากรายการที่ครูส่งใน LINE)</div>
       </div>
       <div id="ppIdErr" style="font-size:12px;color:#dc2626;min-height:18px;margin-bottom:10px;background:#fef2f2;border-radius:6px;padding:${0}px 8px;"></div>
-      <button onclick="ppSubmitStudentId()" style="width:100%;padding:13px;background:linear-gradient(135deg,${testColor},${m.testType==='pre'?'#1e40af':'#4c1d95'});color:white;border:none;border-radius:10px;font-size:15px;font-weight:700;font-family:'Prompt',sans-serif;cursor:pointer;">เริ่มทำแบบทดสอบ →</button>
+      <button onclick="ppSubmitStudentId()" style="width:100%;padding:13px;background:linear-gradient(135deg,${testColor},${m.testType==='pre'?'#223594':'#4c1d95'});color:white;border:none;border-radius:10px;font-size:15px;font-weight:700;font-family:'Prompt',sans-serif;cursor:pointer;">เริ่มทำแบบทดสอบ →</button>
     </div>`;
   document.body.appendChild(overlay);
   setTimeout(()=>(function(){var _e=document.getElementById('ppStudentName');if(_e)_e.focus();})(),100);
@@ -16448,8 +16592,8 @@ function ppRenderResults(){
   }
 
   document.getElementById('ppSummaryCards').innerHTML = `
-    <div style="background:#eff6ff;border:1.5px solid #bfdbfe;border-radius:10px;padding:14px;text-align:center;">
-      <div style="font-size:22px;font-weight:800;color:#1d4ed8;">${rows.length}</div>
+    <div style="background:#f1f4ff;border:1.5px solid #c9d3f7;border-radius:10px;padding:14px;text-align:center;">
+      <div style="font-size:22px;font-weight:800;color:#1e34b0;">${rows.length}</div>
       <div style="font-size:11px;color:#64748b;">นักเรียนทั้งหมด</div>
     </div>
     <div style="background:#f0fdf4;border:1.5px solid #86efac;border-radius:10px;padding:14px;text-align:center;">
@@ -16468,16 +16612,16 @@ function ppRenderResults(){
       <div style="font-size:22px;font-weight:800;color:${avgGrowth>0?'#059669':'#dc2626'};">${avgGrowth!==null?(avgGrowth>0?'+':'')+avgGrowth+'%':'—'}</div>
       <div style="font-size:11px;color:#64748b;">Growth เฉลี่ย</div>
     </div>
-    ${cohenD!==null?`<div style="background:#1e3a8a;border-radius:10px;padding:14px;text-align:center;">
+    ${cohenD!==null?`<div style="background:#1a2a7a;border-radius:10px;padding:14px;text-align:center;">
       <div style="font-size:22px;font-weight:800;color:white;">${cohenD}</div>
-      <div style="font-size:11px;color:#93c5fd;">Cohen's d</div>
+      <div style="font-size:11px;color:#a6b4f5;">Cohen's d</div>
     </div>`:''}`;
 
   // Table
   const tableHTML = `
     <table style="width:100%;border-collapse:collapse;font-size:13px;font-family:'Sarabun',sans-serif;">
       <thead>
-        <tr style="background:#1e3a8a;color:white;">
+        <tr style="background:#1a2a7a;color:white;">
           <th style="padding:10px 8px;text-align:left;border-radius:0;">รหัส</th>
           <th style="padding:10px 8px;text-align:left;">ชื่อ</th>
           <th style="padding:10px 8px;text-align:left;">ห้อง</th>
@@ -16501,7 +16645,7 @@ function ppRenderResults(){
             <td style="padding:9px 8px;font-family:monospace;color:#334155;">${r.studentId}</td>
             <td style="padding:9px 8px;font-weight:600;color:#1e293b;">${r.studentName||'—'}</td>
             <td style="padding:9px 8px;color:#64748b;">${r.room}</td>
-            <td style="padding:9px 8px;text-align:center;font-weight:700;color:#1d4ed8;">${pre!==null?pre+'%':'—'}</td>
+            <td style="padding:9px 8px;text-align:center;font-weight:700;color:#1e34b0;">${pre!==null?pre+'%':'—'}</td>
             <td style="padding:9px 8px;text-align:center;font-weight:700;color:#7c3aed;">${post!==null?post+'%':'—'}</td>
             <td style="padding:9px 8px;text-align:center;font-weight:800;color:${growthColor};">${growthStr}</td>
             <td style="padding:9px 8px;text-align:center;font-size:12px;">${status}</td>
@@ -16534,7 +16678,7 @@ function ppBuildGrowthChart(paired, avgPre, avgPost, avgGrowth, cohenD){
 
   // ── Phase flow diagram (top) ──
   const phases = [
-    { label: 'Pre-Test', icon: '📝', color: '#3b82f6', avg: avgPre },
+    { label: 'Pre-Test', icon: '📝', color: '#4056e0', avg: avgPre },
     { label: 'Intervention', icon: '🎯', color: '#f59e0b', avg: null },
     { label: 'Post-Test', icon: '🏆', color: '#7c3aed', avg: avgPost },
     { label: 'Growth', icon: '📈', color: avgGrowth > 0 ? '#059669' : '#dc2626', avg: avgGrowth !== null ? (avgGrowth > 0 ? '+' : '') + avgGrowth + '%' : null },
@@ -16573,7 +16717,7 @@ function ppBuildGrowthChart(paired, avgPre, avgPost, avgGrowth, cohenD){
     const gc = growth > 0 ? '#059669' : growth < 0 ? '#dc2626' : '#94a3b8';
     const name = (r.studentName || r.studentId || '').substring(0, 4);
     return `
-      <rect x="${x1}" y="${preY}" width="${bW}" height="${preH}" rx="3" fill="#3b82f6" opacity="0.85"/>
+      <rect x="${x1}" y="${preY}" width="${bW}" height="${preH}" rx="3" fill="#4056e0" opacity="0.85"/>
       <rect x="${x2}" y="${postY}" width="${bW}" height="${postH}" rx="3" fill="#7c3aed" opacity="0.85"/>
       <text x="${x1 + bW}" y="${barAreaY + barAreaH + 12}" text-anchor="middle" font-size="8" fill="#64748b">${name}</text>
       ${Math.abs(growth) > 0 ? `<text x="${x1 + bW}" y="${Math.min(preY,postY)-3}" text-anchor="middle" font-size="8" font-weight="700" fill="${gc}">${growth>0?'+':''}${growth}%</text>` : ''}`;
@@ -16589,11 +16733,11 @@ function ppBuildGrowthChart(paired, avgPre, avgPost, avgGrowth, cohenD){
   // ── Legend ──
   const legendY = H - 20;
   const legend = `
-    <rect x="80" y="${legendY-8}" width="12" height="10" rx="2" fill="#3b82f6" opacity="0.85"/>
+    <rect x="80" y="${legendY-8}" width="12" height="10" rx="2" fill="#4056e0" opacity="0.85"/>
     <text x="96" y="${legendY}" font-size="10" fill="#475569">Pre-Test</text>
     <rect x="160" y="${legendY-8}" width="12" height="10" rx="2" fill="#7c3aed" opacity="0.85"/>
     <text x="176" y="${legendY}" font-size="10" fill="#475569">Post-Test</text>
-    ${cohenD !== null ? `<text x="${W/2}" y="${legendY}" text-anchor="middle" font-size="10" font-weight="700" fill="#1e3a8a">Cohen's d = ${cohenD}</text>` : ''}
+    ${cohenD !== null ? `<text x="${W/2}" y="${legendY}" text-anchor="middle" font-size="10" font-weight="700" fill="#1a2a7a">Cohen's d = ${cohenD}</text>` : ''}
     <text x="${W-10}" y="${legendY}" text-anchor="end" font-size="9" fill="#94a3b8">แสดง ${students.length} คน</text>`;
 
   // ── 80% mastery line ──
@@ -16604,7 +16748,7 @@ function ppBuildGrowthChart(paired, avgPre, avgPost, avgGrowth, cohenD){
 
   return `
     <div style="background:white;border:1.5px solid #e2e8f0;border-radius:14px;padding:16px;overflow-x:auto;">
-      <div style="font-size:13px;font-weight:700;color:#1e3a8a;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
+      <div style="font-size:13px;font-weight:700;color:#1a2a7a;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
         📊 กราฟแสดงผล Pre-Test → Intervention → Post-Test → Growth
       </div>
       <svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W}px;display:block;font-family:'Sarabun',sans-serif;">
@@ -16712,12 +16856,12 @@ function showWhyAI(idx){
   else if(mcCat==='Computational Error'){rec='ฝึก Arithmetic Fluency ตรวจสอบคำตอบทุกขั้น';rb=[{l:'Bloom (1968)',s:'Mastery Learning'},{l:'CDA Framework',s:'van Groen et al. (2019)'}];}
   else {rb=[{l:'Bloom (1968)',s:'Mastery Learning'},{l:'Guskey (2007)',s:'Feedback & Correctives'}];}
   const mcRows=mc.slice(0,3).map((m,i)=>`<div style="display:flex;gap:8px;margin-bottom:6px;"><span style="background:#dc2626;color:white;font-size:9px;font-weight:700;padding:2px 7px;border-radius:8px;white-space:nowrap;margin-top:2px;">MC-0${i+1}</span><span style="font-size:13px;color:#334155;">${m}</span></div>`).join('')||'<div style="color:#94a3b8;font-size:13px;">ไม่พบ Misconception ที่ชัดเจน</div>';
-  const resRows=rb.map(b=>`<div style="display:flex;gap:8px;margin-bottom:6px;"><span style="background:#1d4ed8;color:white;font-size:9px;font-weight:700;padding:2px 8px;border-radius:8px;white-space:nowrap;margin-top:2px;">${b.l}</span><span style="font-size:12px;color:#64748b;line-height:1.5;">${b.s}</span></div>`).join('');
+  const resRows=rb.map(b=>`<div style="display:flex;gap:8px;margin-bottom:6px;"><span style="background:#1e34b0;color:white;font-size:9px;font-weight:700;padding:2px 8px;border-radius:8px;white-space:nowrap;margin-top:2px;">${b.l}</span><span style="font-size:12px;color:#64748b;line-height:1.5;">${b.s}</span></div>`).join('');
   const gc2=pct>=80?'#059669':pct>=60?'#d97706':'#dc2626';
   const bc=pct>=80?'#f0fdf4':pct>=60?'#fffbeb':'#fef2f2';
   const bd=pct>=80?'#86efac':pct>=60?'#fde68a':'#fca5a5';
   document.getElementById('whyAIBody').innerHTML=
-    `<div style="background:#f8fafc;border-radius:10px;padding:14px;margin-bottom:14px;border-left:4px solid #1e3a8a;">
+    `<div style="background:#f8fafc;border-radius:10px;padding:14px;margin-bottom:14px;border-left:4px solid #1a2a7a;">
       <div style="font-size:15px;font-weight:700;color:#1e293b;">${r.name}</div>
       <div style="font-size:12px;color:#64748b;">${r.grade||''} ${r.room?'ห้อง '+r.room:''} | ${r.subtopic||r.topic||'—'}</div>
     </div>
@@ -16730,8 +16874,8 @@ function showWhyAI(idx){
         <div style="font-size:26px;font-weight:700;color:#7c3aed;font-family:'Space Mono',monospace;">${mc.length}</div>
         <div style="font-size:10px;color:#64748b;font-weight:600;">Misconception</div>
       </div>
-      <div style="background:#eff6ff;border:1.5px solid #bfdbfe;border-radius:10px;padding:12px;text-align:center;">
-        <div style="font-size:26px;font-weight:700;color:#1d4ed8;font-family:'Space Mono',monospace;">${confidence}%</div>
+      <div style="background:#f1f4ff;border:1.5px solid #c9d3f7;border-radius:10px;padding:12px;text-align:center;">
+        <div style="font-size:26px;font-weight:700;color:#1e34b0;font-family:'Space Mono',monospace;">${confidence}%</div>
         <div style="font-size:10px;color:#64748b;font-weight:600;">ความเชื่อมั่น AI</div>
       </div>
     </div>
@@ -16744,8 +16888,8 @@ function showWhyAI(idx){
       <div style="font-size:12px;font-weight:700;color:#065f46;margin-bottom:6px;">คำแนะนำ</div>
       <div style="font-size:13px;color:#14532d;line-height:1.6;">${rec}</div>
     </div>
-    <div style="background:linear-gradient(135deg,#eff6ff,#f0f9ff);border:1.5px solid #bfdbfe;border-radius:10px;padding:14px;">
-      <div style="font-size:12px;font-weight:700;color:#1d4ed8;margin-bottom:8px;">Research Basis — อ้างอิงงานวิจัย</div>${resRows}
+    <div style="background:linear-gradient(135deg,#f1f4ff,#f0f9ff);border:1.5px solid #c9d3f7;border-radius:10px;padding:14px;">
+      <div style="font-size:12px;font-weight:700;color:#1e34b0;margin-bottom:8px;">Research Basis — อ้างอิงงานวิจัย</div>${resRows}
     </div>`;
   document.getElementById('whyAIModal').style.display='flex';
 }
@@ -16764,23 +16908,23 @@ function renderGrowthBanner(){
   const avgPost=Math.round(paired.reduce((s,p)=>s+p.post,0)/paired.length);
   const growth=avgPost-avgPre,gc=growth>0?'#059669':'#dc2626',gs=growth>0?'+':'';
   wrap.style.display='block';
-  wrap.innerHTML=`<div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:14px;padding:18px 20px;margin-bottom:14px;">
-    <div style="font-size:11px;font-weight:700;color:#93c5fd;margin-bottom:12px;letter-spacing:1px;">LEARNING EVIDENCE — ผลก่อน–หลัง NEXUS AI Intervention (${paired.length} คน)</div>
+  wrap.innerHTML=`<div style="background:linear-gradient(135deg,#0f172a,#1a2a7a);border-radius:14px;padding:18px 20px;margin-bottom:14px;">
+    <div style="font-size:11px;font-weight:700;color:#a6b4f5;margin-bottom:12px;letter-spacing:1px;">LEARNING EVIDENCE — ผลก่อน–หลัง NEXUS AI Intervention (${paired.length} คน)</div>
     <div style="display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr;align-items:center;gap:6px;">
       <div style="text-align:center;background:rgba(255,255,255,0.08);border-radius:10px;padding:14px 8px;">
-        <div style="font-size:10px;color:#93c5fd;font-weight:600;margin-bottom:6px;">Before Intervention</div>
-        <div style="font-size:34px;font-weight:700;font-family:'Space Mono',monospace;color:#60a5fa;">${avgPre}%</div>
+        <div style="font-size:10px;color:#a6b4f5;font-weight:600;margin-bottom:6px;">Before Intervention</div>
+        <div style="font-size:34px;font-weight:700;font-family:'Space Mono',monospace;color:#6f84ee;">${avgPre}%</div>
         <div style="font-size:10px;color:#94a3b8;margin-top:4px;">Pre-Test เฉลี่ย</div>
       </div>
       <div style="text-align:center;font-size:18px;color:#475569;">→</div>
       <div style="text-align:center;background:rgba(255,255,255,0.08);border-radius:10px;padding:14px 8px;">
-        <div style="font-size:10px;color:#93c5fd;font-weight:600;margin-bottom:6px;">After Intervention</div>
+        <div style="font-size:10px;color:#a6b4f5;font-weight:600;margin-bottom:6px;">After Intervention</div>
         <div style="font-size:34px;font-weight:700;font-family:'Space Mono',monospace;color:#34d399;">${avgPost}%</div>
         <div style="font-size:10px;color:#94a3b8;margin-top:4px;">Post-Test เฉลี่ย</div>
       </div>
       <div style="text-align:center;font-size:18px;color:#475569;">→</div>
       <div style="text-align:center;background:rgba(${growth>0?'5,150,105':'220,38,38'},0.18);border:2px solid ${gc};border-radius:10px;padding:14px 8px;">
-        <div style="font-size:10px;color:#93c5fd;font-weight:600;margin-bottom:6px;">Growth</div>
+        <div style="font-size:10px;color:#a6b4f5;font-weight:600;margin-bottom:6px;">Growth</div>
         <div style="font-size:34px;font-weight:700;font-family:'Space Mono',monospace;color:${gc};">${gs}${growth}%</div>
         <div style="font-size:10px;color:#94a3b8;margin-top:4px;">พัฒนาการ</div>
       </div>
@@ -16903,7 +17047,7 @@ function renderGrowthBanner(){
         </div>
         <div style="display:flex;gap:8px;">
           <button onclick="ppPreviewCodes()" style="flex:1;padding:9px;background:#0369a1;color:white;border:none;border-radius:8px;font-family:'Prompt',sans-serif;font-size:13px;font-weight:700;cursor:pointer;">👁️ ดูรหัสทั้งหมด</button>
-          <button onclick="ppCopyAllCodes()" style="flex:1;padding:9px;background:#0891b2;color:white;border:none;border-radius:8px;font-family:'Prompt',sans-serif;font-size:13px;font-weight:700;cursor:pointer;">📋 Copy รหัสส่ง LINE</button>
+          <button onclick="ppCopyAllCodes()" style="flex:1;padding:9px;background:#2a46d6;color:white;border:none;border-radius:8px;font-family:'Prompt',sans-serif;font-size:13px;font-weight:700;cursor:pointer;">📋 Copy รหัสส่ง LINE</button>
         </div>
         <!-- preview area -->
         <div id="ppCodePreviewArea" style="display:none;margin-top:12px;background:white;border-radius:8px;padding:12px;border:1px solid #bae6fd;">
@@ -16950,7 +17094,7 @@ function renderGrowthBanner(){
 ════════════════════════════════════════════════ -->
 <div id="whyAIModal" style="display:none;position:fixed;inset:0;background:rgba(10,22,40,0.88);z-index:8000;align-items:center;justify-content:center;padding:16px;overflow-y:auto;">
   <div style="background:white;border-radius:18px;width:100%;max-width:560px;margin:auto;box-shadow:0 24px 60px rgba(0,0,0,0.4);overflow:hidden;">
-    <div style="background:linear-gradient(135deg,#1e3a8a,#1d6aff);padding:18px 22px;display:flex;justify-content:space-between;align-items:center;">
+    <div style="background:linear-gradient(135deg,#1a2a7a,#2a44d4);padding:18px 22px;display:flex;justify-content:space-between;align-items:center;">
       <div>
         <div style="font-size:15px;font-weight:700;color:white;font-family:'Prompt',sans-serif;">🔍 Why AI Thinks So</div>
         <div style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:2px;">เหตุผลเบื้องหลังการวินิจฉัยของ AI</div>
