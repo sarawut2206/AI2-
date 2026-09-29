@@ -1,1 +1,39 @@
-
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>English Quest 30</title>
+<meta name="description" content="เรียนภาษาอังกฤษ 30 วันแบบเกมผ่านด่าน — ไวยากรณ์ 15 หัวข้อ ฝึกพูด อ่าน เขียน">
+<meta name="theme-color" content="#4f46e5">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="EN Quest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><img src="icons/icon-192.png" alt=""><span>English Quest <b>30</b></span></div>
+  <div class="stats" id="stats"></div>
+</header>
+<main id="view"></main>
+<nav class="tabs" id="tabs">
+  <button data-tab="map"><span>🗺️</span>แผนที่</button>
+  <button data-tab="chain"><span>🔗</span>ประโยคเชื่อม</button>
+  <button data-tab="book"><span>📓</span>สมุด</button>
+  <button data-tab="set"><span>⚙️</span>ตั้งค่า</button>
+</nav>
+<div id="sheet" class="sheet-wrap" hidden></div>
+<div id="player" class="player" hidden></div>
+<div id="fx"></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
